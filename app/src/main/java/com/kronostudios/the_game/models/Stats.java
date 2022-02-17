@@ -1,4 +1,4 @@
-package com.kronostudios.the_game.model;
+package com.kronostudios.the_game.models;
 
 public class Stats {
     private int str;

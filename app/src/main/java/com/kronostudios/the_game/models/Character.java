@@ -1,9 +1,10 @@
-package com.kronostudios.the_game.model;
+package com.kronostudios.the_game.models;
 
-public class User {
+public class Character {
     private String id;
     private String name;
-    private int rating;
+    private Stats stats;
+
 
     public String getId() {
         return id;
@@ -21,12 +22,12 @@ public class User {
         this.name = name;
     }
 
-    public int getRating() {
-        return rating;
+    public Stats getStats() {
+        return stats;
     }
 
-    public void setRating(int rating) {
-        this.rating = rating;
+    public void setStats(Stats stats) {
+        this.stats = stats;
     }
 
 }

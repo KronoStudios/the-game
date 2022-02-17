@@ -1,13 +1,11 @@
-package com.kronostudios.the_game.model;
+package com.kronostudios.the_game.models;
 
 import java.util.List;
 
-public class Card {
+public class User {
     private String id;
     private String name;
-    private String statsRequired;
-    //efect
-    //alt efect
+    private int rating;
 
     public String getId() {
         return id;
@@ -25,12 +23,17 @@ public class Card {
         this.name = name;
     }
 
-    public String getStatsRequired() {
-        return statsRequired;
+    public int getRating() {
+        return rating;
     }
 
-    public void setStatsRequired(String statsRequired) {
-        this.statsRequired = statsRequired;
+    public void setRating(int rating) {
+        this.rating = rating;
+    }
+
+    public List<Build> builds(){
+        //TODO
+        return null;
     }
 
 }

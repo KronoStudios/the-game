@@ -1,19 +1,16 @@
-package com.kronostudios.the_game.model;
+package com.kronostudios.the_game.core;
+
+import com.kronostudios.the_game.models.Build;
+import com.kronostudios.the_game.models.Card;
+import com.kronostudios.the_game.models.User;
 
 import java.util.List;
 
-public class Player {
-    private User user;
+public class UserIG extends User{
     private Build build;
     private List<Card> hand;
+    private DeckIG deck;
 
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
 
     public Build getBuild() {
         return build;
@@ -34,11 +31,11 @@ public class Player {
     public List<Card> draw(){
         if(hand.size() < 3){
             while (hand.size()<3){
-                if(build.getDeck().getCards().size() == 0){
-                    build.getDeck().refillDeck();
+                if(deck.getCards().size() == 0){
+                    deck.refillDeck();
                 }
-                build.getDeck().shuffle();
-                Card draw = build.getDeck().getCards().remove(0);
+                deck.shuffle();
+                Card draw = deck.topDeck();
                 hand.add(draw);
             }
         }
@@ -47,6 +44,6 @@ public class Player {
 
     public void useCard(Card c){
         hand.remove(c);
-        build.getDeck().getCardsDrawn().add(c);
+        deck.getCardsDrawn().add(c);
     }
 }

@@ -1,4 +1,7 @@
-package com.kronostudios.the_game.model;
+package com.kronostudios.the_game.core;
+
+import com.kronostudios.the_game.models.Card;
+import com.kronostudios.the_game.models.Character;
 
 public class Action {
     private Card card;
@@ -13,12 +16,12 @@ public class Action {
         this.card = card;
     }
 
-    public Character getExecuter() {
+    public Character getExecutor() {
         return executor;
     }
 
-    public void setExecuter(Character executer) {
-        this.executor = executer;
+    public void setExecutor(Character executor) {
+        this.executor = executor;
     }
 
     public Character getTarget() {
@@ -31,6 +34,6 @@ public class Action {
 
 
     public void doAction(){
-    // TODO: execute single action
+        // TODO: execute single action
     }
 }

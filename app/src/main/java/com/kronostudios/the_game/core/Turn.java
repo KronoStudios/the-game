@@ -1,10 +1,10 @@
-package com.kronostudios.the_game.model;
+package com.kronostudios.the_game.core;
 
 import java.util.List;
 
 public class Turn {
     private int number;
-    private Player player;
+    private UserIG userIG;
     private int timer;
     private List<Action> actionList;
 
@@ -16,12 +16,12 @@ public class Turn {
         this.number = number;
     }
 
-    public Player getPlayer() {
-        return player;
+    public UserIG getPlayer() {
+        return userIG;
     }
 
-    public void setPlayer(Player player) {
-        this.player = player;
+    public void setPlayer(UserIG userIG) {
+        this.userIG = userIG;
     }
 
     public int getTimer() {
