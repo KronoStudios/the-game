@@ -17,10 +17,11 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class MainMenu extends AppCompatActivity {
 
-    FloatingActionButton btn;
+    FloatingActionButton termsBtn;
     PopupWindow popUp;
     MainMenu menu;
     Boolean click;
+    FloatingActionButton aboutBtn;
     String fromSplash;
 
     @Override
@@ -29,18 +30,25 @@ public class MainMenu extends AppCompatActivity {
         setContentView(R.layout.activity_main_menu);
         Intent intent = getIntent();
         fromSplash = intent.getStringExtra("fromSplash");
-        btn = findViewById(R.id.floatingActionButton);
+        termsBtn = findViewById(R.id.floatingActionButton);
         menu = this;
         click = false;
-        btn.setOnClickListener(new View.OnClickListener() {
+        termsBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent myIntent = new Intent(MainMenu.this, TermsAndCond.class);
                 startActivity(myIntent);
             }
         });
+        aboutBtn = findViewById(R.id.aboutButton);
+        aboutBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent myIntent = new Intent(MainMenu.this, About.class);
+                startActivity(myIntent);
+            }
+        });
     }
-    
     @Override
     public void onBackPressed() {
        if(fromSplash.equals("true")){
