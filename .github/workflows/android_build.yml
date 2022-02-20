@@ -1,22 +1,19 @@
 name: Android Build
 
-on: pull_request
+on:
+  push:
+    tags:
+      - '*'
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
+    permissions:
+      contents: write
     steps:
-      - uses: actions/checkout@v1
-
-      - name: Set Up JDK
-        uses: actions/setup-java@v1
+      - uses: actions/checkout@v2
+      - uses: ncipollo/release-action@v1
         with:
-          java-version: 1.8
-
-      - name: Run Tests
-        run: ./gradlew test
-
-      - name: Build Project
-        run: ./gradlew assemble
+          artifacts: "release.tar.gz,foo/*.txt"
+          bodyFile: "body.md"
+          token: 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
