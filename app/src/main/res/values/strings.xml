@@ -1,3 +1,7 @@
 <resources>
-    <string name="app_name">the-game</string>
+    <string name="app_name" translatable="false">the-game</string>
+    <string name="about">About us</string>
+    <string name="authors">Authors</string>
+    <string name="version">Version</string>
+    <string name="terms">Terms and Conditions</string>
 </resources>
