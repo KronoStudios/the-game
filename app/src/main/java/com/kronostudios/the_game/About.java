@@ -11,7 +11,7 @@ public class About extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about);
 
-
+        //comentario para sacar
         TextView tAuth = findViewById(R.id.textAuthors);
         tAuth.setText(tAuth.getText()+"\nMarc Fernandez Parra\nGuillem Caballé Tomás\nGerman Pérez Bordera");
         TextView tVersion = findViewById(R.id.textVersion);
