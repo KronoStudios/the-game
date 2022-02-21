@@ -23,9 +23,7 @@ jobs:
     permissions:
       contents: write
     steps:
-      - uses: actions/checkout@v2
-      - uses: ncipollo/release-action@v1
-        with:
-          artifacts: "release.tar.gz,foo/*.txt"
-          bodyFile: "body.md"
-          token: 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
+      - name: Checkout the code
+        uses: actions/checkout@v2
+      - name: Build the app
+        run: ./gradlew build
