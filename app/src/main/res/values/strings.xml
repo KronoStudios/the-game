@@ -6,4 +6,8 @@
     <string name="terms">Terms and Conditions</string>
     <string name="legal">Legal information</string>
     <string name="close">Close</string>
+    <string name="play">Play</string>
+    <string name="collection">Collection</string>
+    <string name="profile">Profile</string>
+    <string name="exit">Exit</string>
 </resources>

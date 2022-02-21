@@ -25,9 +25,10 @@
   <TextView
       android:id="@+id/textAuthors"
       android:text="@string/authors"
-      android:layout_width="wrap_content"
+      android:layout_width="match_parent"
       android:layout_height="wrap_content"
-      android:scrollbars="vertical"
+      android:textAlignment="center"
+      android:layout_marginTop="16dp"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toBottomOf="@+id/textAbout" />
@@ -35,9 +36,9 @@
   <TextView
       android:id="@+id/textVersion"
       android:text="@string/version"
-      android:layout_width="wrap_content"
+      android:layout_width="match_parent"
       android:layout_height="wrap_content"
-      android:scrollbars="vertical"
+      android:textAlignment="center"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toBottomOf="@+id/textAuthors" />
