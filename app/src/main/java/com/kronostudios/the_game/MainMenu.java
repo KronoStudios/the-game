@@ -18,6 +18,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class MainMenu extends AppCompatActivity {
 
+    Boolean opened;
     // Legal popup
     PopupWindow popUp;
     Button btnShowLegalPopup;
@@ -34,6 +35,7 @@ public class MainMenu extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_menu);
 
+        opened = false;
         Intent intent = getIntent();
         fromSplash = intent.getStringExtra("fromSplash");
         menu = this;
@@ -44,42 +46,48 @@ public class MainMenu extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //instantiate the popup.xml layout file
-                LayoutInflater layoutInflater = (LayoutInflater) MainMenu.this.getSystemService(getApplicationContext().LAYOUT_INFLATER_SERVICE);
-                View customView = layoutInflater.inflate(R.layout.popup_window, null);
 
-                btnCloseLegalPopup = (Button) customView.findViewById(R.id.btnCloseLegal);
+                if(!opened){
+                    opened = true;
 
-                //instantiate popup window
-                popUp = new PopupWindow(customView, LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+                    LayoutInflater layoutInflater = (LayoutInflater) MainMenu.this.getSystemService(getApplicationContext().LAYOUT_INFLATER_SERVICE);
+                    View customView = layoutInflater.inflate(R.layout.popup_window, null);
 
-                //display the popup window
-                popUp.showAtLocation(findViewById(R.id.mainMenuLayout), Gravity.CENTER, 0, 0);
+                    btnCloseLegalPopup = (Button) customView.findViewById(R.id.btnCloseLegal);
 
-                //close the popup window on button click
-                btnCloseLegalPopup.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        popUp.dismiss();
-                    }
-                });
+                    //instantiate popup window
+                    popUp = new PopupWindow(customView, LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
 
-                termsBtn = (Button) customView.findViewById(R.id.btnTerms);
-                termsBtn.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        Intent myIntent = new Intent(MainMenu.this, TermsAndCond.class);
-                        startActivity(myIntent);
-                    }
-                });
+                    //display the popup window
+                    popUp.showAtLocation(findViewById(R.id.mainMenuLayout), Gravity.CENTER, 0, 0);
 
-                aboutBtn = (Button) customView.findViewById(R.id.btnAbout);
-                aboutBtn.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        Intent myIntent = new Intent(MainMenu.this, About.class);
-                        startActivity(myIntent);
-                    }
-                });
+                    //close the popup window on button click
+                    btnCloseLegalPopup.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            opened = false;
+                            popUp.dismiss();
+                        }
+                    });
+
+                    termsBtn = (Button) customView.findViewById(R.id.btnTerms);
+                    termsBtn.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            Intent myIntent = new Intent(MainMenu.this, TermsAndCond.class);
+                            startActivity(myIntent);
+                        }
+                    });
+
+                    aboutBtn = (Button) customView.findViewById(R.id.btnAbout);
+                    aboutBtn.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            Intent myIntent = new Intent(MainMenu.this, About.class);
+                            startActivity(myIntent);
+                        }
+                    });
+                }
             }
         });
     }
