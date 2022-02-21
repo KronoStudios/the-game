@@ -4,4 +4,6 @@
     <string name="authors">Authors</string>
     <string name="version">Version</string>
     <string name="terms">Terms and Conditions</string>
+    <string name="legal">Legal information</string>
+    <string name="close">Close</string>
 </resources>

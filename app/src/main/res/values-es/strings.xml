@@ -5,4 +5,6 @@
     <string name="authors">Autores</string>
     <string name="version">Versión</string>
     <string name="terms">Terminos y Condiciones</string>
+    <string name="legal">Información legal</string>
+    <string name="close">Cerrar</string>
 </resources>
