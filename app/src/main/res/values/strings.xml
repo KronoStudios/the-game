@@ -13,4 +13,6 @@
     <string name="adventure">Adventure</string>
     <string name="arena">Arena</string>
     <string name="back">Back</string>
+    <string name="select_build">Select your build</string>
+    <string name="select_mode">Select game mode</string>
 </resources>

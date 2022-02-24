@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.widget.TextView;
 
 import com.kronostudios.the_game.R;
+import com.kronostudios.the_game.core.AppController;
 
 public class About extends AppCompatActivity {
 
@@ -17,6 +18,10 @@ public class About extends AppCompatActivity {
         tAuth.setText(tAuth.getText()+"\nMarc Fernandez Parra\nGuillem Caballé Tomás\nGerman Pérez Bordera");
         TextView tVersion = findViewById(R.id.textVersion);
         tVersion.setText(tVersion.getText()+"\n1.0");
+    }
 
+    @Override
+    public void onBackPressed() {
+        AppController.changeActivity(this, MainMenu.class);
     }
 }

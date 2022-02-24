@@ -12,6 +12,8 @@ import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 
 import com.kronostudios.the_game.R;
+import com.kronostudios.the_game.core.AppController;
+import com.kronostudios.the_game.core.Game;
 
 public class MainMenu extends AppCompatActivity {
 
@@ -48,7 +50,7 @@ public class MainMenu extends AppCompatActivity {
         btnPlay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // TODO Play button method
+                AppController.changeActivity(MainMenu.this, GamemodeSelection.class);
             }
         });
 
@@ -72,7 +74,6 @@ public class MainMenu extends AppCompatActivity {
         btnExit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // TODO No se cierra la app (vuelve a la splash screen)
                 finish();
                 System.exit(0);
             }
@@ -111,8 +112,7 @@ public class MainMenu extends AppCompatActivity {
                     btnLegal.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
-                            Intent myIntent = new Intent(MainMenu.this, TermsAndCond.class);
-                            startActivity(myIntent);
+                            AppController.changeActivity(MainMenu.this, TermsAndCond.class);
                         }
                     });
 
@@ -120,8 +120,7 @@ public class MainMenu extends AppCompatActivity {
                     btnAbout.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
-                            Intent myIntent = new Intent(MainMenu.this, About.class);
-                            startActivity(myIntent);
+                            AppController.changeActivity(MainMenu.this, About.class);
                         }
                     });
                 }
@@ -131,8 +130,11 @@ public class MainMenu extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-       if (fromSplash.equals("true")){
-           return;
+       if (legalPopupOpened) {
+            legalPopup.dismiss();
+            legalPopupOpened = false;
+       } else {
+           finish();
        }
     }
 

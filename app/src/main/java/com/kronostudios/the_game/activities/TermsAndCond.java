@@ -11,6 +11,7 @@ import android.widget.PopupWindow;
 import android.widget.TextView;
 
 import com.kronostudios.the_game.R;
+import com.kronostudios.the_game.core.AppController;
 
 public class TermsAndCond extends AppCompatActivity {
 
@@ -105,5 +106,10 @@ public class TermsAndCond extends AppCompatActivity {
                 "<ul>\n" +
                 "<li>By email: markusmou51@gmail.com</li>\n" +
                 "</ul>"));
+    }
+
+    @Override
+    public void onBackPressed() {
+        AppController.changeActivity(this, MainMenu.class);
     }
 }

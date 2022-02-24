@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.os.Handler;
 
 import com.kronostudios.the_game.R;
+import com.kronostudios.the_game.core.AppController;
 
 public class SplashScreen extends AppCompatActivity {
 
@@ -19,9 +20,7 @@ public class SplashScreen extends AppCompatActivity {
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent intent = new Intent(SplashScreen.this, MainMenu.class);
-                intent.putExtra("fromSplash", "true");
-                startActivity(intent);
+                AppController.changeActivity(SplashScreen.this, MainMenu.class);
             }
         }, 2000);
     }
