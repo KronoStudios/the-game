@@ -4,5 +4,5 @@ Hem escollit la versio 6 de android, degut a que dona una compatibilitat de 94%,
 #  The Java version
 La versió de java que hem escollit es la 8, degut a que es la més utilitzada (42% dels developers desenvolupen en java 8).
 
-
+# Model de Clases
 ![alt text](https://github.com/KronoStudios/the-game/blob/main/documentation/class_model.jpeg?raw=true)
