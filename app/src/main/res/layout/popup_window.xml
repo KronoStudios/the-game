@@ -10,19 +10,22 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/terms"
-        android:id="@+id/btnTerms"/>
+        android:id="@+id/btnTerms"
+        android:onClick="onLegalButtonPressed"/>
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/about"
-        android:id="@+id/btnAbout"/>
+        android:id="@+id/btnAbout"
+        android:onClick="onAboutButtonPressed"/>
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/close"
         android:layout_marginTop="16dp"
-        android:id="@+id/btnCloseLegal"/>
+        android:id="@+id/btnCloseLegal"
+        android:onClick="onCloseLegalButtonPressed"/>
 
 </LinearLayout>

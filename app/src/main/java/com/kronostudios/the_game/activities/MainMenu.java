@@ -2,7 +2,6 @@ package com.kronostudios.the_game.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -13,27 +12,13 @@ import android.widget.PopupWindow;
 
 import com.kronostudios.the_game.R;
 import com.kronostudios.the_game.core.AppController;
-import com.kronostudios.the_game.core.Game;
 
 public class MainMenu extends AppCompatActivity {
-
-    // Menu buttons
-    Button btnPlay;
-    Button btnCollection;
-    Button btnProfile;
-    Button btnExit;
 
     // Legal popup
     PopupWindow legalPopup;
     Boolean legalPopupOpened;
-    Button btnShowLegalPopup;
     Button btnCloseLegalPopup;
-    Button btnLegal;
-    Button btnAbout;
-
-    MainMenu menu;
-    Boolean click;
-    String fromSplash;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,93 +26,99 @@ public class MainMenu extends AppCompatActivity {
         setContentView(R.layout.activity_main_menu);
 
         legalPopupOpened = false;
-        Intent intent = getIntent();
-        fromSplash = intent.getStringExtra("fromSplash");
-        menu = this;
-        click = false;
-
-        btnPlay = (Button) findViewById(R.id.btnPlay);
-        btnPlay.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                AppController.changeActivity(MainMenu.this, GamemodeSelection.class);
-            }
-        });
-
-        btnCollection = (Button) findViewById(R.id.btnCollection);
-        btnCollection.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                // TODO Collection button method
-            }
-        });
-
-        btnProfile = (Button) findViewById(R.id.btnProfile);
-        btnProfile.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                // TODO Profile button method
-            }
-        });
-
-        btnExit = (Button) findViewById(R.id.btnExit);
-        btnExit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                finish();
-                System.exit(0);
-            }
-        });
-
-        btnShowLegalPopup = (Button) findViewById(R.id.btnShowLegal);
-        btnShowLegalPopup.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //instantiate the popup.xml layout file
-
-                if(!legalPopupOpened){
-                    legalPopupOpened = true;
-
-                    LayoutInflater layoutInflater = (LayoutInflater) MainMenu.this.getSystemService(getApplicationContext().LAYOUT_INFLATER_SERVICE);
-                    View customView = layoutInflater.inflate(R.layout.popup_window, null);
-
-                    btnCloseLegalPopup = (Button) customView.findViewById(R.id.btnCloseLegal);
-
-                    //instantiate popup window
-                    legalPopup = new PopupWindow(customView, LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-
-                    //display the popup window
-                    legalPopup.showAtLocation(findViewById(R.id.mainMenuLayout), Gravity.CENTER, 0, 0);
-
-                    //close the popup window on button click
-                    btnCloseLegalPopup.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            legalPopupOpened = false;
-                            legalPopup.dismiss();
-                        }
-                    });
-
-                    btnLegal = (Button) customView.findViewById(R.id.btnTerms);
-                    btnLegal.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            AppController.changeActivity(MainMenu.this, TermsAndCond.class);
-                        }
-                    });
-
-                    btnAbout = (Button) customView.findViewById(R.id.btnAbout);
-                    btnAbout.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            AppController.changeActivity(MainMenu.this, About.class);
-                        }
-                    });
-                }
-            }
-        });
     }
 
+    /**
+     * Starts gamemode selection activity
+     * @return void
+     * @param v
+     */
+    public void onPlayButtonPressed(View v) {
+        AppController.changeActivity(MainMenu.this, GamemodeSelection.class);
+    }
+
+    /**
+     * Starts collection activity
+     * @return void
+     * @param v
+     */
+    public void onCollectionButtonPressed(View v) {
+        // TODO Collection button method
+    }
+
+    /**
+     * Starts profile activity
+     * @return void
+     * @param v
+     */
+    public void onProfileButtonPressed(View v) {
+        // TODO Profile button method
+    }
+
+    /**
+     * Stops the application
+     * @return void
+     * @param v
+     */
+    public void onExitButtonPressed(View v) {
+        finish();
+        System.exit(0);
+    }
+
+    /**
+     * Opens the legal popup
+     * @return void
+     * @param v
+     */
+    public void onOpenLegalButtonPressed(View v) {
+        if(!legalPopupOpened){
+            legalPopupOpened = true;
+
+            LayoutInflater layoutInflater = (LayoutInflater) MainMenu.this.getSystemService(getApplicationContext().LAYOUT_INFLATER_SERVICE);
+            View customView = layoutInflater.inflate(R.layout.popup_window, null);
+
+            btnCloseLegalPopup = (Button) customView.findViewById(R.id.btnCloseLegal);
+
+            //instantiate popup window
+            legalPopup = new PopupWindow(customView, LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+
+            //display the popup window
+            legalPopup.showAtLocation(findViewById(R.id.mainMenuLayout), Gravity.CENTER, 0, 0);
+        }
+    }
+
+    /**
+     * Closes the legal popup
+     * @return void
+     * @param v
+     */
+    public void onCloseLegalButtonPressed(View v) {
+        legalPopupOpened = false;
+        legalPopup.dismiss();
+    }
+
+    /**
+     * Starts legal information activity
+     * @return void
+     * @param v
+     */
+    public void onLegalButtonPressed(View v) {
+        AppController.changeActivity(MainMenu.this, TermsAndCond.class);
+    }
+
+    /**
+     * Starts about us activity
+     * @return void
+     * @param v
+     */
+    public void onAboutButtonPressed(View v) {
+        AppController.changeActivity(MainMenu.this, About.class);
+    }
+
+    /**
+     * Closes legal popup or the application depending on the last action
+     * @return void
+     */
     @Override
     public void onBackPressed() {
        if (legalPopupOpened) {

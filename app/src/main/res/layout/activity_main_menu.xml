@@ -14,16 +14,8 @@
         android:text="@string/play"
         app:layout_constraintBottom_toTopOf="@+id/btnProfile"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
-        android:id="@+id/btnCollection"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:text="@string/collection"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnProfile" />
+        android:onClick="onPlayButtonPressed"/>
 
     <Button
         android:id="@+id/btnProfile"
@@ -33,7 +25,18 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:onClick="onProfileButtonPressed"/>
+
+    <Button
+        android:id="@+id/btnCollection"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:text="@string/collection"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnProfile"
+        android:onClick="onCollectionButtonPressed"/>
 
     <Button
         android:id="@+id/btnExit"
@@ -43,7 +46,8 @@
         app:layout_constraintBottom_toTopOf="@+id/btnShowLegal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnCollection" />
+        app:layout_constraintTop_toBottomOf="@+id/btnCollection"
+        android:onClick="onExitButtonPressed"/>
 
     <Button
         android:layout_width="wrap_content"
@@ -55,6 +59,7 @@
         android:layout_marginBottom="16dp"
         android:textSize="11sp"
         android:paddingVertical="1dp"
-        android:text="@string/legal"/>
+        android:text="@string/legal"
+        android:onClick="onOpenLegalButtonPressed"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -24,7 +24,10 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"></Button>
+        app:layout_constraintTop_toTopOf="parent"
+        android:clickable="false"
+        android:backgroundTint="@color/gray"
+        android:onClick="onAdventureButtonPressed"/>
 
     <Button
         android:layout_width="300dp"
@@ -33,7 +36,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         android:id="@+id/btnArena"
-        app:layout_constraintTop_toBottomOf="@+id/btnAdventure"></Button>
+        app:layout_constraintTop_toBottomOf="@+id/btnAdventure"
+        android:onClick="onArenaButtonPressed"></Button>
 
     <Button
         android:id="@+id/btnBack"
@@ -43,6 +47,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnArena"></Button>
+        app:layout_constraintTop_toBottomOf="@+id/btnArena"
+        android:onClick="onBackButtonPressed"></Button>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -15,7 +15,7 @@ public class About extends AppCompatActivity {
         setContentView(R.layout.activity_about);
 
         TextView tAuth = findViewById(R.id.textAuthors);
-        tAuth.setText(tAuth.getText()+"\nMarc Fernandez Parra\nGuillem Caballé Tomás\nGerman Pérez Bordera");
+        tAuth.setText(tAuth.getText()+"\nMarc Fernandez Parra\nGuillem Caballe Tomas\nGerman Perez Bordera");
         TextView tVersion = findViewById(R.id.textVersion);
         tVersion.setText(tVersion.getText()+"\n1.0");
     }

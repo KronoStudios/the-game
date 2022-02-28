@@ -16,43 +16,54 @@ public class GamemodeSelection extends AppCompatActivity {
 
     // Menu buttons
     Button btnAdventure;
-    Button btnArena;
-    Button btnBack;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gamemode_selection);
 
-        btnArena = (Button) findViewById(R.id.btnArena);
-        btnArena.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Bundle params = new Bundle();
-                params.putString("dest", "arena");
-                AppController.changeActivityWithParams(GamemodeSelection.this, BuildSelection.class, params);
-            }
-        });
-
         btnAdventure = (Button) findViewById(R.id.btnAdventure);
-        btnAdventure.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Bundle params = new Bundle();
-                params.putString("dest", "adventure");
-                AppController.changeActivityWithParams(GamemodeSelection.this, BuildSelection.class, params);
-            }
-        });
-
-        btnBack = (Button) findViewById(R.id.btnBack);
-        btnBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                AppController.changeActivity(GamemodeSelection.this, MainMenu.class);
-            }
-        });
+        btnAdventure.setText(btnAdventure.getText() + " (SOON)");
     }
 
+    /**
+     * Goes back to the main menu
+     * @return void
+     * @param v
+     */
+    public void onBackButtonPressed(View v) {
+        AppController.changeActivity(GamemodeSelection.this, MainMenu.class);
+    }
+
+    /**
+     * Starts build selection activity with a parameter
+     * @return void
+     * @param v
+     */
+    public void onAdventureButtonPressed(View v) {
+        // TODO uncomment adventure button code
+        /*
+        Bundle params = new Bundle();
+        params.putString("dest", "adventure");
+        AppController.changeActivityWithParams(GamemodeSelection.this, BuildSelection.class, params);
+         */
+    }
+
+    /**
+     * Starts build selection activity with a parameter
+     * @return void
+     * @param v
+     */
+    public void onArenaButtonPressed(View v) {
+        Bundle params = new Bundle();
+        params.putString("dest", "arena");
+        AppController.changeActivityWithParams(GamemodeSelection.this, BuildSelection.class, params);
+    }
+
+    /**
+     * Goes back to the main menu
+     * @return void
+     */
     @Override
     public void onBackPressed() {
         AppController.changeActivity(this, MainMenu.class);
