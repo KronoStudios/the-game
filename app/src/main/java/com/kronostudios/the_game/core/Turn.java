@@ -1,12 +1,13 @@
 package com.kronostudios.the_game.core;
 
 import java.util.List;
+import java.util.Stack;
 
 public class Turn {
     private int number;
     private UserIG userIG;
     private int timer;
-    private List<Action> actionList;
+    private Stack<Action> actionList;
 
     public int getNumber() {
         return number;
@@ -32,17 +33,17 @@ public class Turn {
         this.timer = timer;
     }
 
-    public List<Action> getActionList() {
+    public Stack<Action> getActionList() {
         return actionList;
     }
 
-    public void setActionList(List<Action> actionList) {
+    public void setActionList(Stack<Action> actionList) {
         this.actionList = actionList;
     }
 
     public void executeActions(){
         while(actionList.size()<0){
-            actionList.remove(0).doAction();
+            actionList.pop().doAction();
         }
     }
 }

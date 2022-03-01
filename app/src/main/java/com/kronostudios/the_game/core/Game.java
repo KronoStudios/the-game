@@ -1,12 +1,14 @@
 package com.kronostudios.the_game.core;
 
 public class Game {
+    private static Game currentGame;
     private UserIG userIG1;
     private UserIG userIG2;
     private Turn currentTurn;
     //TODO
 
     public static void start(){
+        Game.currentGame = new Game();
         //TODO
     }
     public static void changeTurn(){
@@ -37,6 +39,10 @@ public class Game {
 
     public void setCurrentTurn(Turn currentTurn) {
         this.currentTurn = currentTurn;
+    }
+
+    public static Game getGame(){
+        return currentGame;
     }
 
 }

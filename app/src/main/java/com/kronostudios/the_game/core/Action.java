@@ -5,8 +5,8 @@ import com.kronostudios.the_game.models.Character;
 
 public class Action {
     private Card card;
-    private Character executor;
-    private Character target;
+    private CharacterIG executor;
+    private CharacterIG target;
 
     public Card getCard() {
         return card;
@@ -16,24 +16,25 @@ public class Action {
         this.card = card;
     }
 
-    public Character getExecutor() {
+    public CharacterIG getExecutor() {
         return executor;
     }
 
-    public void setExecutor(Character executor) {
+    public void setExecutor(CharacterIG executor) {
         this.executor = executor;
     }
 
-    public Character getTarget() {
+    public CharacterIG getTarget() {
         return target;
     }
 
-    public void setTarget(Character target) {
+    public void setTarget(CharacterIG target) {
         this.target = target;
     }
 
 
     public void doAction(){
-        // TODO: execute single action
+        Effect e = card.effect(getExecutor().getStats());
+        e.executeEffect(executor, target);
     }
 }

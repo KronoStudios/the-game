@@ -1,5 +1,7 @@
 package com.kronostudios.the_game.models;
 
+import com.kronostudios.the_game.cards.Fireball;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -21,6 +23,21 @@ public class Deck {
 
     public void setCards(List<Card> cards) {
         this.cards = cards;
+    }
+
+    public static Deck getFakeDeck(){
+        Deck d = new Deck();
+        d.id = "1";
+        d.cards.add(new Fireball());
+        d.cards.add(new Fireball());
+        d.cards.add(new Fireball());
+        d.cards.add(new Fireball());
+        d.cards.add(new Fireball());
+        d.cards.add(new Fireball());
+        d.cards.add(new Fireball());
+        d.cards.add(new Fireball());
+        d.cards.add(new Fireball());
+        return d;
     }
 
 }

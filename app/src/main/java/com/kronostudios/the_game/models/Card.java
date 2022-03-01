@@ -1,6 +1,12 @@
 package com.kronostudios.the_game.models;
 
+import com.kronostudios.the_game.core.Effect;
+
 public abstract class Card {
+    /**
+     *
+     * Damage formula is 0,3 * stat + damage
+     * **/
     private static String id;
     private static String name;
     private static String description;
@@ -27,10 +33,15 @@ public abstract class Card {
         return statsRequired;
     }
 
+    public int getDamage(int value){
+        Double dmg = value * 0.3;
+        return dmg.intValue();
+    }
+
     public void setStatsRequired(Stats statsRequired) {
         this.statsRequired = statsRequired;
     }
 
-    public abstract void effect();
-    public abstract void altEffect();
+    public abstract Effect effect(Stats stats);
+    public abstract Effect altEffect(Stats stats);
 }

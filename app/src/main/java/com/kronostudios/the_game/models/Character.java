@@ -30,4 +30,12 @@ public class Character {
         this.stats = stats;
     }
 
+    public static Character getFakeCharacter(){
+        Character c = new Character();
+        c.id = "001";
+        c.name="Pepe";
+        c.stats = new Stats(30,30,50);
+        return c;
+    }
+
 }

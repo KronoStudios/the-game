@@ -31,6 +31,14 @@ public class User {
         this.rating = rating;
     }
 
+    public static User getFakeUser(){
+        User u = new User();
+        u.id = "001";
+        u.name = "Pepe";
+        u.rating = 0;
+        return u;
+    }
+
     public List<Build> builds(){
         //TODO
         return null;

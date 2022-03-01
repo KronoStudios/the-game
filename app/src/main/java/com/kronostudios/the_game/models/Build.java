@@ -48,4 +48,17 @@ public class Build {
     public void setCharacters(List<Character> characters) {
         this.characters = characters;
     }
+
+    public static Build getFakeBuild(){
+        Build b = new Build();
+        b.characters.add(Character.getFakeCharacter());
+        b.characters.add(Character.getFakeCharacter());
+        b.characters.add(Character.getFakeCharacter());
+        b.deck = Deck.getFakeDeck();
+        b.id = "1";
+        b.name = "Fake Build";
+        b.user = User.getFakeUser();
+        return b;
+
+    }
 }

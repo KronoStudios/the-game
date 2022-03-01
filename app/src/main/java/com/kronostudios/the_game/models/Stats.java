@@ -2,6 +2,13 @@ package com.kronostudios.the_game.models;
 
 public class Stats {
     private int str;
+
+    public Stats(int str, int intel, int sta) {
+        this.str = str;
+        this.intel = intel;
+        this.sta = sta;
+    }
+
     private int intel;
     private int sta;
 
