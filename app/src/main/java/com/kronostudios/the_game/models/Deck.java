@@ -3,6 +3,7 @@ package com.kronostudios.the_game.models;
 import com.kronostudios.the_game.cards.Fireball;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
@@ -27,16 +28,18 @@ public class Deck {
 
     public static Deck getFakeDeck(){
         Deck d = new Deck();
+        d.cards = Arrays.asList(
+            new Fireball(),
+            new Fireball(),
+            new Fireball(),
+            new Fireball(),
+            new Fireball(),
+            new Fireball(),
+            new Fireball(),
+            new Fireball(),
+            new Fireball()
+        );
         d.id = "1";
-        d.cards.add(new Fireball());
-        d.cards.add(new Fireball());
-        d.cards.add(new Fireball());
-        d.cards.add(new Fireball());
-        d.cards.add(new Fireball());
-        d.cards.add(new Fireball());
-        d.cards.add(new Fireball());
-        d.cards.add(new Fireball());
-        d.cards.add(new Fireball());
         return d;
     }
 

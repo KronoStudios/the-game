@@ -18,7 +18,6 @@ public class MainMenu extends AppCompatActivity {
     // Legal popup
     PopupWindow legalPopup;
     Boolean legalPopupOpened;
-    Button btnCloseLegalPopup;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,9 +74,7 @@ public class MainMenu extends AppCompatActivity {
             legalPopupOpened = true;
 
             LayoutInflater layoutInflater = (LayoutInflater) MainMenu.this.getSystemService(getApplicationContext().LAYOUT_INFLATER_SERVICE);
-            View customView = layoutInflater.inflate(R.layout.popup_window, null);
-
-            btnCloseLegalPopup = (Button) customView.findViewById(R.id.btnCloseLegal);
+            View customView = layoutInflater.inflate(R.layout.legal_popup, null);
 
             //instantiate popup window
             legalPopup = new PopupWindow(customView, LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);

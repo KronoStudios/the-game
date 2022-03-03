@@ -1,5 +1,8 @@
 package com.kronostudios.the_game.models;
 
+import java.sql.Array;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Build {
@@ -49,16 +52,23 @@ public class Build {
         this.characters = characters;
     }
 
-    public static Build getFakeBuild(){
+    public static Build getFakeBuild() {
         Build b = new Build();
-        b.characters.add(Character.getFakeCharacter());
-        b.characters.add(Character.getFakeCharacter());
-        b.characters.add(Character.getFakeCharacter());
+        b.characters = Arrays.asList(
+            Character.getFakeCharacter(),
+            Character.getFakeCharacter(),
+            Character.getFakeCharacter()
+        );
+
         b.deck = Deck.getFakeDeck();
         b.id = "1";
         b.name = "Fake Build";
         b.user = User.getFakeUser();
         return b;
+    }
 
+    @Override
+    public String toString() {
+        return name;
     }
 }

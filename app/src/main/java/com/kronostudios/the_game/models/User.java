@@ -1,5 +1,6 @@
 package com.kronostudios.the_game.models;
 
+import java.util.Arrays;
 import java.util.List;
 
 public class User {
@@ -39,9 +40,13 @@ public class User {
         return u;
     }
 
-    public List<Build> builds(){
-        //TODO
-        return null;
+    public List<Build> builds() {
+        // TODO Change fake data to DB
+        return Arrays.asList(
+            Build.getFakeBuild(),
+            Build.getFakeBuild(),
+            Build.getFakeBuild()
+        );
     }
 
 }

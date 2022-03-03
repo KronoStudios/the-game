@@ -15,4 +15,6 @@
     <string name="back">Back</string>
     <string name="select_build">Select your build</string>
     <string name="select_mode">Select game mode</string>
+    <string name="finding_game">Searching for a game...</string>
+    <string name="cancel">Cancel</string>
 </resources>

@@ -16,4 +16,6 @@
     <string name="back">Atrás</string>
     <string name="select_build">Selecciona tu configuración</string>
     <string name="select_mode">Selecciona un modo de juego</string>
+    <string name="finding_game">Buscando una partida...</string>
+    <string name="cancel">Cancelar</string>
 </resources>
