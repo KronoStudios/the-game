@@ -60,11 +60,17 @@ public class BuildSelection extends AppCompatActivity {
 
                     //display the popup window
                     searchingGamePopup.showAtLocation(findViewById(R.id.buildSelectionLayout), Gravity.CENTER, 0, 0);
+                    AppController.startFindingGame();
                 }
             }
         });
     }
 
+    public void onCancelFindingPressed(View v){
+        AppController.stopFindingGame();
+        searchingGamePopup.dismiss();
+        searchingGamePopupOpened = false;
+    }
     @Override
     public void onBackPressed() {
         AppController.changeActivity(this, GamemodeSelection.class);

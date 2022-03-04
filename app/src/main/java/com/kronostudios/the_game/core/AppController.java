@@ -4,12 +4,14 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 
+import com.kronostudios.the_game.core.threads.FindGameThread;
 import com.kronostudios.the_game.models.User;
 
 public class AppController {
 
     // TODO implement real login
     private static User loggedUser = User.getFakeUser();
+    private static FindGameThread findGame = new FindGameThread();
     private static Game currentGame;
 
     public static void changeActivityWithParams(Activity src, Class dest, Bundle parameters) {
@@ -25,8 +27,23 @@ public class AppController {
         src.finish();
     }
 
-    public void startFindingGame() {
+    public static void startFindingGame() {
+        if(!findGame.getRunning()){
+            findGame.run();
+        }
+    }
 
+    /*
+    public void startGame() {
+        //TODO
+    }
+    */
+
+    public static void stopFindingGame() {
+        if(findGame.getRunning()){
+            findGame.setRunning(false);
+            findGame.interrupt();
+        }
     }
 
     public static User getLoggedUser() {
