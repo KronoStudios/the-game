@@ -3,6 +3,14 @@ package com.kronostudios.the_game.core;
 import com.kronostudios.the_game.models.Card;
 import com.kronostudios.the_game.models.Character;
 
+/**
+ * @author: mfernandez
+ *
+ * The Action class executes the effect of a card,
+ * used by a Character executor applies to another
+ * Character target.
+ *
+ */
 public class Action {
     private Card card;
     private CharacterIG executor;

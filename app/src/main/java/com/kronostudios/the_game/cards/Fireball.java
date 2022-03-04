@@ -6,6 +6,14 @@ import com.kronostudios.the_game.core.Game;
 import com.kronostudios.the_game.models.Card;
 import com.kronostudios.the_game.models.Stats;
 
+/**
+ * @author: gperez
+ *
+ * The Fireball class is a basic effect Card.
+ * Deals baseDamage amount of health to the target,
+ * amplified by the Stat intel of the executor.
+ *
+ */
 public class Fireball extends Card {
 
     private static final String id = "000001";
