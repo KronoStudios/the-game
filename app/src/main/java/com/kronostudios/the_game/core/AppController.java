@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 
+import com.kronostudios.the_game.activities.BuildSelection;
 import com.kronostudios.the_game.core.threads.FindGameThread;
 import com.kronostudios.the_game.models.User;
 
@@ -27,9 +28,9 @@ public class AppController {
         src.finish();
     }
 
-    public static void startFindingGame() {
+    public static void startFindingGame(BuildSelection act) {
         if(!findGame.getRunning()){
-            findGame.run();
+            findGame.run(act);
         }
     }
 

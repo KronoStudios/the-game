@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Thegame">
         <activity
+            android:name=".activities.GameBoard"
+            android:exported="false" />
+        <activity
             android:name=".activities.BuildSelection"
             android:exported="false" />
         <activity

@@ -1,12 +1,15 @@
 package com.kronostudios.the_game.core.threads;
 
+import android.app.Activity;
 import android.os.Handler;
 
+import com.kronostudios.the_game.activities.BuildSelection;
+import com.kronostudios.the_game.activities.GameBoard;
 import com.kronostudios.the_game.activities.MainMenu;
 import com.kronostudios.the_game.activities.SplashScreen;
 import com.kronostudios.the_game.core.AppController;
 
-public class FindGameThread extends Thread{
+public class FindGameThread extends Thread {
 
     private Boolean running;
 
@@ -22,14 +25,17 @@ public class FindGameThread extends Thread{
         this.running = running;
     }
 
-    public void run() {
+    public void run(BuildSelection act) {
         running= true;
-        try {
-            Thread.sleep(3000);
 
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        running = false;
+        Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                act.searchingGamePopup.dismiss();
+                AppController.changeActivity(act, GameBoard.class);
+                running = false;
+            }
+        }, 2000);
     }
 }

@@ -25,7 +25,7 @@ public class BuildSelection extends AppCompatActivity {
 
     private User user;
 
-    private PopupWindow searchingGamePopup;
+    public PopupWindow searchingGamePopup;
     private boolean searchingGamePopupOpened;
 
     @Override
@@ -60,7 +60,8 @@ public class BuildSelection extends AppCompatActivity {
 
                     //display the popup window
                     searchingGamePopup.showAtLocation(findViewById(R.id.buildSelectionLayout), Gravity.CENTER, 0, 0);
-                    AppController.startFindingGame();
+
+                    AppController.startFindingGame(BuildSelection.this);
                 }
             }
         });
@@ -71,6 +72,7 @@ public class BuildSelection extends AppCompatActivity {
         searchingGamePopup.dismiss();
         searchingGamePopupOpened = false;
     }
+
     @Override
     public void onBackPressed() {
         AppController.changeActivity(this, GamemodeSelection.class);
