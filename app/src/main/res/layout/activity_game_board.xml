@@ -6,4 +6,157 @@
     android:layout_height="match_parent"
     tools:context=".activities.GameBoard">
 
+    <TextView
+        android:id="@+id/tvHealthChar3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        app:layout_constraintBottom_toTopOf="@+id/btnHand3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tvHealthChar2"
+        app:layout_constraintTop_toBottomOf="@+id/btnChar3" />
+
+    <TextView
+        android:id="@+id/tvHealthChar1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        app:layout_constraintBottom_toTopOf="@+id/btnHand1"
+        app:layout_constraintEnd_toStartOf="@+id/tvHealthChar2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnChar1" />
+
+    <TextView
+        android:id="@+id/tvHealthChar2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        app:layout_constraintBottom_toTopOf="@+id/btnHand2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnChar2" />
+
+    <TextView
+        android:id="@+id/tvHealthChar5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        app:layout_constraintBottom_toTopOf="@+id/btnChar2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnChar5" />
+
+    <TextView
+        android:id="@+id/tvHealthChar6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        app:layout_constraintBottom_toTopOf="@+id/btnChar3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tvHealthChar5"
+        app:layout_constraintTop_toBottomOf="@+id/btnChar6" />
+
+    <Button
+        android:id="@+id/btnChar4"
+        android:layout_width="250px"
+        android:layout_height="500px"
+        android:layout_marginEnd="28dp"
+        android:text="Button"
+        app:layout_constraintEnd_toStartOf="@+id/btnHand2"
+        app:layout_constraintHorizontal_bias="0.428"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnChar5"
+        android:layout_width="250px"
+        android:layout_height="500px"
+        android:text="Button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnChar6"
+        android:layout_width="250px"
+        android:layout_height="500px"
+        android:layout_marginStart="28dp"
+        android:text="Button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btnHand2"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnChar1"
+        android:layout_width="250px"
+        android:layout_height="500px"
+        android:layout_marginEnd="28dp"
+        android:text="Button"
+        app:layout_constraintEnd_toStartOf="@+id/btnHand2"
+        app:layout_constraintHorizontal_bias="0.428"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="306dp" />
+
+    <Button
+        android:id="@+id/btnChar3"
+        android:layout_width="250px"
+        android:layout_height="500px"
+        android:layout_marginStart="28dp"
+        android:text="Button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btnHand2"
+        tools:layout_editor_absoluteY="306dp" />
+
+    <Button
+        android:id="@+id/btnChar2"
+        android:layout_width="250px"
+        android:layout_height="500px"
+        android:text="Button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="306dp" />
+
+    <Button
+        android:id="@+id/btnHand1"
+        android:layout_width="250px"
+        android:layout_height="300px"
+        android:layout_marginEnd="28dp"
+        android:text="Button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btnHand2"
+        app:layout_constraintHorizontal_bias="0.428"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/btnHand3"
+        android:layout_width="250px"
+        android:layout_height="300px"
+        android:layout_marginStart="28dp"
+        android:text="Button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btnHand2" />
+
+    <Button
+        android:id="@+id/btnHand2"
+        android:layout_width="250px"
+        android:layout_height="300px"
+        android:text="Fireball"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/tvHealthChar4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        app:layout_constraintBottom_toTopOf="@+id/btnChar1"
+        app:layout_constraintEnd_toStartOf="@+id/tvHealthChar5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnChar4" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
