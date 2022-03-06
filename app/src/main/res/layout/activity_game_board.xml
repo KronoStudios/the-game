@@ -10,7 +10,6 @@
         android:id="@+id/tvHealthChar3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
         app:layout_constraintBottom_toTopOf="@+id/btnHand3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/tvHealthChar2"
@@ -20,7 +19,6 @@
         android:id="@+id/tvHealthChar1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
         app:layout_constraintBottom_toTopOf="@+id/btnHand1"
         app:layout_constraintEnd_toStartOf="@+id/tvHealthChar2"
         app:layout_constraintStart_toStartOf="parent"
@@ -30,37 +28,33 @@
         android:id="@+id/tvHealthChar2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
         app:layout_constraintBottom_toTopOf="@+id/btnHand2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnChar2" />
 
     <TextView
-        android:id="@+id/tvHealthChar5"
+        android:id="@+id/tvCharEnemy2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
         app:layout_constraintBottom_toTopOf="@+id/btnChar2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnChar5" />
+        app:layout_constraintTop_toBottomOf="@+id/btnCharEnemy2" />
 
     <TextView
-        android:id="@+id/tvHealthChar6"
+        android:id="@+id/tvCharEnemy3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
         app:layout_constraintBottom_toTopOf="@+id/btnChar3"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/tvHealthChar5"
-        app:layout_constraintTop_toBottomOf="@+id/btnChar6" />
+        app:layout_constraintStart_toEndOf="@+id/tvCharEnemy2"
+        app:layout_constraintTop_toBottomOf="@+id/btnCharEnemy3" />
 
     <Button
-        android:id="@+id/btnChar4"
-        android:layout_width="250px"
-        android:layout_height="500px"
-        android:layout_marginEnd="28dp"
+        android:id="@+id/btnCharEnemy1"
+        android:layout_width="100dp"
+        android:layout_height="175dp"
         android:text="Button"
         app:layout_constraintEnd_toStartOf="@+id/btnHand2"
         app:layout_constraintHorizontal_bias="0.428"
@@ -68,19 +62,19 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/btnChar5"
-        android:layout_width="250px"
-        android:layout_height="500px"
+        android:id="@+id/btnCharEnemy2"
+        android:layout_width="100dp"
+        android:layout_height="175dp"
         android:text="Button"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.501"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btnCharEnemy3"
+        app:layout_constraintStart_toEndOf="@+id/btnCharEnemy1"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/btnChar6"
-        android:layout_width="250px"
-        android:layout_height="500px"
+        android:id="@+id/btnCharEnemy3"
+        android:layout_width="100dp"
+        android:layout_height="175dp"
+        android:layout_marginEnd="28dp"
         android:layout_marginStart="28dp"
         android:text="Button"
         app:layout_constraintEnd_toEndOf="parent"
@@ -89,74 +83,80 @@
 
     <Button
         android:id="@+id/btnChar1"
-        android:layout_width="250px"
-        android:layout_height="500px"
+        android:layout_width="100dp"
+        android:layout_height="175dp"
         android:layout_marginEnd="28dp"
         android:text="Button"
+        app:layout_constraintBottom_toTopOf="@+id/btnHand1"
         app:layout_constraintEnd_toStartOf="@+id/btnHand2"
         app:layout_constraintHorizontal_bias="0.428"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="306dp" />
+        app:layout_constraintTop_toBottomOf="@+id/btnCharEnemy1" />
 
     <Button
         android:id="@+id/btnChar3"
-        android:layout_width="250px"
-        android:layout_height="500px"
+        android:layout_width="100dp"
+        android:layout_height="175dp"
+        android:layout_marginEnd="28dp"
         android:layout_marginStart="28dp"
         android:text="Button"
+        app:layout_constraintBottom_toTopOf="@+id/btnHand3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/btnHand2"
-        tools:layout_editor_absoluteY="306dp" />
+        app:layout_constraintTop_toBottomOf="@+id/btnCharEnemy3" />
 
     <Button
         android:id="@+id/btnChar2"
-        android:layout_width="250px"
-        android:layout_height="500px"
+        android:layout_width="100dp"
+        android:layout_height="175dp"
         android:text="Button"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.501"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="306dp" />
+        app:layout_constraintBottom_toTopOf="@+id/btnHand2"
+        app:layout_constraintEnd_toStartOf="@+id/btnChar3"
+        app:layout_constraintStart_toEndOf="@+id/btnChar1"
+        app:layout_constraintTop_toBottomOf="@+id/btnCharEnemy2" />
 
     <Button
         android:id="@+id/btnHand1"
-        android:layout_width="250px"
-        android:layout_height="300px"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:layout_marginEnd="28dp"
-        android:text="Button"
+        android:textSize="10sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/btnHand2"
         app:layout_constraintHorizontal_bias="0.428"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="SmallSp" />
 
     <Button
         android:id="@+id/btnHand3"
-        android:layout_width="250px"
-        android:layout_height="300px"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:layout_marginStart="28dp"
-        android:text="Button"
+        android:textSize="10sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/btnHand2" />
+        app:layout_constraintStart_toEndOf="@+id/btnHand2"
+        tools:ignore="SmallSp" />
 
     <Button
         android:id="@+id/btnHand2"
-        android:layout_width="250px"
-        android:layout_height="300px"
-        android:text="Fireball"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:textSize="10sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.501"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="SmallSp" />
 
     <TextView
-        android:id="@+id/tvHealthChar4"
+        android:id="@+id/tvCharEnemy1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
         app:layout_constraintBottom_toTopOf="@+id/btnChar1"
-        app:layout_constraintEnd_toStartOf="@+id/tvHealthChar5"
+        app:layout_constraintEnd_toStartOf="@+id/tvCharEnemy2"
+        app:layout_constraintHorizontal_bias="0.436"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnChar4" />
+        app:layout_constraintTop_toBottomOf="@+id/btnCharEnemy1" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

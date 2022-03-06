@@ -27,6 +27,8 @@ public class BuildSelection extends AppCompatActivity {
 
     public PopupWindow searchingGamePopup;
     private boolean searchingGamePopupOpened;
+    private static Build selectedBuild = null;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,7 +50,7 @@ public class BuildSelection extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Build b = (Build) adapterView.getAdapter().getItem(i);
-
+                selectedBuild = b;
                 if (!searchingGamePopupOpened) {
                     searchingGamePopupOpened = true;
 
@@ -67,6 +69,9 @@ public class BuildSelection extends AppCompatActivity {
         });
     }
 
+    public static Build getSelectedBuild(){
+        return selectedBuild;
+    }
     public void onCancelFindingPressed(View v){
         AppController.stopFindingGame();
         searchingGamePopup.dismiss();
