@@ -7,6 +7,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.kronostudios.the_game.R;
+import com.kronostudios.the_game.core.DeckIG;
 import com.kronostudios.the_game.models.Build;
 import com.kronostudios.the_game.models.Card;
 import com.kronostudios.the_game.models.Character;
@@ -25,6 +26,11 @@ public class GameBoard extends AppCompatActivity {
     Button btnEnemyChar1;
     Button btnEnemyChar2;
     Button btnEnemyChar3;
+
+
+    Button btnHand1;
+    Button btnHand2;
+    Button btnHand3;
 
 
     TextView tvplayer1;
@@ -60,10 +66,14 @@ public class GameBoard extends AppCompatActivity {
         tvenemy1.setText(enemyChar1.getStats().getSta() + "/" + enemyChar1.getStats().getSta());
         tvenemy2.setText(enemyChar2.getStats().getSta() + "/" + enemyChar2.getStats().getSta());
         tvenemy3.setText(enemyChar3.getStats().getSta() + "/" + enemyChar3.getStats().getSta());
+        
     }
 
     public void initializeGame(){
 
+        btnHand1 = findViewById(R.id.btnHand1);
+        btnHand2= findViewById(R.id.btnHand2);
+        btnHand3= findViewById(R.id.btnHand3);
 
         btnPlayerChar1 = findViewById(R.id.btnChar1);
         btnPlayerChar2 = findViewById(R.id.btnChar2);
