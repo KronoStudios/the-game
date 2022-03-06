@@ -122,7 +122,7 @@ public class MainMenu extends AppCompatActivity {
             legalPopup.dismiss();
             legalPopupOpened = false;
        } else {
-           finish();
+            finish();
        }
     }
 

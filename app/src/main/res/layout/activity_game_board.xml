@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.GameBoard">
+
+    <TextView
+        android:id="@+id/tvHealthChar3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/btnHand3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tvHealthChar2"
+        app:layout_constraintTop_toBottomOf="@+id/btnChar3" />
+
+    <TextView
+        android:id="@+id/tvHealthChar1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/btnHand1"
+        app:layout_constraintEnd_toStartOf="@+id/tvHealthChar2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnChar1" />
+
+    <TextView
+        android:id="@+id/tvHealthChar2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/btnHand2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnChar2" />
+
+    <TextView
+        android:id="@+id/tvCharEnemy2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/btnChar2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnCharEnemy2" />
+
+    <TextView
+        android:id="@+id/tvCharEnemy3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/btnChar3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tvCharEnemy2"
+        app:layout_constraintTop_toBottomOf="@+id/btnCharEnemy3" />
+
+    <Button
+        android:id="@+id/btnCharEnemy1"
+        android:layout_width="100dp"
+        android:layout_height="175dp"
+        android:text="Button"
+        app:layout_constraintEnd_toStartOf="@+id/btnHand2"
+        app:layout_constraintHorizontal_bias="0.428"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnCharEnemy2"
+        android:layout_width="100dp"
+        android:layout_height="175dp"
+        android:text="Button"
+        app:layout_constraintEnd_toStartOf="@+id/btnCharEnemy3"
+        app:layout_constraintStart_toEndOf="@+id/btnCharEnemy1"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnCharEnemy3"
+        android:layout_width="100dp"
+        android:layout_height="175dp"
+        android:layout_marginEnd="28dp"
+        android:layout_marginStart="28dp"
+        android:text="Button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btnHand2"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnChar1"
+        android:layout_width="100dp"
+        android:layout_height="175dp"
+        android:layout_marginEnd="28dp"
+        android:text="Button"
+        app:layout_constraintBottom_toTopOf="@+id/btnHand1"
+        app:layout_constraintEnd_toStartOf="@+id/btnHand2"
+        app:layout_constraintHorizontal_bias="0.428"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnCharEnemy1" />
+
+    <Button
+        android:id="@+id/btnChar3"
+        android:layout_width="100dp"
+        android:layout_height="175dp"
+        android:layout_marginEnd="28dp"
+        android:layout_marginStart="28dp"
+        android:text="Button"
+        app:layout_constraintBottom_toTopOf="@+id/btnHand3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btnHand2"
+        app:layout_constraintTop_toBottomOf="@+id/btnCharEnemy3" />
+
+    <Button
+        android:id="@+id/btnChar2"
+        android:layout_width="100dp"
+        android:layout_height="175dp"
+        android:text="Button"
+        app:layout_constraintBottom_toTopOf="@+id/btnHand2"
+        app:layout_constraintEnd_toStartOf="@+id/btnChar3"
+        app:layout_constraintStart_toEndOf="@+id/btnChar1"
+        app:layout_constraintTop_toBottomOf="@+id/btnCharEnemy2" />
+
+    <Button
+        android:id="@+id/btnHand1"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginEnd="28dp"
+        android:textSize="10sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btnHand2"
+        app:layout_constraintHorizontal_bias="0.428"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="SmallSp" />
+
+    <Button
+        android:id="@+id/btnHand3"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="28dp"
+        android:textSize="10sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btnHand2"
+        tools:ignore="SmallSp" />
+
+    <Button
+        android:id="@+id/btnHand2"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:textSize="10sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="SmallSp" />
+
+    <TextView
+        android:id="@+id/tvCharEnemy1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/btnChar1"
+        app:layout_constraintEnd_toStartOf="@+id/tvCharEnemy2"
+        app:layout_constraintHorizontal_bias="0.436"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnCharEnemy1" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
