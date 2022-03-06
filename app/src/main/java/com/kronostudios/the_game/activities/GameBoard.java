@@ -7,7 +7,9 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.kronostudios.the_game.R;
+import com.kronostudios.the_game.core.AppController;
 import com.kronostudios.the_game.core.DeckIG;
+import com.kronostudios.the_game.core.Game;
 import com.kronostudios.the_game.models.Build;
 import com.kronostudios.the_game.models.Card;
 import com.kronostudios.the_game.models.Character;
@@ -49,27 +51,33 @@ public class GameBoard extends AppCompatActivity {
         initializeGame();
     }
 
-    public void populateGameBoard(){
+    public void populateGameBoard() {
 
         Character playerChar1 = playerBuild.getCharacters().get(0);
         Character playerChar2 = playerBuild.getCharacters().get(1);
         Character playerChar3 = playerBuild.getCharacters().get(2);
 
         tvplayer1.setText(playerChar1.getStats().getSta() + "/" + playerChar1.getStats().getSta());
+        btnPlayerChar1.setText(playerChar1.getName());
         tvplayer2.setText(playerChar2.getStats().getSta() + "/" + playerChar2.getStats().getSta());
+        btnPlayerChar2.setText(playerChar2.getName());
         tvplayer3.setText(playerChar3.getStats().getSta() + "/" + playerChar3.getStats().getSta());
+        btnPlayerChar3.setText(playerChar3.getName());
 
         Character enemyChar1 = enemyBuild.getCharacters().get(0);
         Character enemyChar2 = enemyBuild.getCharacters().get(1);
         Character enemyChar3 = enemyBuild.getCharacters().get(2);
 
         tvenemy1.setText(enemyChar1.getStats().getSta() + "/" + enemyChar1.getStats().getSta());
+        btnEnemyChar1.setText(enemyChar1.getName());
         tvenemy2.setText(enemyChar2.getStats().getSta() + "/" + enemyChar2.getStats().getSta());
+        btnEnemyChar2.setText(enemyChar2.getName());
         tvenemy3.setText(enemyChar3.getStats().getSta() + "/" + enemyChar3.getStats().getSta());
+        btnEnemyChar3.setText(enemyChar3.getName());
         
     }
 
-    public void initializeGame(){
+    public void initializeGame() {
 
         btnHand1 = findViewById(R.id.btnHand1);
         btnHand2= findViewById(R.id.btnHand2);
@@ -92,8 +100,8 @@ public class GameBoard extends AppCompatActivity {
         tvenemy2 = findViewById(R.id.tvCharEnemy2);
         tvenemy3 = findViewById(R.id.tvCharEnemy3);
 
-        playerBuild = BuildSelection.getSelectedBuild();
-        enemyBuild = Build.getFakeBuild();
+        playerBuild = AppController.getCurrentGame().getPlayer1().getBuild();
+        enemyBuild = AppController.getCurrentGame().getPlayer2().getBuild();
 
         populateGameBoard();
 

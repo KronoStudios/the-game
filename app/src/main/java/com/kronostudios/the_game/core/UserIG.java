@@ -11,6 +11,9 @@ public class UserIG extends User{
     private List<Card> hand;
     private DeckIG deck;
 
+    public UserIG(String id, String name, int rating) {
+        super(id, name, rating);
+    }
 
     public Build getBuild() {
         return build;
@@ -30,7 +33,7 @@ public class UserIG extends User{
 
     public List<Card> draw(){
         if(hand.size() < 3){
-            while (hand.size()<3){
+            while (hand.size() < 3){
                 if(deck.getCards().size() == 0){
                     deck.refillDeck();
                 }

@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import com.kronostudios.the_game.activities.BuildSelection;
+import com.kronostudios.the_game.activities.GameBoard;
 import com.kronostudios.the_game.core.threads.FindGameThread;
 import com.kronostudios.the_game.models.User;
 
@@ -34,11 +35,11 @@ public class AppController {
         }
     }
 
-    /*
-    public void startGame() {
-        //TODO
+    public static void startGame(UserIG rival, BuildSelection act) {
+        AppController.currentGame = new Game(rival);
+
+        AppController.changeActivity(act, GameBoard.class);
     }
-    */
 
     public static void stopFindingGame() {
         if(findGame.getRunning()){

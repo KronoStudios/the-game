@@ -72,6 +72,7 @@ public class BuildSelection extends AppCompatActivity {
     public static Build getSelectedBuild(){
         return selectedBuild;
     }
+
     public void onCancelFindingPressed(View v){
         AppController.stopFindingGame();
         searchingGamePopup.dismiss();

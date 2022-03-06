@@ -1,5 +1,7 @@
 package com.kronostudios.the_game.models;
 
+import com.kronostudios.the_game.core.UserIG;
+
 import java.util.Arrays;
 import java.util.List;
 
@@ -7,6 +9,12 @@ public class User {
     private String id;
     private String name;
     private int rating;
+
+    public User(String id, String name, int rating) {
+        this.id = id;
+        this.name = name;
+        this.rating = rating;
+    }
 
     public String getId() {
         return id;
@@ -32,11 +40,13 @@ public class User {
         this.rating = rating;
     }
 
+    public UserIG getUserIG()
+    {
+        return new UserIG(this.id, this.name, this.rating);
+    }
+
     public static User getFakeUser(){
-        User u = new User();
-        u.id = "001";
-        u.name = "Pepe";
-        u.rating = 0;
+        User u = new User("001", "Pepe", 0);
         return u;
     }
 

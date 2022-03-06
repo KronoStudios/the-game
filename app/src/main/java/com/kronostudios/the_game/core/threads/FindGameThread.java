@@ -8,6 +8,9 @@ import com.kronostudios.the_game.activities.GameBoard;
 import com.kronostudios.the_game.activities.MainMenu;
 import com.kronostudios.the_game.activities.SplashScreen;
 import com.kronostudios.the_game.core.AppController;
+import com.kronostudios.the_game.core.UserIG;
+import com.kronostudios.the_game.models.Build;
+import com.kronostudios.the_game.models.User;
 
 public class FindGameThread extends Thread {
 
@@ -26,14 +29,37 @@ public class FindGameThread extends Thread {
     }
 
     public void run(BuildSelection act) {
-        running= true;
+        running = true;
 
+        // TODO implement real enqueuing
+        /*
+        while !foundGame (and !interrupted)
+            request API (with myBuild) every 200ms (is there a rival?)
+
+        - Dismiss popup
+
+        json = {
+            idGame: X,
+            players: [
+                {id: X, build: X},
+                {id: X, build: X}
+            ]
+        }
+
+        UserIG rival = new UserIG(id, build)
+
+        AppController.startGame(rival)
+         */
+
+        // Fake game finding
         Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
                 act.searchingGamePopup.dismiss();
-                AppController.changeActivity(act, GameBoard.class);
+                UserIG rival = User.getFakeUser().getUserIG();
+                rival.setBuild(Build.getFakeBuild());
+                AppController.startGame(rival, act);
                 running = false;
             }
         }, 2000);
