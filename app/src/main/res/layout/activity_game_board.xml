@@ -119,16 +119,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/btnHand2"
         app:layout_constraintStart_toStartOf="parent"
-        tools:ignore="SmallSp" />
-
-    <Button
-        android:id="@+id/btnHand3"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:textSize="10sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/btnHand2"
+        app:layout_constraintTop_toBottomOf="@+id/tvHealthChar1"
         tools:ignore="SmallSp" />
 
     <Button
@@ -139,6 +130,30 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvHealthChar2"
+        tools:ignore="SmallSp" />
+
+    <Button
+        android:id="@+id/btnHand3"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:textSize="10sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btnHand2"
+        app:layout_constraintTop_toBottomOf="@+id/tvHealthChar3"
+        tools:ignore="SmallSp" />
+
+    <Button
+        android:id="@+id/btnNextTurn"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:text="@string/next_turn"
+        android:textSize="10sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btnHand2"
+        app:layout_constraintTop_toBottomOf="@+id/btnHand3"
         tools:ignore="SmallSp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
