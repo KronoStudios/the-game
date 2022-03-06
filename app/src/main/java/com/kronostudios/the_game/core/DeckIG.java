@@ -6,10 +6,17 @@ import com.kronostudios.the_game.models.Deck;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Stack;
 
 public class DeckIG extends Deck {
 
     private List<Card> cardsDrawn;
+
+    public DeckIG(String id, Stack<Card> cards) {
+        super(id, cards);
+        cardsDrawn = new ArrayList<>();
+    }
+
     public List<Card> getCardsDrawn() {
         return cardsDrawn;
     }
@@ -27,8 +34,10 @@ public class DeckIG extends Deck {
         return getCards().remove(0);
     }
 
-    public List<Card> refillDeck(){
-        super.setCards(cardsDrawn);
+    public Stack<Card> refillDeck(){
+        Stack<Card> cards = new Stack<Card>();
+        cards.addAll(cardsDrawn);
+        super.setCards(cards);
         cardsDrawn = new ArrayList<Card>();
         return super.getCards();
     }

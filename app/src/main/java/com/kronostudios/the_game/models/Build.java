@@ -63,7 +63,6 @@ public class Build {
         b.deck = Deck.getFakeDeck();
         b.id = "1";
         b.name = "Fake Build";
-        b.user = User.getFakeUser();
         return b;
     }
 

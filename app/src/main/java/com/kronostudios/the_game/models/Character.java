@@ -1,10 +1,17 @@
 package com.kronostudios.the_game.models;
 
+import com.kronostudios.the_game.core.CharacterIG;
+
 public class Character {
     private String id;
     private String name;
     private Stats stats;
 
+    public Character(String id, String name, Stats stats) {
+        this.id = id;
+        this.name = name;
+        this.stats = stats;
+    }
 
     public String getId() {
         return id;
@@ -30,11 +37,13 @@ public class Character {
         this.stats = stats;
     }
 
+    public CharacterIG getCharacterIG()
+    {
+        return new CharacterIG(this.id, this.name, this.stats);
+    }
+
     public static Character getFakeCharacter(){
-        Character c = new Character();
-        c.id = "001";
-        c.name="Pepe";
-        c.stats = new Stats(30,30,50);
+        Character c = new Character("001", "Pepe", new Stats(30,30,50));
         return c;
     }
 

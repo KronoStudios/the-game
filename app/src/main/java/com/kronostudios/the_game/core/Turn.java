@@ -4,10 +4,19 @@ import java.util.List;
 import java.util.Stack;
 
 public class Turn {
+    private static int counter = 0;
+
     private int number;
     private UserIG userIG;
     private int timer;
     private Stack<Action> actionList;
+
+    public Turn(UserIG userIG) {
+        this.userIG = userIG;
+        this.number = ++counter;
+        this.timer = 0;
+        this.actionList = new Stack<>();
+    }
 
     public int getNumber() {
         return number;
@@ -41,9 +50,11 @@ public class Turn {
         this.actionList = actionList;
     }
 
-    public void executeActions(){
-        while(actionList.size()<0){
-            actionList.pop().doAction();
+    public void executeActions() {
+        while(actionList.size() > 0) {
+            Action a = actionList.pop();
+            userIG.useCard(a.getCard());
+            a.doAction();
         }
     }
 }

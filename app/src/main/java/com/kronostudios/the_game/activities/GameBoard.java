@@ -8,6 +8,7 @@ import android.widget.TextView;
 
 import com.kronostudios.the_game.R;
 import com.kronostudios.the_game.core.AppController;
+import com.kronostudios.the_game.core.CharacterIG;
 import com.kronostudios.the_game.core.DeckIG;
 import com.kronostudios.the_game.core.Game;
 import com.kronostudios.the_game.models.Build;
@@ -53,26 +54,26 @@ public class GameBoard extends AppCompatActivity {
 
     public void populateGameBoard() {
 
-        Character playerChar1 = playerBuild.getCharacters().get(0);
-        Character playerChar2 = playerBuild.getCharacters().get(1);
-        Character playerChar3 = playerBuild.getCharacters().get(2);
+        CharacterIG playerChar1 = playerBuild.getCharacters().get(0).getCharacterIG();
+        CharacterIG playerChar2 = playerBuild.getCharacters().get(1).getCharacterIG();
+        CharacterIG playerChar3 = playerBuild.getCharacters().get(2).getCharacterIG();
 
-        tvplayer1.setText(playerChar1.getStats().getSta() + "/" + playerChar1.getStats().getSta());
+        tvplayer1.setText(playerChar1.getHealth() + "/" + playerChar1.getMaxHealth());
         btnPlayerChar1.setText(playerChar1.getName());
-        tvplayer2.setText(playerChar2.getStats().getSta() + "/" + playerChar2.getStats().getSta());
+        tvplayer2.setText(playerChar2.getHealth() + "/" + playerChar2.getMaxHealth());
         btnPlayerChar2.setText(playerChar2.getName());
-        tvplayer3.setText(playerChar3.getStats().getSta() + "/" + playerChar3.getStats().getSta());
+        tvplayer3.setText(playerChar3.getHealth() + "/" + playerChar3.getMaxHealth());
         btnPlayerChar3.setText(playerChar3.getName());
 
-        Character enemyChar1 = enemyBuild.getCharacters().get(0);
-        Character enemyChar2 = enemyBuild.getCharacters().get(1);
-        Character enemyChar3 = enemyBuild.getCharacters().get(2);
+        CharacterIG enemyChar1 = enemyBuild.getCharacters().get(0).getCharacterIG();
+        CharacterIG enemyChar2 = enemyBuild.getCharacters().get(1).getCharacterIG();
+        CharacterIG enemyChar3 = enemyBuild.getCharacters().get(2).getCharacterIG();
 
-        tvenemy1.setText(enemyChar1.getStats().getSta() + "/" + enemyChar1.getStats().getSta());
+        tvenemy1.setText(enemyChar1.getHealth() + "/" + enemyChar1.getMaxHealth());
         btnEnemyChar1.setText(enemyChar1.getName());
-        tvenemy2.setText(enemyChar2.getStats().getSta() + "/" + enemyChar2.getStats().getSta());
+        tvenemy2.setText(enemyChar2.getHealth() + "/" + enemyChar2.getMaxHealth());
         btnEnemyChar2.setText(enemyChar2.getName());
-        tvenemy3.setText(enemyChar3.getStats().getSta() + "/" + enemyChar3.getStats().getSta());
+        tvenemy3.setText(enemyChar3.getHealth() + "/" + enemyChar3.getMaxHealth());
         btnEnemyChar3.setText(enemyChar3.getName());
         
     }
@@ -90,7 +91,6 @@ public class GameBoard extends AppCompatActivity {
         btnEnemyChar1 = findViewById(R.id.btnCharEnemy1);
         btnEnemyChar2 = findViewById(R.id.btnCharEnemy2);
         btnEnemyChar3 = findViewById(R.id.btnCharEnemy3);
-
 
         tvplayer1 = findViewById(R.id.tvHealthChar1);
         tvplayer2 = findViewById(R.id.tvHealthChar2);

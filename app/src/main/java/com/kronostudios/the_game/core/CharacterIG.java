@@ -1,11 +1,19 @@
 package com.kronostudios.the_game.core;
 
 import com.kronostudios.the_game.models.Character;
+import com.kronostudios.the_game.models.Stats;
 
 public class CharacterIG extends Character {
     private int health;
     private int maxHealth;
     private int shield;
+
+    public CharacterIG(String id, String name, Stats stats) {
+        super(id, name, stats);
+        this.health = this.getStats().getSta();
+        this.maxHealth = this.getStats().getSta();
+        this.shield = 0;
+    }
 
     //mana
     public int getHealth() {

@@ -40,8 +40,7 @@ public class Action {
         this.target = target;
     }
 
-
-    public void doAction(){
+    public void doAction() {
         Effect e = card.effect(getExecutor().getStats());
         e.executeEffect(executor, target);
     }

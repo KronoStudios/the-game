@@ -40,9 +40,9 @@ public class User {
         this.rating = rating;
     }
 
-    public UserIG getUserIG()
+    public UserIG getUserIG(Build build)
     {
-        return new UserIG(this.id, this.name, this.rating);
+        return new UserIG(this.id, this.name, this.rating, build);
     }
 
     public static User getFakeUser(){

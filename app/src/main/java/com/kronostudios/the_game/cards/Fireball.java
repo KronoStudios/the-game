@@ -18,7 +18,7 @@ public class Fireball extends Card {
 
     private static final String id = "000001";
     private static final String name = "Fireball";
-    private static final String description = "Throws a fireball doing 6 dmg + intelect";
+    private static final String description = "Throws a fireball doing 6 dmg + intellect";
     private static final Stats statsRequired = new Stats(0,0,0);
     private static int baseDamage = 6;
 
