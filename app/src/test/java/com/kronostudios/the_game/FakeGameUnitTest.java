@@ -32,7 +32,7 @@ public class FakeGameUnitTest {
         assertEquals(UserIG.class, g.getPlayer1().getClass());
         assertNotNull(g.getPlayer1().getBuild());
         assertEquals(3, g.getPlayer1().getBuild().getCharacters().size());
-        assertEquals(6, g.getPlayer1().getBuild().getDeck().getCards().size());
+        assertEquals(6, g.getPlayer1().getDeck().getCards().size());
         assertEquals(3, g.getPlayer1().getHand().size());
     }
 
@@ -42,7 +42,7 @@ public class FakeGameUnitTest {
         assertEquals(UserIG.class, g.getPlayer2().getClass());
         assertNotNull(g.getPlayer2().getBuild());
         assertEquals(3, g.getPlayer2().getBuild().getCharacters().size());
-        assertEquals(6, g.getPlayer2().getBuild().getDeck().getCards().size());
+        assertEquals(6, g.getPlayer2().getDeck().getCards().size());
         assertEquals(3, g.getPlayer2().getHand().size());
     }
 
@@ -105,7 +105,7 @@ public class FakeGameUnitTest {
         g.changeTurn();
         g.changeTurn();
 
-        assertEquals(3, g.getCurrentTurn().getPlayer().getBuild().getDeck().getCards().size());
+        assertEquals(3, g.getCurrentTurn().getPlayer().getDeck().getCards().size());
 
         card1 = (Fireball) g.getCurrentTurn().getPlayer().getHand().get(0);
         card2 = (Fireball) g.getCurrentTurn().getPlayer().getHand().get(1);
@@ -138,7 +138,7 @@ public class FakeGameUnitTest {
 
         g.changeTurn();
 
-        assertEquals(0, g.getCurrentTurn().getPlayer().getBuild().getDeck().getCards().size());
+        assertEquals(0, g.getCurrentTurn().getPlayer().getDeck().getCards().size());
         card1 = (Fireball) g.getCurrentTurn().getPlayer().getHand().get(0);
         card2 = (Fireball) g.getCurrentTurn().getPlayer().getHand().get(1);
         card3 = (Fireball) g.getCurrentTurn().getPlayer().getHand().get(2);
@@ -170,7 +170,7 @@ public class FakeGameUnitTest {
 
         g.changeTurn();
 
-        assertEquals(6, g.getCurrentTurn().getPlayer().getBuild().getDeck().getCards().size());
+        assertEquals(6, g.getCurrentTurn().getPlayer().getDeck().getCards().size());
     }
 
 

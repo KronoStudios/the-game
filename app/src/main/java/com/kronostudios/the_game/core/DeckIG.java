@@ -31,7 +31,10 @@ public class DeckIG extends Deck {
     }
 
     public Card topDeck(){
-        return getCards().remove(0);
+        Stack<Card> aux = getCards();
+        Card cardDraw = aux.remove(0);
+        setCards(aux);
+        return cardDraw;
     }
 
     public Stack<Card> refillDeck(){

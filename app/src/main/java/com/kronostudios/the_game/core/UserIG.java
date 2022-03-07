@@ -37,6 +37,11 @@ public class UserIG extends User{
         this.hand = hand;
     }
 
+
+
+    public DeckIG getDeck() {
+        return deck;
+    }
     public List<Card> draw() {
         if(hand.size() < 3){
             while (hand.size() < 3){
