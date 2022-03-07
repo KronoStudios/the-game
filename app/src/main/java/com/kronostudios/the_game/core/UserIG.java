@@ -6,6 +6,7 @@ import com.kronostudios.the_game.models.User;
 
 import java.sql.Array;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class UserIG extends User{
@@ -52,6 +53,7 @@ public class UserIG extends User{
 
     public void useCard(Card c){
         hand.remove(c);
+        hand.removeAll(Collections.singleton(null));
         deck.getCardsDrawn().add(c);
     }
 }

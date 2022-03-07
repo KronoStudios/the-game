@@ -6,6 +6,7 @@ public class Character {
     private String id;
     private String name;
     private Stats stats;
+    private CharacterIG characterIG;
 
     public Character(String id, String name, Stats stats) {
         this.id = id;
@@ -39,7 +40,10 @@ public class Character {
 
     public CharacterIG getCharacterIG()
     {
-        return new CharacterIG(this.id, this.name, this.stats);
+        if(characterIG == null){
+            characterIG = new CharacterIG(this.id, this.name, this.stats);
+        }
+        return  characterIG;
     }
 
     public static Character getFakeCharacter(){

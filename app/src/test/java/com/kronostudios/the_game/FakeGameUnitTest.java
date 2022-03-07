@@ -19,8 +19,6 @@ import static org.junit.Assert.*;
  */
 public class FakeGameUnitTest {
 
-    private UserIG currentUser;
-
     private Game initializeGame() {
         UserIG u1 = User.getFakeUser().getUserIG(Build.getFakeBuild());
         UserIG u2 = User.getFakeUser().getUserIG(Build.getFakeBuild());
@@ -53,11 +51,134 @@ public class FakeGameUnitTest {
         Game g = initializeGame();
         assertNotNull(g.getCurrentTurn());
         assertNotNull(g.getCurrentTurn().getPlayer());
-        currentUser = g.getCurrentTurn().getPlayer();
     }
 
     @Test
     public void turn_works() {
+        Game g = initializeGame();
+
+        UserIG current1 = g.getCurrentTurn().getPlayer();
+
+        g.changeTurn();
+        assertEquals(current1, g.getPlayerWhosNotHisTurn());
+        assertNotEquals(current1, g.getCurrentTurn().getPlayer());
+    }
+
+
+    @Test
+    public void check_reshuffles_correctly() {
+        Game g = initializeGame();
+
+        UserIG current1 = g.getCurrentTurn().getPlayer();
+
+        CharacterIG source = g.getCurrentTurn().getPlayer().getBuild().getCharacters().get(0).getCharacterIG();
+        CharacterIG target1 = g.getPlayerWhosNotHisTurn().getBuild().getCharacters().get(0).getCharacterIG();
+        CharacterIG target2 = g.getPlayerWhosNotHisTurn().getBuild().getCharacters().get(1).getCharacterIG();
+        CharacterIG target3 = g.getPlayerWhosNotHisTurn().getBuild().getCharacters().get(2).getCharacterIG();
+        Fireball card1 = (Fireball) g.getCurrentTurn().getPlayer().getHand().get(0);
+        Fireball card2 = (Fireball) g.getCurrentTurn().getPlayer().getHand().get(1);
+        Fireball card3 = (Fireball) g.getCurrentTurn().getPlayer().getHand().get(2);
+
+        // Fake action 1
+        Action a1 = new Action();
+        a1.setExecutor(source);
+        a1.setCard(card1);
+        a1.setTarget(target1);
+
+        // Fake action 2
+        Action a2 = new Action();
+        a2.setExecutor(source);
+        a2.setCard(card2);
+        a2.setTarget(target2);
+
+        Action a3 = new Action();
+        a3.setExecutor(source);
+        a3.setCard(card3);
+        a3.setTarget(target3);
+
+        g.getCurrentTurn().getActionList().add(a1);
+        g.getCurrentTurn().getActionList().add(a2);
+        g.getCurrentTurn().getActionList().add(a3);
+
+        //3 cartas gastadas
+
+        g.changeTurn();
+        g.changeTurn();
+
+        assertEquals(3, g.getCurrentTurn().getPlayer().getBuild().getDeck().getCards().size());
+
+        card1 = (Fireball) g.getCurrentTurn().getPlayer().getHand().get(0);
+        card2 = (Fireball) g.getCurrentTurn().getPlayer().getHand().get(1);
+        card3 = (Fireball) g.getCurrentTurn().getPlayer().getHand().get(2);
+
+        // Fake action 1
+        a1 = new Action();
+        a1.setExecutor(source);
+        a1.setCard(card1);
+        a1.setTarget(target1);
+
+        // Fake action 2
+        a2 = new Action();
+        a2.setExecutor(source);
+        a2.setCard(card2);
+        a2.setTarget(target2);
+
+        a3 = new Action();
+        a3.setExecutor(source);
+        a3.setCard(card3);
+        a3.setTarget(target3);
+
+        g.getCurrentTurn().getActionList().add(a1);
+        g.getCurrentTurn().getActionList().add(a2);
+        g.getCurrentTurn().getActionList().add(a3);
+
+        //6 cartas gastadas
+
+        g.changeTurn();
+
+        g.changeTurn();
+
+        assertEquals(0, g.getCurrentTurn().getPlayer().getBuild().getDeck().getCards().size());
+        card1 = (Fireball) g.getCurrentTurn().getPlayer().getHand().get(0);
+        card2 = (Fireball) g.getCurrentTurn().getPlayer().getHand().get(1);
+        card3 = (Fireball) g.getCurrentTurn().getPlayer().getHand().get(2);
+
+        // Fake action 1
+        a1 = new Action();
+        a1.setExecutor(source);
+        a1.setCard(card1);
+        a1.setTarget(target1);
+
+        // Fake action 2
+        a2 = new Action();
+        a2.setExecutor(source);
+        a2.setCard(card2);
+        a2.setTarget(target2);
+
+        a3 = new Action();
+        a3.setExecutor(source);
+        a3.setCard(card3);
+        a3.setTarget(target3);
+
+        g.getCurrentTurn().getActionList().add(a1);
+        g.getCurrentTurn().getActionList().add(a2);
+        g.getCurrentTurn().getActionList().add(a3);
+
+        //9 cartas gastadas
+
+        g.changeTurn();
+
+        g.changeTurn();
+
+        assertEquals(6, g.getCurrentTurn().getPlayer().getBuild().getDeck().getCards().size());
+    }
+
+
+
+
+
+    @Test
+    public void actions_work() {
         Game g = initializeGame();
 
         CharacterIG source = g.getCurrentTurn().getPlayer().getBuild().getCharacters().get(0).getCharacterIG();
@@ -89,5 +210,25 @@ public class FakeGameUnitTest {
         assertEquals(0, g.getCurrentTurn().getActionList().size());
         assertEquals(expectedHp, target.getHealth());
     }
+
+
+    @Test
+    public void game_ends() {
+        Game g = initializeGame();
+
+        assertEquals(Game.RUNNING, g.getStatus());
+        CharacterIG enemy1 = g.getPlayerWhosNotHisTurn().getBuild().getCharacters().get(0).getCharacterIG();
+        CharacterIG enemy2 = g.getPlayerWhosNotHisTurn().getBuild().getCharacters().get(1).getCharacterIG();
+        CharacterIG enemy3 = g.getPlayerWhosNotHisTurn().getBuild().getCharacters().get(2).getCharacterIG();
+
+        enemy1.setHealth(0);
+        enemy2.setHealth(0);
+        enemy3.setHealth(0);
+
+        g.changeTurn();
+        assertEquals(g.getPlayerWhosNotHisTurn(),g.getWinner());
+        assertEquals(Game.FINISHED,g.getStatus());
+    }
+
 
 }
