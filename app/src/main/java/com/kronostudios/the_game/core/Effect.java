@@ -32,7 +32,9 @@ public class Effect {
     public void executeEffect(CharacterIG source, CharacterIG target){
         switch (effect){
             case DMGEFFECT:
-                target.setHealth(target.getHealth() - amount);
+                int finalHealth = target.getHealth() - amount;
+                finalHealth = finalHealth<0?finalHealth=0:finalHealth;
+                target.setHealth(finalHealth);
             case HEALEFFECT:
 
             case SHIELDEFFECT:

@@ -1,6 +1,7 @@
 package com.kronostudios.the_game.models;
 
 import com.kronostudios.the_game.cards.Fireball;
+import com.kronostudios.the_game.core.CharacterIG;
 import com.kronostudios.the_game.core.DeckIG;
 
 import java.util.ArrayList;
@@ -15,6 +16,7 @@ public class Deck {
     public String getId() {
         return id;
     }
+    public DeckIG deckIG;
 
     public Deck(String id, Stack<Card> cards) {
         this.id = id;
@@ -49,7 +51,10 @@ public class Deck {
     }
 
     public DeckIG getDeckIG() {
-        return new DeckIG(this.id, this.cards);
+        if(deckIG == null){
+            deckIG = new DeckIG(this.id, this.cards);
+        }
+        return  deckIG;
     }
 
 }

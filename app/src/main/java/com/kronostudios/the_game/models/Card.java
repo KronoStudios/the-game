@@ -15,10 +15,10 @@ public abstract class Card {
      *
      * Damage formula is 0,3 * stat + damage
      * **/
-    private static String id;
-    private static String name;
-    private static String description;
-    private static Stats statsRequired;
+    private String id;
+    private String name;
+    private String description;
+    private Stats statsRequired;
 
 
     public String getId() {

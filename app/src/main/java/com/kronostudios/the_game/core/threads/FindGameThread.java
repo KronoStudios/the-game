@@ -8,6 +8,7 @@ import com.kronostudios.the_game.activities.GameBoard;
 import com.kronostudios.the_game.activities.MainMenu;
 import com.kronostudios.the_game.activities.SplashScreen;
 import com.kronostudios.the_game.core.AppController;
+import com.kronostudios.the_game.core.FakeCoreClasses.FakeUserIG;
 import com.kronostudios.the_game.core.UserIG;
 import com.kronostudios.the_game.models.Build;
 import com.kronostudios.the_game.models.User;
@@ -57,7 +58,7 @@ public class FindGameThread extends Thread {
             @Override
             public void run() {
                 act.searchingGamePopup.dismiss();
-                UserIG rival = User.getFakeUser().getUserIG(Build.getFakeBuild());
+                FakeUserIG rival = new FakeUserIG(User.getFakeUser().getUserIG(Build.getFakeBuild()));
                 AppController.startGame(rival, act);
                 running = false;
             }

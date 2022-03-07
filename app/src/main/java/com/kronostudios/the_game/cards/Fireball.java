@@ -22,11 +22,15 @@ public class Fireball extends Card {
     private static final Stats statsRequired = new Stats(0,0,0);
     private static int baseDamage = 6;
 
+    public Fireball(){
+        super.setName(Fireball.name);
+    }
     @Override
     public Effect effect(Stats stats) {
         int amount = baseDamage + getDamage(stats.getIntel());
         return new Effect(amount,Effect.DMGEFFECT);
     }
+
 
     @Override
     public Effect altEffect(Stats stats) {

@@ -61,15 +61,14 @@ public class Game {
             //end game
             winner = getPlayerWhosNotHisTurn();
             status = FINISHED;
-            System.out.println("----- WINNER PLAYER WHO IS NOT HIS TURN-------");
-            //Log.d("FINISH GAME", "WINNER PLAYER 1");
+            System.out.println("----- WINNER PLAYER "+winner.getName()+"-------");
 
         }
         if(charsUsr2.get(0).getCharacterIG().getHealth()<=0 && charsUsr2.get(1).getCharacterIG().getHealth()<=0 && charsUsr2.get(2).getCharacterIG().getHealth()<=0){
             //end game
             winner = currentTurn.getPlayer();
             status = FINISHED;
-            System.out.println("----- WINNER PLAYER 1-------");
+            System.out.println("----- WINNER PLAYER "+winner.getName()+"-------");
         }
 
 

@@ -13,8 +13,17 @@ import com.kronostudios.the_game.models.Character;
  */
 public class Action {
     private Card card;
+
+
+
     private CharacterIG executor;
     private CharacterIG target;
+    public Action() {}
+    public Action(Card card, CharacterIG executor, CharacterIG target) {
+        this.card = card;
+        this.executor = executor;
+        this.target = target;
+    }
 
     public Card getCard() {
         return card;

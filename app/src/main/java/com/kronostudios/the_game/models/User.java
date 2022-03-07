@@ -1,5 +1,6 @@
 package com.kronostudios.the_game.models;
 
+import com.kronostudios.the_game.core.DeckIG;
 import com.kronostudios.the_game.core.UserIG;
 
 import java.util.Arrays;
@@ -9,6 +10,7 @@ public class User {
     private String id;
     private String name;
     private int rating;
+    private UserIG userIG;
 
     public User(String id, String name, int rating) {
         this.id = id;
@@ -42,7 +44,10 @@ public class User {
 
     public UserIG getUserIG(Build build)
     {
-        return new UserIG(this.id, this.name, this.rating, build);
+        if(userIG == null){
+            userIG = new UserIG(this.id, this.name, this.rating, build);
+        }
+        return  userIG;
     }
 
     public static User getFakeUser(){
