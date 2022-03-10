@@ -8,6 +8,7 @@ import com.kronostudios.the_game.core.UserIG;
 import com.kronostudios.the_game.models.Build;
 import com.kronostudios.the_game.models.User;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -19,16 +20,18 @@ import static org.junit.Assert.*;
  */
 public class FakeGameUnitTest {
 
-    private Game initializeGame() {
+    private Game g;
+
+    @Before
+    public void setUp() {
         UserIG u1 = User.getFakeUser().getUserIG(Build.getFakeBuild());
         UserIG u2 = User.getFakeUser().getUserIG(Build.getFakeBuild());
 
-        return new Game(u1, u2);
+        g = new Game(u1, u2);
     }
 
     @Test
     public void player1_is_valid() {
-        Game g = initializeGame();
         assertEquals(UserIG.class, g.getPlayer1().getClass());
         assertNotNull(g.getPlayer1().getBuild());
         assertEquals(3, g.getPlayer1().getBuild().getCharacters().size());
@@ -38,7 +41,6 @@ public class FakeGameUnitTest {
 
     @Test
     public void player2_is_valid() {
-        Game g = initializeGame();
         assertEquals(UserIG.class, g.getPlayer2().getClass());
         assertNotNull(g.getPlayer2().getBuild());
         assertEquals(3, g.getPlayer2().getBuild().getCharacters().size());
@@ -48,14 +50,12 @@ public class FakeGameUnitTest {
 
     @Test
     public void start_game_works() {
-        Game g = initializeGame();
         assertNotNull(g.getCurrentTurn());
         assertNotNull(g.getCurrentTurn().getPlayer());
     }
 
     @Test
     public void turn_works() {
-        Game g = initializeGame();
 
         UserIG current1 = g.getCurrentTurn().getPlayer();
 
@@ -67,8 +67,6 @@ public class FakeGameUnitTest {
 
     @Test
     public void check_reshuffles_correctly() {
-        Game g = initializeGame();
-
         UserIG current1 = g.getCurrentTurn().getPlayer();
 
         CharacterIG source = g.getCurrentTurn().getPlayer().getBuild().getCharacters().get(0).getCharacterIG();
@@ -179,7 +177,6 @@ public class FakeGameUnitTest {
 
     @Test
     public void actions_work() {
-        Game g = initializeGame();
 
         CharacterIG source = g.getCurrentTurn().getPlayer().getBuild().getCharacters().get(0).getCharacterIG();
         CharacterIG target = g.getPlayerWhosNotHisTurn().getBuild().getCharacters().get(0).getCharacterIG();
@@ -214,7 +211,6 @@ public class FakeGameUnitTest {
 
     @Test
     public void game_ends() {
-        Game g = initializeGame();
 
         assertEquals(Game.RUNNING, g.getStatus());
         CharacterIG enemy1 = g.getPlayerWhosNotHisTurn().getBuild().getCharacters().get(0).getCharacterIG();
