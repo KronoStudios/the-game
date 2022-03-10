@@ -1,5 +1,7 @@
 package com.kronostudios.the_game.core;
 
+import androidx.databinding.Bindable;
+
 import com.kronostudios.the_game.models.Character;
 import com.kronostudios.the_game.models.Stats;
 
@@ -15,13 +17,14 @@ public class CharacterIG extends Character {
         this.shield = 0;
     }
 
-    //mana
+    @Bindable
     public int getHealth() {
         return health;
     }
 
     public void setHealth(int health) {
         this.health = health;
+        notifyPropertyChanged(this.health);
     }
 
     public int getMaxHealth() {

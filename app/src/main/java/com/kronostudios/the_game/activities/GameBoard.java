@@ -182,6 +182,8 @@ public class GameBoard extends AppCompatActivity {
         }
     }
 
+
+
     public void selectExecutor(View v){
 
         btnPlayerChar1.setBackgroundColor(ContextCompat.getColor(getBaseContext(), R.color.gray));

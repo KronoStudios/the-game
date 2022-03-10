@@ -1,4 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <import type="android.view.View" />
+        <variable
+            name="characterViewModel"
+            type="com.kronostudios.the_game.viewmodel.CharacterViewModel" />
+        <variable
+            name="charIg"
+            type="com.kronostudios.the_game.core.CharacterIG"/>
+    </data>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -54,64 +64,65 @@
         app:layout_constraintStart_toStartOf="@+id/btnChar3"
         app:layout_constraintTop_toBottomOf="@+id/btnChar3" />
 
-    <Button
+    <androidx.fragment.app.FragmentContainerView
         android:id="@+id/btnCharEnemy1"
         android:layout_width="100dp"
         android:layout_height="175dp"
-        android:onClick="selectTarget"
-        android:text="Button"
+        android:onClick="@{()-> characterViewModel.setTarget(charIg)}"
+        android:name="com.kronostudios.the_game.activities.fragments.CharacterFragment"
         app:layout_constraintEnd_toStartOf="@+id/btnHand2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
+    <androidx.fragment.app.FragmentContainerView
         android:id="@+id/btnCharEnemy2"
+        android:onClick="@{()-> characterViewModel.setTarget(charIg)}"
+        android:name="com.kronostudios.the_game.activities.fragments.CharacterFragment"
         android:layout_width="100dp"
         android:layout_height="175dp"
-        android:onClick="selectTarget"
-        android:text="Button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
+    <androidx.fragment.app.FragmentContainerView
         android:id="@+id/btnCharEnemy3"
+        android:name="com.kronostudios.the_game.activities.fragments.CharacterFragment"
         android:layout_width="100dp"
         android:layout_height="175dp"
-        android:onClick="selectTarget"
-        android:text="Button"
+        android:onClick="@{()-> characterViewModel.setTarget(charIg)}"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/btnCharEnemy2"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
+    <androidx.fragment.app.FragmentContainerView
         android:id="@+id/btnChar1"
+        android:name="com.kronostudios.the_game.activities.fragments.CharacterFragment"
+        android:onClick="@{()-> characterViewModel.setExecutor(charIg)}"
         android:layout_width="100dp"
         android:layout_height="175dp"
-        android:onClick="selectExecutor"
-        android:text="Button"
         app:layout_constraintBottom_toTopOf="@+id/btnHand1"
         app:layout_constraintEnd_toStartOf="@+id/btnChar2"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnCharEnemy1" />
+        app:layout_constraintTop_toBottomOf="@+id/btnCharEnemy1"  />
 
-    <Button
+    <androidx.fragment.app.FragmentContainerView
         android:id="@+id/btnChar3"
         android:layout_width="100dp"
         android:layout_height="175dp"
-        android:onClick="selectExecutor"
+        android:onClick="@{()-> characterViewModel.setExecutor(charIg)}"
+        android:name="com.kronostudios.the_game.activities.fragments.CharacterFragment"
         android:text="Button"
         app:layout_constraintBottom_toTopOf="@+id/btnHand3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/btnChar2"
         app:layout_constraintTop_toBottomOf="@+id/btnCharEnemy3" />
 
-    <Button
+    <androidx.fragment.app.FragmentContainerView
         android:id="@+id/btnChar2"
         android:layout_width="100dp"
         android:layout_height="175dp"
-        android:onClick="selectExecutor"
-        android:text="Button"
+        android:onClick="@{()-> characterViewModel.setExecutor(charIg)}"
+        android:name="com.kronostudios.the_game.activities.fragments.CharacterFragment"
         app:layout_constraintBottom_toTopOf="@+id/btnHand2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -167,3 +178,4 @@
         tools:ignore="SmallSp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

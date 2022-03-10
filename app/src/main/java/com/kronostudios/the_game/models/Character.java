@@ -1,8 +1,10 @@
 package com.kronostudios.the_game.models;
 
+import androidx.databinding.BaseObservable;
+
 import com.kronostudios.the_game.core.CharacterIG;
 
-public class Character {
+public class Character extends BaseObservable {
     private String id;
     private String name;
     private Stats stats;
