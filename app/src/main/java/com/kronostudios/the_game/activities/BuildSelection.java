@@ -21,6 +21,11 @@ import com.kronostudios.the_game.core.AppController;
 import com.kronostudios.the_game.models.Build;
 import com.kronostudios.the_game.models.User;
 
+/**
+ * @author: gperez
+ *
+ * The Build Selection activity prompts the player to choose one Build to use in the upcoming game.
+ */
 public class BuildSelection extends AppCompatActivity {
 
     private User user;

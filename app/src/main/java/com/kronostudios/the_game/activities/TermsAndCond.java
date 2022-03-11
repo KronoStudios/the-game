@@ -13,6 +13,11 @@ import android.widget.TextView;
 import com.kronostudios.the_game.R;
 import com.kronostudios.the_game.core.AppController;
 
+/**
+ * @author: gperez
+ *
+ * The TermsAndCond activity shows the TOS to the player.
+ */
 public class TermsAndCond extends AppCompatActivity {
 
     @Override

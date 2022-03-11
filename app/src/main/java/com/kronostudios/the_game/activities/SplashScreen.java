@@ -9,6 +9,11 @@ import android.os.Handler;
 import com.kronostudios.the_game.R;
 import com.kronostudios.the_game.core.AppController;
 
+/**
+ * @author: gperez
+ *
+ * The SplashScreen is an auxiliar menu to redirect players to the AboutUs or TermsAndConditions activities.
+ */
 public class SplashScreen extends AppCompatActivity {
 
     @Override

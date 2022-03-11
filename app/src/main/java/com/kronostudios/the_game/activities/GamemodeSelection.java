@@ -12,6 +12,11 @@ import android.widget.Button;
 import com.kronostudios.the_game.R;
 import com.kronostudios.the_game.core.AppController;
 
+/**
+ * @author: gperez
+ *
+ * The GamemodeSelection prompts the player to choose between arena (PvP) or adventure (PvE).
+ */
 public class GamemodeSelection extends AppCompatActivity {
 
     // Menu buttons

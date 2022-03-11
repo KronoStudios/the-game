@@ -7,6 +7,11 @@ import android.widget.TextView;
 import com.kronostudios.the_game.R;
 import com.kronostudios.the_game.core.AppController;
 
+/**
+ * @author: gperez
+ *
+ * The About activity shows the version and authors of the application.
+ */
 public class About extends AppCompatActivity {
 
     @Override

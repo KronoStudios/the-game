@@ -13,6 +13,12 @@ import android.widget.PopupWindow;
 import com.kronostudios.the_game.R;
 import com.kronostudios.the_game.core.AppController;
 
+/**
+ * @author: gperez
+ *
+ * The MainMenu lets the player choose between Playing, editing his Profile or
+ * moving onto the CollectionMenu.
+ */
 public class MainMenu extends AppCompatActivity {
 
     // Legal popup

@@ -26,6 +26,13 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
 
+/**
+ * @author: gperez
+ *
+ * The GameBoard activity contains the elements of the game.
+ * It is divided in three rows of three elements each:
+ * the enemy Characters, the allied Characters and the three cards from the player's hand.
+ */
 public class GameBoard extends AppCompatActivity {
 
     Build playerBuild;
