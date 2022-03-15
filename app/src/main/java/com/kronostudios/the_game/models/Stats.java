@@ -1,5 +1,10 @@
 package com.kronostudios.the_game.models;
-
+/**
+ * @author: gcaballe
+ *
+ * The Stats of a character are strength, intellect and stamina.
+ * Stamina is the Health of the char, while strenght and intellect empower his abilities.
+ */
 public class Stats {
     private int str;
 

@@ -5,6 +5,11 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * @author: gcaballe
+ *
+ * A build is a set of Deck and three characters, that a User will create to use in a game.
+ */
 public class Build {
     private String id;
     private String name;

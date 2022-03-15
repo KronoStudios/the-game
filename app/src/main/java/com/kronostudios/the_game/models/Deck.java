@@ -10,6 +10,11 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Stack;
 
+/**
+ * @author: gcaballe
+ *
+ * The Deck class i just a stack of Cards.
+ */
 public class Deck {
     private String id;
     private Stack<Card> cards;
@@ -35,6 +40,12 @@ public class Deck {
         this.cards = cards;
     }
 
+    /**
+     * @author: gcaballe
+     *
+     * The FakeDeck is just a deck of nine Cards (all fireballs at the moment)
+     * This function will only be used during the development process
+     */
     public static Deck getFakeDeck(){
         Stack<Card> cards = new Stack<>();
         cards.push(new Fireball());
