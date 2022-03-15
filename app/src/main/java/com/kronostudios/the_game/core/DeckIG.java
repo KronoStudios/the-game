@@ -8,6 +8,13 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Stack;
 
+/**
+ * @author mfernandez
+ *
+ * The DeckIG class represents the deck of a player in a game.
+ * Consists of a list of Cards.
+ *
+ */
 public class DeckIG extends Deck {
 
     private List<Card> cardsDrawn;
@@ -25,11 +32,18 @@ public class DeckIG extends Deck {
         this.cardsDrawn = cardsDrawn;
     }
 
-
+    /**
+     * shuffle() sorts randomly the Stack<Cards> deck
+     */
     public void shuffle(){
         Collections.shuffle(super.getCards());
     }
 
+    /**
+     * Returns the top card of a Deck
+     *
+     * @return Stack<Card> deck
+     */
     public Card topDeck(){
         Stack<Card> aux = getCards();
         Card cardDraw = aux.remove(0);
@@ -37,6 +51,11 @@ public class DeckIG extends Deck {
         return cardDraw;
     }
 
+    /**
+     * Refills the DeckIG of the current game  with all the cards in the original Deck.
+     *
+     * @return Stack<Card> deck
+     */
     public Stack<Card> refillDeck(){
         Stack<Card> cards = new Stack<Card>();
         cards.addAll(cardsDrawn);

@@ -3,6 +3,12 @@ package com.kronostudios.the_game.core;
 import com.kronostudios.the_game.models.Character;
 import com.kronostudios.the_game.models.Stats;
 
+/**
+ * @author mfernandez
+ *
+ * CharacterIG class represents a Character in a game.
+ * Has the attributes maxHealth, health and shield
+ */
 public class CharacterIG extends Character {
     private int health;
     private int maxHealth;

@@ -3,6 +3,13 @@ package com.kronostudios.the_game.core;
 import java.util.List;
 import java.util.Stack;
 
+
+/**
+ * @author mfernandez
+ *
+ * The Turn class represents each turn of a game, when a player can execute actions.
+ * Consists of the UserIG that will execute actions, and a Stack<Action> actionList.
+ */
 public class Turn {
     private static int counter = 0;
 
@@ -50,6 +57,9 @@ public class Turn {
         this.actionList = actionList;
     }
 
+    /**
+     * executeActions() is called when the User finishes its turn. Executes all the selected actions.
+     */
     public void executeActions() {
         while(actionList.size() > 0) {
             Action a = actionList.pop();
