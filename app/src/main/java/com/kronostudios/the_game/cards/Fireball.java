@@ -16,15 +16,20 @@ import com.kronostudios.the_game.models.Stats;
  */
 public class Fireball extends Card {
 
-    private static final String id = "000001";
+    private static final long id = 1;
     private static final String name = "Fireball";
     private static final String description = "Throws a fireball doing 6 dmg + intellect";
     private static final Stats statsRequired = new Stats(0,0,0);
     private static int baseDamage = 6;
 
-    public Fireball(){
-        super.setName(Fireball.name);
+    public Fireball() {
+        super(Fireball.id, Fireball.name, Fireball.description, Fireball.statsRequired);
     }
+
+    public Fireball(long id, String name, String description) {
+        super(id, name, description, Fireball.statsRequired);
+    }
+
     @Override
     public Effect effect(Stats stats) {
         int amount = baseDamage + getDamage(stats.getIntel());
