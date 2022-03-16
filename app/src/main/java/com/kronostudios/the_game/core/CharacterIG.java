@@ -21,6 +21,33 @@ public class CharacterIG extends Character {
         this.shield = 0;
     }
 
+    /**
+     * Funció per centralitzar el damage dealt a un Character.
+     * Té en compte el shield actual.
+     *
+     * @param amount
+     */
+    public void recieveDamage(int amount) {
+        int shield = getShield();
+        if(shield > 0) {
+            if(shield >= amount) {
+                //shield més gran. P.e: Shield de 5, incoming damage 2, diff = 3
+                int diff = shield - amount;
+                setShield(diff);
+                amount = 0;
+            }else {
+                //shield més petit. P.e. Shield de 5, incoming damage 10, diff = 5
+                int diff = amount - shield;
+                setShield(0);
+                amount = diff;
+            }
+
+        }
+        int finalAmount = getHealth() - amount;
+        if(finalAmount < 0 ) finalAmount = 0;
+        setHealth(finalAmount);
+    }
+
     //mana
     public int getHealth() {
         return health;
