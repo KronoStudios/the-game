@@ -5,7 +5,12 @@ import com.kronostudios.the_game.core.UserIG;
 
 import java.util.Arrays;
 import java.util.List;
-
+/**
+ * @author: gcaballe
+ *
+ * The User class is user for login and saving Builds.
+ * Contains a UserIG class, which will be the user in game.
+ */
 public class User {
     private String id;
     private String name;

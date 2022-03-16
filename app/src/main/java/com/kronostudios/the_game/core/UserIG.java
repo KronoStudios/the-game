@@ -9,6 +9,13 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+/**
+ * @author mfernandez
+ *
+ * The UserIG class represents the player in a game.
+ * Consists of his chosen build, a list of 3 Cards on his hand,
+ * and his deck, with his remaining cards.
+ */
 public class UserIG extends User{
     private Build build;
     private List<Card> hand;
@@ -37,11 +44,18 @@ public class UserIG extends User{
         this.hand = hand;
     }
 
-
-
     public DeckIG getDeck() {
         return deck;
     }
+
+
+    /**
+     * Draws cards from the deck and puts in into the players' hand until he has three.
+     * Reshuffles the deck every time before drawing from the top of the stack.
+     * If the deck is empty, refillsDeck() first.
+     *
+     * @return List<Card> hand;
+     */
     public List<Card> draw() {
         if(hand.size() < 3){
             while (hand.size() < 3){
@@ -56,6 +70,11 @@ public class UserIG extends User{
         return hand;
     }
 
+    /**
+     * Called when executing an action. Removes the card from the current player's hand
+     *
+     * @param c Card
+     */
     public void useCard(Card c){
         hand.remove(c);
         hand.removeAll(Collections.singleton(null));

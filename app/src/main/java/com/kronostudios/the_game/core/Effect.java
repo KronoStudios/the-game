@@ -1,5 +1,11 @@
 package com.kronostudios.the_game.core;
 
+/**
+ * @author mfernandez
+ *
+ * The Effect class represents the effect that a Card executes on the game board.
+ * This effect could be damaging a Character, shielding or healing a Character, ...
+ */
 public class Effect {
 
     public static final int DMGEFFECT = 1;

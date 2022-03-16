@@ -2,6 +2,12 @@ package com.kronostudios.the_game.models;
 
 import com.kronostudios.the_game.core.CharacterIG;
 
+/**
+ * @author: gcaballe
+ *
+ * The Character class describes one of the three Characters in a Build.
+ * This Character has some defined stats.
+ */
 public class Character {
     private String id;
     private String name;
