@@ -35,12 +35,12 @@ import java.util.Stack;
  */
 public class GameBoard extends AppCompatActivity {
 
-    Build playerBuild;
-    Build enemyBuild;
+    public Build playerBuild;
+    public Build enemyBuild;
     UserIG player;
     FakeUserIG iaPlayer;
-    List<CharacterIG> listPlayerChars;
-    List<CharacterIG> listEnemyChars;
+    public List<CharacterIG> listPlayerChars;
+    public List<CharacterIG> listEnemyChars;
     Game g;
 
     Button btnPlayerChar1;
@@ -250,7 +250,7 @@ public class GameBoard extends AppCompatActivity {
         }else{
             target = enemyBuild.getCharacters().get(2).getCharacterIG();
         }
-        Action a = new Action(selectedCard, executor, target);
+        Action a = new Action(selectedCard, executor, target, this);
         g.getCurrentTurn().getActionList().add(a);
     }
 

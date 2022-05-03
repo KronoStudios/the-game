@@ -1,5 +1,7 @@
 package com.kronostudios.the_game.core;
 
+import com.kronostudios.the_game.activities.GameBoard;
+
 /**
  * @author mfernandez
  *
@@ -11,6 +13,7 @@ public class Effect {
     public static final int DMGEFFECT = 1;
     public static final int HEALEFFECT = 2;
     public static final int SHIELDEFFECT = 3;
+    public static final int AOEDMGEFFECT = 4;
     private int amount;
     private int effect;
 
@@ -35,16 +38,21 @@ public class Effect {
         this.effect = effect;
     }
 
-    public void executeEffect(CharacterIG source, CharacterIG target){
+    public void executeEffect(CharacterIG source, CharacterIG target, GameBoard gameBoard){
         switch (effect){
             case DMGEFFECT:
-                int finalHealth = target.getHealth() - amount;
+                /*int finalHealth = target.getHealth() - amount;
                 finalHealth = finalHealth<0?finalHealth=0:finalHealth;
-                target.setHealth(finalHealth);
+                target.setHealth(finalHealth);*/
+                target.recieveDamage(amount);
             case HEALEFFECT:
 
             case SHIELDEFFECT:
 
+            case AOEDMGEFFECT:
+                for(CharacterIG ch : gameBoard.listEnemyChars){
+                    ch.recieveDamage(amount);
+                }
         }
     }
 }

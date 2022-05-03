@@ -1,5 +1,6 @@
 package com.kronostudios.the_game.core;
 
+import com.kronostudios.the_game.activities.GameBoard;
 import com.kronostudios.the_game.models.Card;
 import com.kronostudios.the_game.models.Character;
 
@@ -18,8 +19,9 @@ public class Action {
 
     private CharacterIG executor;
     private CharacterIG target;
+    private GameBoard gameBoard;
     public Action() {}
-    public Action(Card card, CharacterIG executor, CharacterIG target) {
+    public Action(Card card, CharacterIG executor, CharacterIG target, GameBoard gameBoard) {
         this.card = card;
         this.executor = executor;
         this.target = target;
@@ -51,6 +53,6 @@ public class Action {
 
     public void doAction() {
         Effect e = card.effect(getExecutor().getStats());
-        e.executeEffect(executor, target);
+        e.executeEffect(executor, target, gameBoard);
     }
 }
