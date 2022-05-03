@@ -3,8 +3,6 @@ package com.kronostudios.the_game.loginUtils;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
-import com.kronostudios.the_game.AccountUtils;
-
 public class LoginViewModel {
 
     private MutableLiveData<String> emailLiveData;

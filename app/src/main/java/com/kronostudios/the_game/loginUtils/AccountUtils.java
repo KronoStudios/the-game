@@ -1,4 +1,4 @@
-package com.kronostudios.the_game;
+package com.kronostudios.the_game.loginUtils;
 
 import android.util.Base64;
 import android.util.Patterns;
