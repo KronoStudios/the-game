@@ -18,8 +18,9 @@
     <string name="select_mode">Selecciona un modo de juego</string>
     <string name="finding_game">Buscando una partida...</string>
     <string name="cancel">Cancelar</string>
-    <string name="email">Email</string>
+    <string name="next_turn">Siguiente turno</string>
+    <string name="email">E-mail</string>
     <string name="password">Password</string>
-    <string name="no_account_yet_create_one">Account doesnt exist, create one</string>
+    <string name="no_account_yet_create_one">Cuenta no existe, crea una</string>
     <string name="login">Login</string>
 </resources>
