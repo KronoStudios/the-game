@@ -3,6 +3,9 @@ package com.kronostudios.the_game.loginUtils;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
+import com.kronostudios.the_game.models.Result;
+import com.kronostudios.the_game.loginUtils.repositories.AccountRepo;
+
 public class LoginViewModel {
 
     private MutableLiveData<String> emailLiveData;
@@ -10,6 +13,10 @@ public class LoginViewModel {
     private MutableLiveData<String> passLiveData;
     private MutableLiveData<String> passErrorLiveData;
     private MutableLiveData<Boolean> isLogged;
+
+
+    private AccountRepo accountRepo;
+
 
     public LoginViewModel(){
         this.emailLiveData = new MutableLiveData<>();
@@ -102,7 +109,7 @@ public class LoginViewModel {
         String validPassword= AccountUtils.isPasswordValid(password);
         if ( validPassword != null){
             isValid = false;
-            errorPasswordLiveData.postValue(validPassword);
+            passErrorLiveData.postValue(validPassword);
         };
 
         return isValid;
