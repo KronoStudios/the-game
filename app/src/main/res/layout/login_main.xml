@@ -77,7 +77,7 @@
                 android:layout_marginBottom="24dp"
                 android:padding="12dp"
                 android:onClick="@{() -> loginViewModel.login()}"
-                android:enabled="@{!TextUtils.isEmpty(loginViewModel.emailLiveData) &amp;&amp; !TextUtils.isEmpty(loginViewModel.passwordLiveData) }"
+                android:enabled="@{!TextUtils.isEmpty(loginViewModel.emailLiveData) &amp;&amp; !TextUtils.isEmpty(loginViewModel.passLiveData) }"
                 android:text="@string/login" />
 
 
