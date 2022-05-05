@@ -12,7 +12,7 @@ public class LoginViewModel {
     private MutableLiveData<String> errorEmailLiveData;
     private MutableLiveData<String> passLiveData;
     private MutableLiveData<String> passErrorLiveData;
-    private MutableLiveData<Boolean> isLogged;
+    public MutableLiveData<Boolean> isLogged;
 
 
     private AccountRepo accountRepo;
@@ -24,6 +24,8 @@ public class LoginViewModel {
         this.passLiveData = new MutableLiveData<>();
         this.passErrorLiveData = new MutableLiveData<>();
         this.isLogged = new MutableLiveData<>();
+
+        this.accountRepo = new AccountRepo();
     }
 
     public MutableLiveData<String> getEmailLiveData() {
@@ -68,10 +70,9 @@ public class LoginViewModel {
 
 
     public void login(){
-/*
         // Get the data from fields
         String email = emailLiveData.getValue();
-        String password = passwordLiveData.getValue();
+        String password = passLiveData.getValue();
 
         // Form validator
         if (isFormValid(email,password)) {
@@ -86,7 +87,7 @@ public class LoginViewModel {
 
         // Call the repo passing the authorization token obtained from email and password
         this.accountRepo.login(AccountUtils.getAuthorizationToken(email, password));
-*/
+
     }
 
 
@@ -105,13 +106,13 @@ public class LoginViewModel {
             isValid = false;
             errorEmailLiveData.postValue(validEmail);
         };
-
+/*
         String validPassword= AccountUtils.isPasswordValid(password);
         if ( validPassword != null){
             isValid = false;
             passErrorLiveData.postValue(validPassword);
         };
-
+*/
         return isValid;
     }
 
