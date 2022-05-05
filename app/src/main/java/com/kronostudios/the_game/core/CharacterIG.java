@@ -48,6 +48,12 @@ public class CharacterIG extends Character {
         setHealth(finalAmount);
     }
 
+    public void recieveHeal(int amount) {
+        int health = getHealth();
+        int min = Math.min(health + amount, getMaxHealth());
+        setHealth(min);
+    }
+
     //mana
     public int getHealth() {
         return health;
@@ -72,4 +78,6 @@ public class CharacterIG extends Character {
     public void setShield(int shield) {
         this.shield = shield;
     }
+
+
 }

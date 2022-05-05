@@ -14,6 +14,8 @@ public class Effect {
     public static final int HEALEFFECT = 2;
     public static final int SHIELDEFFECT = 3;
     public static final int AOEDMGEFFECT = 4;
+    public static final int AOESHIELDEFFECT = 5;
+    public static final int AOEHEALEFFECT = 6;
     private int amount;
     private int effect;
 
@@ -52,6 +54,16 @@ public class Effect {
             case AOEDMGEFFECT:
                 for(CharacterIG ch : gameBoard.listEnemyChars){
                     ch.recieveDamage(amount);
+                }
+
+            case AOESHIELDEFFECT:
+                for(CharacterIG ch : gameBoard.listPlayerChars){
+                    ch.setShield(ch.getShield() + amount);
+                }
+
+            case AOEHEALEFFECT:
+                for(CharacterIG ch : gameBoard.listPlayerChars){
+                    ch.recieveHeal(amount);
                 }
         }
     }

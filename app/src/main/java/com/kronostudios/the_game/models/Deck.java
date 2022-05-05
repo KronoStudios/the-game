@@ -1,6 +1,6 @@
 package com.kronostudios.the_game.models;
 
-import com.kronostudios.the_game.cards.Fireball;
+import com.kronostudios.the_game.cards.*;
 import com.kronostudios.the_game.core.CharacterIG;
 import com.kronostudios.the_game.core.DeckIG;
 
@@ -50,12 +50,12 @@ public class Deck {
         Stack<Card> cards = new Stack<>();
         cards.push(new Fireball());
         cards.push(new Fireball());
-        cards.push(new Fireball());
-        cards.push(new Fireball());
-        cards.push(new Fireball());
-        cards.push(new Fireball());
-        cards.push(new Fireball());
-        cards.push(new Fireball());
+        cards.push(new SonicShield());
+        cards.push(new SonicShield());
+        cards.push(new MotherCellSpray());
+        cards.push(new MotherCellSpray());
+        cards.push(new PlasmaBomb());
+        cards.push(new PlasmaBomb());
         cards.push(new Fireball());
 
         return new Deck("1", cards);
