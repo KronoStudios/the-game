@@ -1,5 +1,6 @@
 package com.kronostudios.the_game.loginUtils;
 
+import android.content.SharedPreferences;
 import android.os.Build;
 import android.util.Base64;
 
@@ -8,6 +9,7 @@ import androidx.annotation.RequiresApi;
 import org.bouncycastle.crypto.digests.SHA256Digest;
 import org.bouncycastle.crypto.generators.PKCS5S2ParametersGenerator;
 import org.bouncycastle.crypto.params.KeyParameter;
+import org.json.JSONObject;
 
 import java.nio.charset.StandardCharsets;
 import java.util.Locale;
@@ -21,6 +23,12 @@ public class Utils {
             byte[] dk = ((KeyParameter) gen.generateDerivedParameters(256)).getKey();
             byte[] hashBase64 = Base64.encode(dk, Base64.DEFAULT);
             return new String(hashBase64);
+        }
+
+        public static void saveToken(JSONObject tokenObject){
+            SharedPreferences sp = PreferencesProvider.providePreferences();
+            sp.edit().putString("authToken", tokenObject.optString("token"));
+            System.out.println(tokenObject.toString());
         }
 
         @RequiresApi(api = Build.VERSION_CODES.O)
