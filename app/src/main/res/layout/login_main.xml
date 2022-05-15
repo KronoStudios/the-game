@@ -90,12 +90,12 @@
                 android:text="@string/no_account_yet_create_one"
                 android:textSize="16sp" />
 
-
+<!--
             <include
                 android:id="@+id/linearLayoutProgressBar"
                 layout="@layout/loading"
-                android:visibility="@{loginViewModel.isLogged ? View.VISIBLE : View.GONE}" />
-
+                android:visibility="@{loginViewModel.isLogged ? 0 : 2}" />
+-->
         </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>

@@ -9,6 +9,7 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.kronostudios.the_game.loginUtils.PreferencesProvider;
 import com.kronostudios.the_game.loginUtils.Utils;
 import com.kronostudios.the_game.models.Card;
 
@@ -19,7 +20,7 @@ import java.util.Map;
 
 public class APIController {
 
-    private static final String HOST = "http://192.168.1.52";
+    private static final String HOST = "http://192.168.1.52";//10.0.2.2
     private static final String PORT = ":8000";
     private static final String CHARSET = java.nio.charset.StandardCharsets.UTF_8.name();
 
@@ -42,7 +43,6 @@ public class APIController {
         };
 
         queue.add(request);
-
     }
     
     public static void Cards_Get(Context context) {
@@ -51,7 +51,15 @@ public class APIController {
         JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, HOST + PORT + "/cards", null, Card::populateCards, error -> {
             // TODO Handle response error
             Log.e("CARDS_GET", error.getLocalizedMessage());
-        });
+        }){
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                HashMap<String, String> headers = new HashMap<String, String>();
+                String auth = PreferencesProvider.providePreferences().getString("authToken","");
+                headers.put("Authorization", auth);
+                return headers;
+            }
+        };
 
         queue.add(request);
     }
