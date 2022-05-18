@@ -18,7 +18,6 @@ import com.kronostudios.the_game.models.Result;
 
 public class LoginMainActivity extends AppCompatActivity {
 
-
     private LoginViewModel loginViewModel;
     private LoginMainBinding activityLoginBinding;
     private String TAG = "AAAAAAAAAAAAAAAAAAAAAAa";

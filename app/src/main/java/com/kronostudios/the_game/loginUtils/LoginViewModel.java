@@ -2,11 +2,12 @@ package com.kronostudios.the_game.loginUtils;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
+import androidx.lifecycle.ViewModel;
 
 import com.kronostudios.the_game.models.Result;
 import com.kronostudios.the_game.loginUtils.repositories.AccountRepo;
 
-public class LoginViewModel {
+public class LoginViewModel extends ViewModel {
 
     private MutableLiveData<String> emailLiveData;
     private MutableLiveData<String> errorEmailLiveData;
