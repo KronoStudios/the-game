@@ -87,6 +87,7 @@ public class GameBoard extends AppCompatActivity {
     }
 
 
+    //TODO @Didac Encara que siguin obvies les funcions, documenteu-les. Expliqueu perque les feu i que fan.
     public void populateGameBoard() {
 
 
