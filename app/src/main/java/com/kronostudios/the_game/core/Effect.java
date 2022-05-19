@@ -47,24 +47,30 @@ public class Effect {
                 finalHealth = finalHealth<0?finalHealth=0:finalHealth;
                 target.setHealth(finalHealth);*/
                 target.recieveDamage(amount);
+                break;
             case HEALEFFECT:
 
+                break;
             case SHIELDEFFECT:
 
+                break;
             case AOEDMGEFFECT:
                 for(CharacterIG ch : gameBoard.listEnemyChars){
                     ch.recieveDamage(amount);
                 }
 
+                break;
             case AOESHIELDEFFECT:
                 for(CharacterIG ch : gameBoard.listPlayerChars){
                     ch.setShield(ch.getShield() + amount);
                 }
 
+                break;
             case AOEHEALEFFECT:
                 for(CharacterIG ch : gameBoard.listPlayerChars){
                     ch.recieveHeal(amount);
                 }
+                break;
         }
     }
 }

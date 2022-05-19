@@ -79,11 +79,13 @@ public abstract class Card {
         try {
             JSONArray jsonArray = cardsJSON.getJSONArray("cards");
 
+            if(cards == null) cards = new ArrayList<Card>() ;
             for (int i = 0; i < jsonArray.length(); i++) {
                 JSONObject o = jsonArray.getJSONObject(i);
                 Class<?> classToInstantiate = Class.forName(o.getString("java_class"));
                 Constructor<?> constructor = classToInstantiate.getConstructor(long.class, String.class, String.class);
                 Object instance = constructor.newInstance(o.getLong("id"), o.getString("name"), o.getString("description"));
+
                 cards.add((Card) instance);
 
                 Log.d("CARDS", ((Card) Objects.requireNonNull(classToInstantiate.cast(instance))).name);

@@ -3,6 +3,7 @@ package com.kronostudios.the_game.activities;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -66,6 +67,7 @@ public class GameBoard extends AppCompatActivity {
     public TextView tvenemy2;
     public TextView tvenemy3;
 
+    public static Context context;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -84,6 +86,8 @@ public class GameBoard extends AppCompatActivity {
             iaPlayer.setHand(g.getPlayer1().getHand());
         }
         initializeGame();
+
+        context = getApplicationContext();
     }
 
 

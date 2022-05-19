@@ -3,7 +3,9 @@ package com.kronostudios.the_game.core;
 import android.util.Log;
 
 import com.kronostudios.the_game.activities.BuildSelection;
+import com.kronostudios.the_game.activities.GameBoard;
 import com.kronostudios.the_game.models.Character;
+import com.kronostudios.the_game.models.GameResult;
 
 import java.util.List;
 
@@ -85,11 +87,21 @@ public class Game {
         List<Character> charsUsr1 = currentTurn.getPlayer().getBuild().getCharacters();
         List<Character> charsUsr2 = getPlayerWhosNotHisTurn().getBuild().getCharacters();
 
-        if(charsUsr1.get(0).getCharacterIG().getHealth()<=0 && charsUsr1.get(1).getCharacterIG().getHealth()<=0 && charsUsr1.get(2).getCharacterIG().getHealth()<=0){
+        //if all 3 chars of Player1 are dead
+        if(charsUsr1.get(0).getCharacterIG().getHealth()<=0&& charsUsr1.get(1).getCharacterIG().getHealth()<=0 && charsUsr1.get(2).getCharacterIG().getHealth()<=0){
             //end game
             winner = getPlayerWhosNotHisTurn();
             status = FINISHED;
             System.out.println("----- WINNER PLAYER "+winner.getName()+"-------");
+
+            //Creo un objecte GameResult per inserirlo a BD.
+            GameResult gameResult = new GameResult(
+                    Integer.parseInt(userIG1.getId()),
+                    Integer.parseInt(userIG2.getId()),
+                    Integer.parseInt(winner.getId()),
+                                    null);
+            APIController.Match_Post(GameBoard.context, gameResult);
+            //TO-DO remirar
 
         }
         if(charsUsr2.get(0).getCharacterIG().getHealth()<=0 && charsUsr2.get(1).getCharacterIG().getHealth()<=0 && charsUsr2.get(2).getCharacterIG().getHealth()<=0){

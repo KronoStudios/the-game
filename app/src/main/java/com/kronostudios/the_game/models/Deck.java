@@ -50,13 +50,20 @@ public class Deck {
         Stack<Card> cards = new Stack<>();
         cards.push(new Fireball());
         cards.push(new Fireball());
-        cards.push(new SonicShield());
-        cards.push(new SonicShield());
-        cards.push(new MotherCellSpray());
-        cards.push(new MotherCellSpray());
-        cards.push(new PlasmaBomb());
-        cards.push(new PlasmaBomb());
         cards.push(new Fireball());
+        cards.push(new Fireball());
+        cards.push(new Fireball());
+        cards.push(new Fireball());
+        cards.push(new Fireball());
+        cards.push(new Fireball());
+        cards.push(new Fireball());
+        //cards.push(new SonicShield());
+        //cards.push(new SonicShield());
+        //cards.push(new MotherCellSpray());
+        //cards.push(new MotherCellSpray());
+        //cards.push(new PlasmaBomb());
+        //cards.push(new PlasmaBomb());
+        //cards.push(new Fireball());
 
         return new Deck("1", cards);
     }
