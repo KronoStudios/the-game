@@ -1,5 +1,7 @@
 package com.kronostudios.the_game.loginUtils;
 
+import android.util.Log;
+
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
@@ -9,10 +11,12 @@ import com.kronostudios.the_game.loginUtils.repositories.AccountRepo;
 
 public class LoginViewModel extends ViewModel {
 
-    private MutableLiveData<String> emailLiveData;
-    private MutableLiveData<String> errorEmailLiveData;
-    private MutableLiveData<String> passLiveData;
-    private MutableLiveData<String> passErrorLiveData;
+    private String TAG = "LoginViewModel";
+
+    public MutableLiveData<String> emailLiveData;
+    public MutableLiveData<String> errorEmailLiveData;
+    public MutableLiveData<String> passLiveData;
+    public MutableLiveData<String> passErrorLiveData;
     public MutableLiveData<Boolean> isLogged;
 
 
@@ -74,6 +78,10 @@ public class LoginViewModel extends ViewModel {
         // Get the data from fields
         String email = emailLiveData.getValue();
         String password = passLiveData.getValue();
+
+        Log.d(TAG, "email -> " + email);
+        Log.d(TAG, "password -> " + password);
+
 
         // Form validator
         if (isFormValid(email,password)) {

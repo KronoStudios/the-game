@@ -25,7 +25,7 @@ public class SplashScreen extends AppCompatActivity {
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                AppController.changeActivity(SplashScreen.this, MainMenu.class);
+                AppController.changeActivity(SplashScreen.this, LoginMainActivity.class);
             }
         }, 2000);
     }

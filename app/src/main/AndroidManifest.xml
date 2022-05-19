@@ -30,6 +30,9 @@
             android:name=".activities.TermsAndCond"
             android:exported="false" />
         <activity
+            android:name=".activities.LoginMainActivity"
+            android:exported="false" />
+        <activity
             android:name=".activities.MainMenu"
             android:exported="false"
             android:noHistory="true" />

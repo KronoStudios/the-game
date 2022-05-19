@@ -19,7 +19,7 @@ import com.kronostudios.the_game.models.Result;
 public class LoginMainActivity extends AppCompatActivity {
 
     private LoginViewModel loginViewModel;
-    private LoginMainBinding activityLoginBinding;
+    private LoginMainBinding loginMainBinding;
     private String TAG = "AAAAAAAAAAAAAAAAAAAAAAa";
 
     @Override
@@ -91,10 +91,10 @@ public class LoginMainActivity extends AppCompatActivity {
 
 
     private void initDataBinding() {
-        activityLoginBinding =
+        loginMainBinding =
                 DataBindingUtil.setContentView(this,R.layout.login_main);
-        activityLoginBinding.setLoginViewModel(loginViewModel);
-        activityLoginBinding.setLifecycleOwner(this);
+        loginMainBinding.setLoginViewModel(loginViewModel);
+        loginMainBinding.setLifecycleOwner(this);
     }
 
 }
