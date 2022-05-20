@@ -5,6 +5,7 @@ import android.util.Log;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
+import com.kronostudios.the_game.core.APIController;
 import com.kronostudios.the_game.loginUtils.Account;
 import com.kronostudios.the_game.loginUtils.helpers.ApiCallback;
 import com.kronostudios.the_game.loginUtils.service.AccountService;
@@ -58,21 +59,6 @@ public class AccountRepo {
             }
         });
     }
-/*
-    public void login2(String authorizationToken) {
-        this.accountService.createTokenUser(authorizationToken).enqueue(new Callback<Account>() {
-            @Override
-            public void onResponse(Call<Account> call, Response<Account> response) {
-
-            }
-
-            @Override
-            public void onFailure(Call<Account> call, Throwable t) {
-
-            }
-        });
-    }*/
-
     // Gets the answer to login query
     public LiveData<Result<String>> getLoginResult(){
         return this.loginResultLiveData;

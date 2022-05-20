@@ -22,7 +22,7 @@ import java.util.Map;
 
 public class APIController {
 
-    private static final String HOST = "http://192.168.1.91";//10.0.2.2
+    private static final String HOST = "http://192.168.1.45";//10.0.2.2
     private static final String PORT = ":8000";
     private static final String CHARSET = java.nio.charset.StandardCharsets.UTF_8.name();
 
@@ -99,6 +99,34 @@ public class APIController {
 
         queue.add(request);
     }
+
+    /**
+     * Aquesta crida es un INSERT de user.
+     * @param context
+     */
+    public static void User_Post(Context context, String username, String mail, String pass) {
+        RequestQueue queue = Volley.newRequestQueue(context);
+
+        JSONObject jsonBody = new JSONObject();
+        //ara mateix HardCoded per que no podem executar l'aplicació.
+        //TO-DO: pasar aquests parametres a la funcio Match_Post
+        try {
+            jsonBody.put("username",username);
+            jsonBody.put("name",username);
+            jsonBody.put("password", pass);
+            jsonBody.put("email", mail);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, HOST + PORT + "/users", jsonBody, null, error -> {
+            // TODO Handle response error
+            Log.e("MATCH_POST", error.getLocalizedMessage());
+        });
+
+        queue.add(request);
+    }
+
 
     
 }

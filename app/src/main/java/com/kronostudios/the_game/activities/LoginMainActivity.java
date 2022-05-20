@@ -8,8 +8,10 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 
 import com.kronostudios.the_game.R;
+import com.kronostudios.the_game.RegisterUserActivity;
 import com.kronostudios.the_game.databinding.LoginMainBinding;
 import com.kronostudios.the_game.loginUtils.LoginViewModel;
 import com.kronostudios.the_game.loginUtils.PreferencesProvider;
@@ -59,7 +61,7 @@ public class LoginMainActivity extends AppCompatActivity {
         UIUtils.showAlert(this,"Error", errorMessage, "Ok",positiveAction ,null,null, false);
     }
 
-    public void goTo(Class _class){
+    public void goTo (Class _class){
         Intent intent = new Intent(this, _class);
         startActivity(intent);
     }
@@ -97,4 +99,7 @@ public class LoginMainActivity extends AppCompatActivity {
         loginMainBinding.setLifecycleOwner(this);
     }
 
+    public void moveToRegister(View view) {
+        startActivity(new Intent(this, RegisterUserActivity.class));
+    }
 }

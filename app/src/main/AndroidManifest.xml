@@ -15,6 +15,9 @@
         android:theme="@style/Theme.Thegame"
         tools:targetApi="n">
         <activity
+            android:name=".RegisterUserActivity"
+            android:exported="false" />
+        <activity
             android:name=".activities.GameBoard"
             android:exported="false" />
         <activity
