@@ -1,11 +1,9 @@
 package com.kronostudios.the_game.core;
 
-import android.util.Log;
-
 import com.kronostudios.the_game.activities.BuildSelection;
 import com.kronostudios.the_game.activities.GameBoard;
 import com.kronostudios.the_game.models.Character;
-import com.kronostudios.the_game.models.GameResult;
+import com.kronostudios.the_game.models.MatchResult;
 
 import java.util.List;
 
@@ -95,11 +93,10 @@ public class Game {
             System.out.println("----- WINNER PLAYER "+winner.getName()+"-------");
 
             //Creo un objecte GameResult per inserirlo a BD.
-            GameResult gameResult = new GameResult(
-                    Integer.parseInt(userIG1.getId()),
-                    Integer.parseInt(userIG2.getId()),
-                    Integer.parseInt(winner.getId()),
-                                    null);
+            MatchResult gameResult = new MatchResult(
+                    userIG1.getId(),
+                    userIG2.getId(),
+                    winner.getId(), null);
             APIController.Match_Post(GameBoard.context, gameResult);
             //TO-DO remirar
 

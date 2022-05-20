@@ -7,22 +7,26 @@ import android.util.Log;
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
+import com.android.volley.Response;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.kronostudios.the_game.loginUtils.PreferencesProvider;
 import com.kronostudios.the_game.loginUtils.Utils;
 import com.kronostudios.the_game.models.Card;
-import com.kronostudios.the_game.models.GameResult;
+import com.kronostudios.the_game.models.MatchResult;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class APIController {
 
-    private static final String HOST = "http://192.168.1.45";//10.0.2.2
+    private static final String HOST = "http://192.168.1.77";//10.0.2.2
     private static final String PORT = ":8000";
     private static final String CHARSET = java.nio.charset.StandardCharsets.UTF_8.name();
 
@@ -66,11 +70,34 @@ public class APIController {
         queue.add(request);
     }
 
+    public static void MatchResults_Get(Context context, int user_id) {
+        RequestQueue queue = Volley.newRequestQueue(context);
+
+        JsonObjectRequest request =
+                new JsonObjectRequest(Request.Method.GET,
+                HOST + PORT + "/games/" + user_id,
+                null,
+                MatchResult::populateMatchHistory,
+                error -> {
+                        Log.e("MatchResults_Get", error.getLocalizedMessage());
+                }){
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                HashMap<String, String> headers = new HashMap<String, String>();
+                String auth = PreferencesProvider.providePreferences().getString("authToken","");
+                headers.put("Authorization", auth);
+                return headers;
+            }
+        };
+
+        queue.add(request);
+    }
+
     /**
      * Aquesta crida es un INSERT de match.
      * @param context
      */
-    public static void Match_Post(Context context, GameResult gameResult) {
+    public static void Match_Post(Context context, MatchResult gameResult) {
         RequestQueue queue = Volley.newRequestQueue(context);
 
         JSONObject jsonBody = new JSONObject();

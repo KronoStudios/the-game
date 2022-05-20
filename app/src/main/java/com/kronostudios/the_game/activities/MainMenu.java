@@ -35,6 +35,7 @@ public class MainMenu extends AppCompatActivity {
         setContentView(R.layout.activity_main_menu);
 
         APIController.Cards_Get(getApplicationContext());
+        APIController.MatchResults_Get(getApplicationContext(), 1);
 
         legalPopupOpened = false;
     }
@@ -63,7 +64,7 @@ public class MainMenu extends AppCompatActivity {
      * @param v
      */
     public void onProfileButtonPressed(View v) {
-        // TODO Profile button method
+        AppController.changeActivity(MainMenu.this, MatchHistoryActivity.class);
     }
 
     /**
