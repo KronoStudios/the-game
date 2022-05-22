@@ -58,7 +58,7 @@ public class FindGameThread extends Thread {
             @Override
             public void run() {
                 act.searchingGamePopup.dismiss();
-                FakeUserIG rival = new FakeUserIG(User.getFakeUser().getUserIG(Build.getFakeBuild()));
+                FakeUserIG rival = new FakeUserIG(User.getFakeUser().getUserIG(Build.getFakeBuild2()));
                 AppController.startGame(rival, act);
                 running = false;
             }

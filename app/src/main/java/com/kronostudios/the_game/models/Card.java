@@ -37,6 +37,14 @@ public abstract class Card {
         this.statsRequired = statsRequired;
     }
 
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
     private static List<Card> cards;
 
     public long getId() {

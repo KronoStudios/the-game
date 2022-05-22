@@ -15,7 +15,7 @@ import com.kronostudios.the_game.models.Stats;
 public class PlasmaBomb extends Card {
 
     private static final long id = 1;
-    private static final String name = "PlasmaBomb";
+    private static final String name = "Plasma Bomb";
     private static final String description = "Throws a plasma bomb that affect all enemy targets doing 3 dmg + intellect";
     private static final Stats statsRequired = new Stats(0,0,0);
     private static int baseDamage = 3;

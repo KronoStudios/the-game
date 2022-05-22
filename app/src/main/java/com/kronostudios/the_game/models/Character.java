@@ -53,7 +53,7 @@ public class Character {
     }
 
     public static Character getFakeCharacter(){
-        Character c = new Character("001", "Pepe", new Stats(30,30,50));
+        Character c = new Character("001", "Pepe", new Stats(5,5,50));
         return c;
     }
 

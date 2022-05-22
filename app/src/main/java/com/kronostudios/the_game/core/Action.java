@@ -25,6 +25,7 @@ public class Action {
         this.card = card;
         this.executor = executor;
         this.target = target;
+        this.gameBoard = gameBoard;
     }
 
     public Card getCard() {

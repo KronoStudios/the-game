@@ -57,4 +57,14 @@ public class MatchHistoryActivity extends AppCompatActivity implements MatchResu
     public void onItemClick(View view, int position) {
         Toast.makeText(this, "You clicked " + adapter.getItem(position) + " on row number " + position, Toast.LENGTH_SHORT).show();
     }
+
+    /**
+     * Simple go back to MainMenu
+     * @return void
+     */
+    @Override
+    public void onBackPressed() {
+        finish();
+    }
+
 }

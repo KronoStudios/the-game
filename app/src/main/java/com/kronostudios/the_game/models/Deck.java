@@ -18,6 +18,9 @@ import java.util.Stack;
 public class Deck {
     private String id;
     private Stack<Card> cards;
+
+
+
     public String getId() {
         return id;
     }
@@ -53,19 +56,27 @@ public class Deck {
         cards.push(new Fireball());
         cards.push(new Fireball());
         cards.push(new Fireball());
-        cards.push(new Fireball());
-        cards.push(new Fireball());
-        cards.push(new Fireball());
-        cards.push(new Fireball());
-        //cards.push(new SonicShield());
-        //cards.push(new SonicShield());
-        //cards.push(new MotherCellSpray());
-        //cards.push(new MotherCellSpray());
-        //cards.push(new PlasmaBomb());
-        //cards.push(new PlasmaBomb());
-        //cards.push(new Fireball());
+        cards.push(new PlasmaBomb());
+        cards.push(new SonicShield());
+        cards.push(new MotherCellSpray());
+        cards.push(new PlasmaBomb());
 
         return new Deck("1", cards);
+    }
+
+    public static Deck getFakeDeck2() {
+        Stack<Card> cards = new Stack<>();
+        cards.push(new Fireball());
+        cards.push(new Fireball());
+        cards.push(new Fireball());
+        cards.push(new Fireball());
+        cards.push(new Fireball());
+        cards.push(new Fireball());
+        cards.push(new Fireball());
+        cards.push(new Fireball());
+        cards.push(new Fireball());
+
+        return new Deck("2", cards);
     }
 
     public DeckIG getDeckIG() {

@@ -3,6 +3,7 @@ package com.kronostudios.the_game.adapters;
 import android.content.Context;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.kronostudios.the_game.R;
+import com.kronostudios.the_game.loginUtils.PreferencesProvider;
 import com.kronostudios.the_game.models.MatchResult;
 
 import java.util.List;
@@ -34,15 +36,17 @@ public class MatchResultAdapter extends RecyclerView.Adapter<MatchResultAdapter.
 
         //TO-DO agafar ID de user loged per mirar si sóc el player1 o player2
         String logedUserName = "zstevens";
+        String email = PreferencesProvider.providePreferences().getString("email", "");
+        Log.d("Agafo email -->: ", email);
 
         MatchResult matchResult = mData.get(position);
 
         holder.tvPlayedAt.setText(matchResult.getPlayedAt());
-        holder.tvPlayer1.setText(matchResult.getUser1_id());
+        holder.tvPlayer1.setText(matchResult.getUser1_id());    
         holder.tvPlayer2.setText((matchResult.getUser2_id()));
 
         //Paint the background
-        String color = logedUserName.equals(matchResult.getUser_winner_id())?"#a4c639": "#c65b39";
+        String color = email.equals(matchResult.getUser_winner_id())?"#a4c639": "#c65b39";
         holder.itemView.setBackgroundColor(Color.parseColor(color));
 
     }

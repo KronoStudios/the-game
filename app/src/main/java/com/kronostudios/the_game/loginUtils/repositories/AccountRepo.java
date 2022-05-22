@@ -44,6 +44,10 @@ public class AccountRepo {
             public void onResponseSuccess(Call<Account> call, Response<Account> response) {
                 Log.d(TAG, "login() -> onResponseSuccess -> " + response.body().toString());
                 String token = response.body().getToken();
+
+                String user_id = response.body().getUser_id();
+                Log.d(TAG, "login() -> onResponseSuccess (user_id) -> " + user_id);
+
                 Log.d(TAG, "login() -> onResponseSuccess -> " + token);
                 loginResult = Result.success(response.body().getToken());
                 Log.d(TAG, "login() -> onResponseSuccess / getResult-> " + loginResult.getResult());

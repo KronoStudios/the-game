@@ -9,6 +9,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.TextView;
+
 
 import com.kronostudios.the_game.R;
 import com.kronostudios.the_game.RegisterUserActivity;
@@ -41,9 +43,15 @@ public class LoginMainActivity extends AppCompatActivity {
                 loginViewModel.isLogged.postValue(false);
                 if (tokenResult.getResult() != null){
                     Log.d(TAG,"Login successful, token obtained.");
+
                     PreferencesProvider.providePreferences().edit().putString("token",
                             tokenResult.getResult()).commit();
                     Log.d(TAG,"Login successful, add token to SharedPreferences.");
+
+                    TextView tvEmail = findViewById(R.id.editTextEmail);
+                    PreferencesProvider.providePreferences().edit().putString("email", tvEmail.getText().toString()).commit();
+                    Log.d(TAG,"Successfully saved email.");
+
                     goTo(MainMenu.class);
                 }
                 else{

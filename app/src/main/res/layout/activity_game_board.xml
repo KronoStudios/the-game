@@ -60,7 +60,7 @@
         android:layout_height="175dp"
         android:onClick="selectTarget"
         android:text="Button"
-        app:layout_constraintEnd_toStartOf="@+id/btnHand2"
+        app:layout_constraintEnd_toStartOf="@+id/hand2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -90,7 +90,7 @@
         android:layout_height="175dp"
         android:onClick="selectExecutor"
         android:text="Button"
-        app:layout_constraintBottom_toTopOf="@+id/btnHand1"
+        app:layout_constraintBottom_toTopOf="@+id/hand1"
         app:layout_constraintEnd_toStartOf="@+id/btnChar2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnCharEnemy1" />
@@ -101,7 +101,7 @@
         android:layout_height="175dp"
         android:onClick="selectExecutor"
         android:text="Button"
-        app:layout_constraintBottom_toTopOf="@+id/btnHand3"
+        app:layout_constraintBottom_toTopOf="@+id/hand3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/btnChar2"
         app:layout_constraintTop_toBottomOf="@+id/btnCharEnemy3" />
@@ -112,58 +112,154 @@
         android:layout_height="175dp"
         android:onClick="selectExecutor"
         android:text="Button"
-        app:layout_constraintBottom_toTopOf="@+id/btnHand2"
+        app:layout_constraintBottom_toTopOf="@+id/hand2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnCharEnemy2" />
 
-    <Button
+    <!--<Button
         android:id="@+id/btnHand1"
         android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_height="150dp"
         android:textSize="10sp"
         android:onClick="useCard"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/btnHand2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvHealthChar1"
-        tools:ignore="SmallSp" />
+        tools:ignore="SmallSp" /> -->
 
+    <LinearLayout
+        android:layout_width="100dp"
+        android:layout_height="150dp"
+        android:id="@+id/hand1"
+        android:onClick="useCard"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/hand2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvHealthChar1">
+        <Button
+            android:id="@+id/btnHand1"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:textSize="10sp"
+            tools:ignore="SmallSp" />
+        <ImageView
+            android:id="@+id/hand1image"
+            android:layout_width="100dp"
+            android:layout_height="70dp"
+            android:src="@drawable/logo"
+            android:scaleType="centerCrop"/>
+        <TextView
+            android:id="@+id/hand1name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Card Name"
+            android:textSize="8sp"/>
+        <TextView
+            android:id="@+id/hand1desc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="8sp"
+            android:text="Effect: description of effect" />
+    </LinearLayout>
+
+    <!--
     <Button
         android:id="@+id/btnHand2"
         android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_height="150dp"
         android:onClick="useCard"
         android:textSize="10sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvHealthChar2"
-        tools:ignore="SmallSp" />
-
-    <Button
-        android:id="@+id/btnHand3"
+        tools:ignore="SmallSp" />-->
+    <LinearLayout
         android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_height="150dp"
+        android:id="@+id/hand2"
         android:onClick="useCard"
-        android:textSize="10sp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/hand3"
+        app:layout_constraintStart_toEndOf="@id/hand1"
+        app:layout_constraintTop_toBottomOf="@+id/tvHealthChar2">
+        <Button
+            android:id="@+id/btnHand2"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:textSize="10sp"
+            tools:ignore="SmallSp" />
+        <ImageView
+            android:id="@+id/hand2image"
+            android:layout_width="100dp"
+            android:layout_height="70dp"
+            android:src="@drawable/logo"
+            android:scaleType="centerCrop"/>
+        <TextView
+            android:id="@+id/hand2name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Card Name"
+            android:textSize="8sp"/>
+        <TextView
+            android:id="@+id/hand2desc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="8sp"
+            android:text="Effect: description of effect" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="100dp"
+        android:layout_height="150dp"
+        android:id="@+id/hand3"
+        android:onClick="useCard"
+        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/btnHand2"
-        app:layout_constraintTop_toBottomOf="@+id/tvHealthChar3"
-        tools:ignore="SmallSp" />
+        app:layout_constraintStart_toEndOf="@id/hand2"
+        app:layout_constraintTop_toBottomOf="@+id/tvHealthChar3">
+        <Button
+            android:id="@+id/btnHand3"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:textSize="10sp"
+            tools:ignore="SmallSp" />
+        <ImageView
+            android:id="@+id/hand3image"
+            android:layout_width="100dp"
+            android:layout_height="70dp"
+            android:src="@drawable/logo"
+            android:scaleType="centerCrop"/>
+        <TextView
+            android:id="@+id/hand3name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Card Name"
+            android:textSize="8sp"/>
+        <TextView
+            android:id="@+id/hand3desc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="8sp"
+            android:text="Effect: description of effect" />
+    </LinearLayout>
+
 
     <Button
         android:id="@+id/btnNextTurn"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
-        android:text="@string/next_turn"
         android:onClick="endTurn"
+        android:text="@string/next_turn"
         android:textSize="10sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/btnHand2"
-        app:layout_constraintTop_toBottomOf="@+id/btnHand3"
+        app:layout_constraintStart_toEndOf="@+id/hand2"
         tools:ignore="SmallSp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

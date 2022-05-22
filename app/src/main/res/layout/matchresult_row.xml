@@ -15,7 +15,7 @@
         android:orientation="vertical"
         tools:ignore="MissingConstraints">
 
-        <LinearLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal|center_vertical"
@@ -49,15 +49,26 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-        </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
+        <!--
         <TextView
-            android:id="@+id/tvPlayedAt"
+
             android:layout_width="match_parent"
             android:layout_height="100dp"
-
+            android:background="@color/blue"
             android:gravity="center"
-            android:text="Placeholder Date" />
+            android:text="Placeholder Date" />-->
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvPlayedAt"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="hh:mm dd/MM/yyyy">
+
+        </TextView>
 
     </LinearLayout>
 

@@ -92,13 +92,6 @@ public class Game {
             status = FINISHED;
             System.out.println("----- WINNER PLAYER "+winner.getName()+"-------");
 
-            //Creo un objecte GameResult per inserirlo a BD.
-            MatchResult gameResult = new MatchResult(
-                    userIG1.getId(),
-                    userIG2.getId(),
-                    winner.getId(), null);
-            APIController.Match_Post(GameBoard.context, gameResult);
-            //TO-DO remirar
 
         }
         if(charsUsr2.get(0).getCharacterIG().getHealth()<=0 && charsUsr2.get(1).getCharacterIG().getHealth()<=0 && charsUsr2.get(2).getCharacterIG().getHealth()<=0){
@@ -108,6 +101,14 @@ public class Game {
             System.out.println("----- WINNER PLAYER "+winner.getName()+"-------");
         }
 
+        if(winner != null) {
+            //Creo un objecte GameResult per inserirlo a BD.
+            MatchResult gameResult = new MatchResult(
+                    userIG1.getId(),
+                    userIG2.getId(),
+                    winner.getId(), null);
+            APIController.Match_Post(GameBoard.context, gameResult);
+        }
 
     }
 

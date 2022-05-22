@@ -2,6 +2,7 @@ package com.kronostudios.the_game.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Gravity;
@@ -15,6 +16,7 @@ import com.kronostudios.the_game.R;
 import com.kronostudios.the_game.cards.Fireball;
 import com.kronostudios.the_game.core.APIController;
 import com.kronostudios.the_game.core.AppController;
+import com.kronostudios.the_game.loginUtils.PreferencesProvider;
 import com.kronostudios.the_game.models.Card;
 
 /**
@@ -35,7 +37,7 @@ public class MainMenu extends AppCompatActivity {
         setContentView(R.layout.activity_main_menu);
 
         APIController.Cards_Get(getApplicationContext());
-        APIController.MatchResults_Get(getApplicationContext(), 1);
+        APIController.MatchResults_Get(getApplicationContext(), 11);
 
         legalPopupOpened = false;
     }
@@ -73,6 +75,10 @@ public class MainMenu extends AppCompatActivity {
      * @param v
      */
     public void onExitButtonPressed(View v) {
+
+        //TO-DO treure
+        PreferencesProvider.providePreferences().edit().remove("token");
+
         finish();
         System.exit(0);
     }

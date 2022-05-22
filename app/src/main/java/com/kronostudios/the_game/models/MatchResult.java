@@ -23,7 +23,7 @@ public class MatchResult {
 
     public static ArrayList<MatchResult> matchHistory;
 
-    public MatchResult(String user1_id, String user2_id, String user_winner_id, String datetime) {
+    public MatchResult(String user1_id, String user2_id, String user_winner_id, String playedAt) {
         this.user1_id = user1_id;
         this.user2_id = user2_id;
         this.user_winner_id = user_winner_id;
@@ -41,7 +41,7 @@ public class MatchResult {
 
                 MatchResult mr = new MatchResult(o.getJSONObject("user_1").getString("username"),
                         o.getJSONObject("user_2").getString("username"),
-                        o.getJSONObject("user_winner").getString("username"),
+                        o.getJSONObject("user_winner").getString("email"),
                         o.getString("played_at")
                 );
                 matchHistory.add(mr);

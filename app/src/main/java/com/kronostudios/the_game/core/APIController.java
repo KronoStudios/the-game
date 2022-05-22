@@ -26,8 +26,8 @@ import java.util.Map;
 
 public class APIController {
 
-    private static final String HOST = "http://192.168.1.77";//10.0.2.2
-    private static final String PORT = ":8000";
+    public static final String HOST = "http://192.168.1.100";//10.0.2.2
+    public static final String PORT = ":8000";
     private static final String CHARSET = java.nio.charset.StandardCharsets.UTF_8.name();
 
     public static void Token_Get(Context context, String user, String pass) throws AuthFailureError {

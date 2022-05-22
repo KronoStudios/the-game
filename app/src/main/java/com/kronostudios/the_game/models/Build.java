@@ -17,6 +17,8 @@ public class Build {
     private Deck deck;
     private List<Character> characters;
 
+
+
     public String getId() {
         return id;
     }
@@ -60,12 +62,32 @@ public class Build {
     public static Build getFakeBuild() {
         Build b = new Build();
         b.characters = Arrays.asList(
-            Character.getFakeCharacter(),
-            Character.getFakeCharacter(),
-            Character.getFakeCharacter()
+            //Character.getFakeCharacter(),
+            //Character.getFakeCharacter(),
+            //Character.getFakeCharacter()
+            new Character("001", "Engineer", new Stats(15,15,50)),
+            new Character("002", "Scientist", new Stats(0,30,50)),
+            new Character("003", "Lieutnant", new Stats(10,0,50))
         );
 
         b.deck = Deck.getFakeDeck();
+        b.id = "1";
+        b.name = "Fake Build";
+        return b;
+    }
+
+    public static Build getFakeBuild2() {
+        Build b = new Build();
+        b.characters = Arrays.asList(
+                //Character.getFakeCharacter(),
+                //Character.getFakeCharacter(),
+                //Character.getFakeCharacter()
+                new Character("001", "Engineer", new Stats(15,15,50)),
+                new Character("002", "Scientist", new Stats(0,30,50)),
+                new Character("003", "Lieutnant", new Stats(10,0,50))
+        );
+
+        b.deck = Deck.getFakeDeck2();
         b.id = "1";
         b.name = "Fake Build";
         return b;

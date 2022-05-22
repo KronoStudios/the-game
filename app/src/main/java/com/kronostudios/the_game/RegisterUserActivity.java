@@ -6,10 +6,13 @@ import androidx.databinding.DataBindingUtil;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
+import android.widget.TextView;
 
 import com.kronostudios.the_game.databinding.ActivityRegisterUserBinding;
 import com.kronostudios.the_game.databinding.LoginMainBinding;
 import com.kronostudios.the_game.loginUtils.LoginViewModel;
+import com.kronostudios.the_game.loginUtils.PreferencesProvider;
 import com.kronostudios.the_game.loginUtils.RegisterViewModel;
 
 public class RegisterUserActivity extends AppCompatActivity {
@@ -38,6 +41,12 @@ public class RegisterUserActivity extends AppCompatActivity {
     }
 
     public void goTo (Class _class){
+
+        /** codi repetit. Guardo email al loguejar, o al crear usuari **/
+        TextView tvEmail = findViewById(R.id.editTextEmail);
+        PreferencesProvider.providePreferences().edit().putString("email", tvEmail.getText().toString()).commit();
+        Log.d("RegsiterUserActivity","Successfully saved email.");
+
         Intent intent = new Intent(this, _class);
         startActivity(intent);
     }

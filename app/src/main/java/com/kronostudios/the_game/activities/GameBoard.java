@@ -5,8 +5,11 @@ import androidx.core.content.ContextCompat;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -14,17 +17,15 @@ import com.kronostudios.the_game.R;
 import com.kronostudios.the_game.core.Action;
 import com.kronostudios.the_game.core.AppController;
 import com.kronostudios.the_game.core.CharacterIG;
-import com.kronostudios.the_game.core.DeckIG;
 import com.kronostudios.the_game.core.FakeCoreClasses.FakeUserIG;
 import com.kronostudios.the_game.core.Game;
 import com.kronostudios.the_game.core.UserIG;
 import com.kronostudios.the_game.models.Build;
 import com.kronostudios.the_game.models.Card;
-import com.kronostudios.the_game.models.Character;
-import com.kronostudios.the_game.models.User;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 import java.util.Stack;
 
 /**
@@ -51,9 +52,13 @@ public class GameBoard extends AppCompatActivity {
     Button btnEnemyChar2;
     Button btnEnemyChar3;
 
-    Button btnHand1;
-    Button btnHand2;
-    Button btnHand3;
+    //Button btnHand1;
+    //Button btnHand2;
+    //Button btnHand3;
+    LinearLayout hand1;
+    LinearLayout hand2;
+    LinearLayout hand3;
+
 
     Card selectedCard;
     CharacterIG target;
@@ -91,9 +96,10 @@ public class GameBoard extends AppCompatActivity {
     }
 
 
-    //TODO @Didac Encara que siguin obvies les funcions, documenteu-les. Expliqueu perque les feu i que fan.
+    /*
+        Omplim els elements de la gameboard amb els 3 personatges de cada jugador, i les 3 cartes.
+     */
     public void populateGameBoard() {
-
 
         CharacterIG playerChar1 = playerBuild.getCharacters().get(0).getCharacterIG();
         CharacterIG playerChar2 = playerBuild.getCharacters().get(1).getCharacterIG();
@@ -120,16 +126,22 @@ public class GameBoard extends AppCompatActivity {
         btnEnemyChar3.setText(enemyChar3.getName());
 
         reviseHealths();
-        btnHand1.setText(player.getHand().get(0).getName());
-        btnHand2.setText(player.getHand().get(1).getName());
-        btnHand3.setText(player.getHand().get(2).getName());
+        //btnHand1.setText(player.getHand().get(0).getName());
+        //btnHand2.setText(player.getHand().get(1).getName());
+        //btnHand3.setText(player.getHand().get(2).getName());
+        omplirHand(hand1, player.getHand().get(0), 1);
+        omplirHand(hand2, player.getHand().get(1), 2);
+        omplirHand(hand3, player.getHand().get(2), 3);
     }
 
     public void initializeGame() {
 
-        btnHand1 = findViewById(R.id.btnHand1);
-        btnHand2 = findViewById(R.id.btnHand2);
-        btnHand3 = findViewById(R.id.btnHand3);
+        //btnHand1 = findViewById(R.id.btnHand1);
+        //btnHand2 = findViewById(R.id.btnHand2);
+        //btnHand3 = findViewById(R.id.btnHand3);
+        hand1 = findViewById(R.id.hand1);
+        hand2 = findViewById(R.id.hand2);
+        hand3 = findViewById(R.id.hand3);
 
         btnPlayerChar1 = findViewById(R.id.btnChar1);
         btnPlayerChar2 = findViewById(R.id.btnChar2);
@@ -175,22 +187,41 @@ public class GameBoard extends AppCompatActivity {
         btnPlayerChar3.setEnabled(true);
 
 
-        btnHand1.setBackgroundColor(ContextCompat.getColor(getBaseContext(), R.color.gray));
-        btnHand1.setEnabled(false);
-        btnHand2.setBackgroundColor(ContextCompat.getColor(getBaseContext(), R.color.gray));
-        btnHand2.setEnabled(false);
-        btnHand3.setBackgroundColor(ContextCompat.getColor(getBaseContext(), R.color.gray));
-        btnHand3.setEnabled(false);
+        //btnHand1.setBackgroundColor(ContextCompat.getColor(getBaseContext(), R.color.gray));
+        //btnHand1.setEnabled(false);
+        //btnHand2.setBackgroundColor(ContextCompat.getColor(getBaseContext(), R.color.gray));
+        //btnHand2.setEnabled(false);
+        //btnHand3.setBackgroundColor(ContextCompat.getColor(getBaseContext(), R.color.gray));
+        //btnHand3.setEnabled(false);
+        hand1.setBackgroundColor(ContextCompat.getColor(getBaseContext(), R.color.gray));
+        hand1.setEnabled(false);
+        hand2.setBackgroundColor(ContextCompat.getColor(getBaseContext(), R.color.gray));
+        hand2.setEnabled(false);
+        hand3.setBackgroundColor(ContextCompat.getColor(getBaseContext(), R.color.gray));
+        hand3.setEnabled(false);
 
-        if(v.equals(btnHand1)){
+        /*if(v.equals(btnHand1)){
             selectedCard = player.getHand().get(0);
             btnHand1.setText("");
         }else if(v.equals(btnHand2)){
             selectedCard = player.getHand().get(1);
             btnHand2.setText("");
-        }else{
+        }else if(v.equals(hand3)){ */
+
+        //Miro a quina carta he clickat, per seleccionarla com a selectedCard
+        if(v.equals(findViewById(R.id.hand1))){
+            selectedCard = player.getHand().get(0);
+            //hand1.setBackgroundColor(ContextCompat.getColor(getBaseContext(), R.color.gray));
+            ((TextView)findViewById(R.id.hand1name)).setText("");
+            //TO-DO falta fer algo per veure uqe la carta està "USADA"
+        }else if(v.equals(findViewById(R.id.hand2))){
+            selectedCard = player.getHand().get(1);
+            //hand1.setBackgroundColor(ContextCompat.getColor(getBaseContext(), R.color.gray));
+            ((TextView)findViewById(R.id.hand2name)).setText("");
+        }else if(v.equals(findViewById(R.id.hand3))){
             selectedCard = player.getHand().get(2);
-            btnHand3.setText("");
+            //hand1.setBackgroundColor(ContextCompat.getColor(getBaseContext(), R.color.gray));
+            ((TextView)findViewById(R.id.hand3name)).setText("");
         }
     }
 
@@ -221,14 +252,20 @@ public class GameBoard extends AppCompatActivity {
 
     public void selectTarget(View v){
 
-        btnHand1.setBackgroundColor(ContextCompat.getColor(getBaseContext(), R.color.purple_500));
-        btnHand1.setEnabled(true);
-        btnHand2.setBackgroundColor(ContextCompat.getColor(getBaseContext(), R.color.purple_500));
-        btnHand2.setEnabled(true);
-        btnHand3.setBackgroundColor(ContextCompat.getColor(getBaseContext(), R.color.purple_500));
-        btnHand3.setEnabled(true);
+        //btnHand1.setBackgroundColor(ContextCompat.getColor(getBaseContext(), R.color.purple_500));
+        //btnHand1.setEnabled(true);
+        //btnHand2.setBackgroundColor(ContextCompat.getColor(getBaseContext(), R.color.purple_500));
+        //btnHand2.setEnabled(true);
+        //btnHand3.setBackgroundColor(ContextCompat.getColor(getBaseContext(), R.color.purple_500));
+        //btnHand3.setEnabled(true);
+        hand1.setBackgroundColor(ContextCompat.getColor(getBaseContext(), R.color.purple_500));
+        hand1.setEnabled(true);
+        hand2.setBackgroundColor(ContextCompat.getColor(getBaseContext(), R.color.purple_500));
+        hand2.setEnabled(true);
+        hand3.setBackgroundColor(ContextCompat.getColor(getBaseContext(), R.color.purple_500));
+        hand3.setEnabled(true);
 
-        if(btnHand1.getText().equals("")){
+        /*if(btnHand1.getText().equals("")){
             btnHand1.setBackgroundColor(ContextCompat.getColor(getBaseContext(), R.color.gray));
             btnHand1.setEnabled(false);
         }
@@ -236,10 +273,25 @@ public class GameBoard extends AppCompatActivity {
             btnHand2.setBackgroundColor(ContextCompat.getColor(getBaseContext(), R.color.gray));
             btnHand2.setEnabled(false);
         }
-        if(btnHand3.getText().equals("")) {
+        if(hand3.getText().equals("")) {
             btnHand3.setBackgroundColor(ContextCompat.getColor(getBaseContext(), R.color.gray));
             btnHand3.setEnabled(false);
+        } TO-DO */
+
+        //torno a desactivar les cartes usades (en aquest cas, que name == "")
+        if(((TextView)findViewById(R.id.hand1name)).getText().equals("")){
+            hand1.setBackgroundColor(ContextCompat.getColor(getBaseContext(), R.color.gray));
+            hand1.setEnabled(false);
         }
+        if(((TextView)findViewById(R.id.hand2name)).getText().equals("")){
+            hand2.setBackgroundColor(ContextCompat.getColor(getBaseContext(), R.color.gray));
+            hand2.setEnabled(false);
+        }
+        if(((TextView)findViewById(R.id.hand3name)).getText().equals("")){
+            hand3.setBackgroundColor(ContextCompat.getColor(getBaseContext(), R.color.gray));
+            hand3.setEnabled(false);
+        }
+
 
         btnEnemyChar1.setBackgroundColor(ContextCompat.getColor(getBaseContext(), R.color.gray));
         btnEnemyChar1.setEnabled(false);
@@ -262,9 +314,22 @@ public class GameBoard extends AppCompatActivity {
     public void endTurn(View v){
         g.changeTurn();
 
-        int duration = Toast.LENGTH_SHORT;
         if(g.getStatus().equals(Game.FINISHED)){
+
+            Toast toast = Toast.makeText(context, "You won the game!!", Toast.LENGTH_SHORT);
+            toast.show();
+
+            Handler handler = new Handler();
+            handler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    //no faig res
+                }
+            }, 3000);
+
             AppController.changeActivity(this,MainMenu.class);
+            //If the game is finished, no need to play the IA's turn.
+            return;
         }
         reviseHealths();
         Stack<Action> iaAction = iaPlayer.playARandomTurn(listPlayerChars);
@@ -272,20 +337,60 @@ public class GameBoard extends AppCompatActivity {
         g.changeTurn();
 
         if(g.getStatus().equals(Game.FINISHED)){
+
+            Toast toast = Toast.makeText(context, "You lost the game :(", Toast.LENGTH_SHORT);
+            toast.show();
+
+            Handler handler = new Handler();
+            handler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    //no faig res
+                }
+            }, 3000);
+
             AppController.changeActivity(this,MainMenu.class);
         }
 
-        btnHand1.setText(player.getHand().get(0).getName());
-        btnHand2.setText(player.getHand().get(1).getName());
-        btnHand3.setText(player.getHand().get(2).getName());
+        //btnHand1.setText(player.getHand().get(0).getName());
+        //btnHand2.setText(player.getHand().get(1).getName());
+        //btnHand3.setText(player.getHand().get(2).getName());
+        omplirHand(hand1, player.getHand().get(0), 1);
+        omplirHand(hand2, player.getHand().get(1), 2);
+        omplirHand(hand3, player.getHand().get(2), 3);
 
-        btnHand1.setBackgroundColor(ContextCompat.getColor(getBaseContext(), R.color.purple_500));
-        btnHand1.setEnabled(true);
-        btnHand2.setBackgroundColor(ContextCompat.getColor(getBaseContext(), R.color.purple_500));
-        btnHand2.setEnabled(true);
-        btnHand3.setBackgroundColor(ContextCompat.getColor(getBaseContext(), R.color.purple_500));
-        btnHand3.setEnabled(true);
+        //btnHand1.setBackgroundColor(ContextCompat.getColor(getBaseContext(), R.color.purple_500));
+        //btnHand1.setEnabled(true);
+        //btnHand2.setBackgroundColor(ContextCompat.getColor(getBaseContext(), R.color.purple_500));
+        //btnHand2.setEnabled(true);
+        //btnHand3.setBackgroundColor(ContextCompat.getColor(getBaseContext(), R.color.purple_500));
+        //btnHand3.setEnabled(true);
+        hand1.setBackgroundColor(ContextCompat.getColor(getBaseContext(), R.color.purple_500));
+        hand1.setEnabled(true);
+        hand2.setBackgroundColor(ContextCompat.getColor(getBaseContext(), R.color.purple_500));
+        hand2.setEnabled(true);
+        hand3.setBackgroundColor(ContextCompat.getColor(getBaseContext(), R.color.purple_500));
+        hand3.setEnabled(true);
+
         reviseHealths();
+    }
+
+    private void omplirHand(LinearLayout handLayout, Card card, int handPos) {
+
+        String image_name = card.getName().toLowerCase(Locale.ROOT).replace(" ", "_");
+        int id_image = getResources().getIdentifier("com.kronostudios.the_game:drawable/" + image_name, null, null);
+        int image_id = getResources().getIdentifier("com.kronostudios.the_game:id/hand" + handPos + "image", null, null);
+        int name_id = getResources().getIdentifier("com.kronostudios.the_game:id/hand" + handPos + "name", null, null);
+        int desc_id = getResources().getIdentifier("com.kronostudios.the_game:id/hand" + handPos + "desc", null, null);
+
+        ImageView iv = handLayout.findViewById(image_id);
+        iv.setImageResource(id_image);
+
+        TextView name = handLayout.findViewById(name_id);
+        name.setText(card.getName());
+
+        TextView desc = handLayout.findViewById(desc_id);
+        desc.setText(card.getDescription());
     }
 
     private void reviseHealths() {
