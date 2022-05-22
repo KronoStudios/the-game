@@ -19,4 +19,4 @@ Quan s'acaba una partida, s'insereix el resultat del game a base de dades.
 S'ha implementat la pantalla Histoal de partides ( MainMenu -> Profile ) on es veu el historial de partides dels usuaris.
 Nota important: Ara mateix filtrem els matches d'un usuari hardcodejat (p.e. id = 11, gcaballe@gmail.com pw: 1234), ja que tenim un dubte per obtenir aquest id al fer la petició de token.
 
-
+També hem afegit 3 cartes noves: daño AoE, cures AoE, shield AoE. de moment shield/cura aoe encara nof unciona correctament, però ho hem afegit pel tema "visual" de cards.
