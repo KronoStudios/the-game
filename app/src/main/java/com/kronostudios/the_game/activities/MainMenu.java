@@ -2,6 +2,7 @@ package com.kronostudios.the_game.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
@@ -74,13 +75,9 @@ public class MainMenu extends AppCompatActivity {
      * @return void
      * @param v
      */
-    public void onExitButtonPressed(View v) {
-
-        //TO-DO treure
-        PreferencesProvider.providePreferences().edit().remove("token");
-
-        finish();
-        System.exit(0);
+    public void onLogoutButtonPressed(View v) {
+        PreferencesProvider.providePreferences().edit().remove("token").commit();
+        startActivity(new Intent(this, LoginMainActivity.class));
     }
 
     /**

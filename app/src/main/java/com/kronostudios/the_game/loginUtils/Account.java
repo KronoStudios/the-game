@@ -12,6 +12,7 @@ public class Account {
 
     public Account(){
         this.token = "";
+        this.user_id = "";
     }
 
 

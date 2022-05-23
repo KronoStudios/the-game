@@ -39,15 +39,15 @@
         android:onClick="onCollectionButtonPressed"/>
 
     <Button
-        android:id="@+id/btnExit"
+        android:id="@+id/btnLogout"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:text="@string/exit"
+        android:text="@string/logout"
         app:layout_constraintBottom_toTopOf="@+id/btnShowLegal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnCollection"
-        android:onClick="onExitButtonPressed"/>
+        android:onClick="onLogoutButtonPressed"/>
 
     <Button
         android:layout_width="wrap_content"

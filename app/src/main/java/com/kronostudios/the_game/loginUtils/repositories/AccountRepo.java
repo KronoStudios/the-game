@@ -42,6 +42,8 @@ public class AccountRepo {
 
             @Override
             public void onResponseSuccess(Call<Account> call, Response<Account> response) {
+
+                Log.d(TAG, "login() -> onResponseSuccess sense tostring -> " + response.body());
                 Log.d(TAG, "login() -> onResponseSuccess -> " + response.body().toString());
                 String token = response.body().getToken();
 
