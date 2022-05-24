@@ -6,6 +6,10 @@ import com.kronostudios.the_game.core.Game;
 import com.kronostudios.the_game.models.Card;
 import com.kronostudios.the_game.models.Stats;
 
+import org.parceler.Parcel;
+
+import java.io.Serializable;
+
 /**
  * @author: gperez
  *
@@ -14,7 +18,7 @@ import com.kronostudios.the_game.models.Stats;
  * amplified by the Stat intel of the executor.
  *
  */
-public class Fireball extends Card {
+public class Fireball extends Card implements Serializable {
 
     private static final long id = 1;
     private static final String name = "Fireball";

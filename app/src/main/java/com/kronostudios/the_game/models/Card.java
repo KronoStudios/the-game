@@ -1,7 +1,17 @@
 package com.kronostudios.the_game.models;
 
+import android.app.Activity;
 import android.util.Log;
+import android.view.LayoutInflater;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
+import com.kronostudios.the_game.R;
+import com.kronostudios.the_game.cards.Fireball;
+import com.kronostudios.the_game.cards.MotherCellSpray;
+import com.kronostudios.the_game.cards.PlasmaBomb;
+import com.kronostudios.the_game.cards.SonicShield;
 import com.kronostudios.the_game.core.APIController;
 import com.kronostudios.the_game.core.Effect;
 
@@ -9,10 +19,13 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+
+import java.io.Serializable;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 import java.util.Objects;
 
 /**
@@ -23,18 +36,52 @@ import java.util.Objects;
  * amplified by the Stat intel of the executor.
  *
  */
-public abstract class Card {
+public abstract class Card implements Serializable {
 
     private long id;
     private String name;
     private String description;
     private Stats statsRequired;
 
+    private static List<Card> cards;
+
     public Card(long id, String name, String description, Stats statsRequired) {
         this.id = id;
         this.name = name;
         this.description = description;
         this.statsRequired = statsRequired;
+    }
+
+    public static void populateCardView(LinearLayout originalCardLayout, Card c, Activity a) {
+
+        ((TextView)originalCardLayout.findViewById(R.id.hand_name)).setText(c.getName());
+        ((TextView)originalCardLayout.findViewById(R.id.hand_desc)).setText(c.getDescription());
+        int image_resource = a.getResources().getIdentifier("com.kronostudios.the_game:drawable/" + c.getImageName(), null, null);
+        ((ImageView)originalCardLayout.findViewById(R.id.hand_image)).setImageResource(image_resource);
+
+    }
+
+    public static ArrayList<Card> getCompleteCollection() {
+        ArrayList arr = new ArrayList();
+
+        arr.add(new Fireball());
+        arr.add(new PlasmaBomb());
+        arr.add(new SonicShield());
+        arr.add(new MotherCellSpray());
+        arr.add(new Fireball());
+        arr.add(new PlasmaBomb());
+        arr.add(new SonicShield());
+        arr.add(new MotherCellSpray());
+        arr.add(new Fireball());
+        arr.add(new PlasmaBomb());
+        arr.add(new SonicShield());
+        arr.add(new MotherCellSpray());
+        arr.add(new Fireball());
+        arr.add(new PlasmaBomb());
+        arr.add(new SonicShield());
+        arr.add(new MotherCellSpray());
+
+        return arr;
     }
 
     public String getDescription() {
@@ -44,8 +91,6 @@ public abstract class Card {
     public void setDescription(String description) {
         this.description = description;
     }
-
-    private static List<Card> cards;
 
     public long getId() {
         return id;
@@ -96,10 +141,14 @@ public abstract class Card {
 
                 cards.add((Card) instance);
 
-                Log.d("CARDS", ((Card) Objects.requireNonNull(classToInstantiate.cast(instance))).name);
             }
         } catch (JSONException | ClassNotFoundException | InvocationTargetException | NoSuchMethodException | IllegalAccessException | InstantiationException e) {
             e.printStackTrace();
         }
     }
+
+    public String getImageName() {
+        return getName().toLowerCase(Locale.ROOT).replace(" ", "_");
+    }
+
 }

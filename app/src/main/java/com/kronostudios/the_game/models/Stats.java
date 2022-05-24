@@ -1,11 +1,14 @@
 package com.kronostudios.the_game.models;
+
+import java.io.Serializable;
+
 /**
  * @author: gcaballe
  *
  * The Stats of a character are strength, intellect and stamina.
  * Stamina is the Health of the char, while strenght and intellect empower his abilities.
  */
-public class Stats {
+public class Stats implements Serializable {
     private int str;
 
     public Stats(int str, int intel, int sta) {

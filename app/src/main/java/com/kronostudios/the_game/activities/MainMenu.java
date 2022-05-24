@@ -3,22 +3,17 @@ package com.kronostudios.the_game.activities;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 
 import com.kronostudios.the_game.R;
-import com.kronostudios.the_game.cards.Fireball;
 import com.kronostudios.the_game.core.APIController;
 import com.kronostudios.the_game.core.AppController;
 import com.kronostudios.the_game.loginUtils.PreferencesProvider;
-import com.kronostudios.the_game.models.Card;
 
 /**
  * @author: gperez
@@ -58,7 +53,7 @@ public class MainMenu extends AppCompatActivity {
      * @param v
      */
     public void onCollectionButtonPressed(View v) {
-        AppController.changeActivity(MainMenu.this, BuildListActivity.class);
+        AppController.changeActivity(MainMenu.this, DeckBuilderActivity.class);
     }
 
     /**

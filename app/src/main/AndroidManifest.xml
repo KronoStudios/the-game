@@ -18,7 +18,7 @@
             android:name=".activities.SelectCardActivity"
             android:exported="false" />
         <activity
-            android:name=".activities.BuildListActivity"
+            android:name=".activities.DeckBuilderActivity"
             android:exported="false" />
         <activity
             android:name=".activities.MatchHistoryActivity"

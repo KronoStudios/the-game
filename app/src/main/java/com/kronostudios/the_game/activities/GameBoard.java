@@ -377,7 +377,7 @@ public class GameBoard extends AppCompatActivity {
 
     private void omplirHand(LinearLayout handLayout, Card card, int handPos) {
 
-        String image_name = card.getName().toLowerCase(Locale.ROOT).replace(" ", "_");
+        String image_name = card.getImageName();
         int id_image = getResources().getIdentifier("com.kronostudios.the_game:drawable/" + image_name, null, null);
         int image_id = getResources().getIdentifier("com.kronostudios.the_game:id/hand" + handPos + "image", null, null);
         int name_id = getResources().getIdentifier("com.kronostudios.the_game:id/hand" + handPos + "name", null, null);

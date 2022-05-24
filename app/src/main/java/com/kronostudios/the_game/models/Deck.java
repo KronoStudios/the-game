@@ -4,6 +4,7 @@ import com.kronostudios.the_game.cards.*;
 import com.kronostudios.the_game.core.CharacterIG;
 import com.kronostudios.the_game.core.DeckIG;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -15,7 +16,7 @@ import java.util.Stack;
  *
  * The Deck class i just a stack of Cards.
  */
-public class Deck {
+public class Deck implements Serializable {
     private String id;
     private Stack<Card> cards;
 
@@ -56,10 +57,14 @@ public class Deck {
         cards.push(new Fireball());
         cards.push(new Fireball());
         cards.push(new Fireball());
-        cards.push(new PlasmaBomb());
-        cards.push(new SonicShield());
-        cards.push(new MotherCellSpray());
-        cards.push(new PlasmaBomb());
+        cards.push(new Fireball());
+        cards.push(new Fireball());
+        cards.push(new Fireball());
+        cards.push(new Fireball());
+        //cards.push(new PlasmaBomb());
+        //cards.push(new SonicShield());
+        //cards.push(new MotherCellSpray());
+        //cards.push(new PlasmaBomb());
 
         return new Deck("1", cards);
     }

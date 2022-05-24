@@ -4,6 +4,8 @@ import com.kronostudios.the_game.core.Effect;
 import com.kronostudios.the_game.models.Card;
 import com.kronostudios.the_game.models.Stats;
 
+import java.io.Serializable;
+
 /**
  * @author: gperez
  *
@@ -12,7 +14,7 @@ import com.kronostudios.the_game.models.Stats;
  * amplified by the Stat intel of the executor.
  *
  */
-public class PlasmaBomb extends Card {
+public class PlasmaBomb extends Card implements Serializable {
 
     private static final long id = 1;
     private static final String name = "Plasma Bomb";
