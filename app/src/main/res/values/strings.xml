@@ -26,4 +26,7 @@
     <string name="password2">Repeat password</string>
     <string name="createaccount">Create Account</string>
     <string name="logout">Logout</string>
+    <string name="your_deck">Your deck</string>
+    <string name="save">Save</string>
+    <string name="card_to_replace">Card to Replace</string>
 </resources>

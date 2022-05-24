@@ -58,7 +58,7 @@ public class MainMenu extends AppCompatActivity {
      * @param v
      */
     public void onCollectionButtonPressed(View v) {
-        // TODO Collection button method
+        AppController.changeActivity(MainMenu.this, BuildListActivity.class);
     }
 
     /**

@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.BuildListActivity">
+
+    <TextView
+        android:id="@+id/yourdeckText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/your_deck"
+        android:textSize="25dp"
+        android:layout_marginTop="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <GridLayout
+        android:id="@+id/gridLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:columnCount="3"
+        android:rowCount="3"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/yourdeckText">
+
+        <ImageButton
+            android:id="@+id/cardImage1"
+            android:layout_width="100dp"
+            android:layout_height="90dp"
+            android:adjustViewBounds="true"
+            android:scaleType="fitXY"
+            android:src="@drawable/add" />
+
+        <ImageButton
+            android:id="@+id/cardImage2"
+            android:layout_width="100dp"
+            android:layout_height="90dp"
+            android:adjustViewBounds="true"
+            android:scaleType="fitXY"
+            android:src="@drawable/add" />
+
+        <ImageButton
+            android:id="@+id/cardImage3"
+            android:layout_width="100dp"
+            android:layout_height="90dp"
+            android:adjustViewBounds="true"
+            android:scaleType="fitXY"
+            android:src="@drawable/add" />
+
+        <ImageButton
+            android:id="@+id/cardImage4"
+            android:layout_width="100dp"
+            android:layout_height="90dp"
+            android:adjustViewBounds="true"
+            android:scaleType="fitXY"
+            android:src="@drawable/add" />
+
+        <ImageButton
+            android:id="@+id/cardImage5"
+            android:layout_width="100dp"
+            android:layout_height="90dp"
+            android:adjustViewBounds="true"
+            android:scaleType="fitXY"
+            android:src="@drawable/add" />
+
+        <ImageButton
+            android:id="@+id/cardImage6"
+            android:layout_width="100dp"
+            android:layout_height="90dp"
+            android:adjustViewBounds="true"
+            android:scaleType="fitXY"
+            android:src="@drawable/add" />
+
+        <ImageButton
+            android:id="@+id/cardImage7"
+            android:layout_width="100dp"
+            android:layout_height="90dp"
+            android:adjustViewBounds="true"
+            android:scaleType="fitXY"
+            android:src="@drawable/add" />
+
+        <ImageButton
+            android:id="@+id/cardImage8"
+            android:layout_width="100dp"
+            android:layout_height="90dp"
+            android:adjustViewBounds="true"
+            android:scaleType="fitXY"
+            android:src="@drawable/add" />
+
+        <ImageButton
+            android:id="@+id/cardImage9"
+            android:layout_width="100dp"
+            android:layout_height="90dp"
+            android:adjustViewBounds="true"
+            android:scaleType="fitXY"
+            android:src="@drawable/add" />
+    </GridLayout>
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/save"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/gridLayout" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

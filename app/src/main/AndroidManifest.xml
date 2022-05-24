@@ -15,6 +15,12 @@
         android:theme="@style/Theme.Thegame"
         tools:targetApi="n">
         <activity
+            android:name=".activities.SelectCardActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.BuildListActivity"
+            android:exported="false" />
+        <activity
             android:name=".activities.MatchHistoryActivity"
             android:exported="false" />
         <activity
