@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,6 +15,7 @@ import com.kronostudios.the_game.R;
 import com.kronostudios.the_game.core.APIController;
 import com.kronostudios.the_game.core.AppController;
 import com.kronostudios.the_game.loginUtils.PreferencesProvider;
+import com.kronostudios.the_game.models.MatchResult;
 
 /**
  * @author: gperez
@@ -32,8 +34,9 @@ public class MainMenu extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_menu);
 
-        APIController.Cards_Get(getApplicationContext());
+        //TODO change hardcoded 11 for user id
         APIController.MatchResults_Get(getApplicationContext(), 11);
+        APIController.Cards_Get(getApplicationContext());
 
         legalPopupOpened = false;
     }
@@ -62,6 +65,7 @@ public class MainMenu extends AppCompatActivity {
      * @param v
      */
     public void onProfileButtonPressed(View v) {
+
         AppController.changeActivity(MainMenu.this, MatchHistoryActivity.class);
     }
 

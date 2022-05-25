@@ -59,6 +59,12 @@ public class CharacterIG extends Character {
         return health;
     }
 
+    public int getProgress(){
+        double d = (double)health / maxHealth;
+        int i = (int) (d*100);
+        return i;
+    }
+
     public void setHealth(int health) {
         this.health = health;
     }

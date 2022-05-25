@@ -1,7 +1,5 @@
 package com.kronostudios.the_game.models;
 
-import java.sql.Array;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -87,7 +85,7 @@ public class Build {
                 new Character("003", "Lieutnant", new Stats(10,0,50))
         );
 
-        b.deck = Deck.getFakeDeck2();
+        b.deck = Deck.getIADeck();
         b.id = "1";
         b.name = "Fake Build";
         return b;

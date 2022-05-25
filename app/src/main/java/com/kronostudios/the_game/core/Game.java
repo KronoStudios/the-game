@@ -2,6 +2,7 @@ package com.kronostudios.the_game.core;
 
 import com.kronostudios.the_game.activities.BuildSelection;
 import com.kronostudios.the_game.activities.GameBoard;
+import com.kronostudios.the_game.models.Card;
 import com.kronostudios.the_game.models.Character;
 import com.kronostudios.the_game.models.MatchResult;
 
@@ -54,11 +55,12 @@ public class Game {
      *
      */
     public void startGame() {
-        // TODO implement first player selection in server
+
         status = RUNNING;
         double firstPlayer = Math.random();
 
-        this.currentTurn = new Turn((firstPlayer % 2 == 0 ? this.getPlayer1() : this.getPlayer2()));
+        //this.currentTurn = new Turn((firstPlayer % 2 == 0 ? this.getPlayer1() : this.getPlayer2()));
+        this.currentTurn = new Turn(this.getPlayer1());
 
         this.getPlayer1().draw();
         this.getPlayer2().draw();
@@ -71,12 +73,16 @@ public class Game {
      * Changes turns to the other player, and draws cards.
      */
     public void changeTurn() { //hauriem de refactoritzar el nom a endTurn(), no? @gcaballe
+
+        //executeActions() fa -> 1. popActionList + useCard() + executeAction()
         this.currentTurn.executeActions();
         checkFinishGame();
 
         Turn nextTurn = new Turn(this.getPlayerWhosNotHisTurn());
 
         this.currentTurn = nextTurn;
+
+        List<Card> h = this.currentTurn.getPlayer().getHand();
 
         this.currentTurn.getPlayer().draw();
     }

@@ -46,8 +46,8 @@ public class GamemodeSelection extends AppCompatActivity {
      * @param v
      */
     public void onAdventureButtonPressed(View v) {
-        // TODO uncomment adventure button code
         /*
+        Este modo aun no está implementado. Próximamente...
         Bundle params = new Bundle();
         params.putString("dest", "adventure");
         AppController.changeActivityWithParams(GamemodeSelection.this, BuildSelection.class, params);

@@ -1,10 +1,20 @@
 package com.kronostudios.the_game.models;
 
+import android.util.Log;
+
+import com.google.gson.Gson;
 import com.kronostudios.the_game.cards.*;
 import com.kronostudios.the_game.core.CharacterIG;
 import com.kronostudios.the_game.core.DeckIG;
+import com.kronostudios.the_game.loginUtils.PreferencesProvider;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.Serializable;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -61,7 +71,7 @@ public class Deck implements Serializable {
         cards.push(new Fireball());
         cards.push(new Fireball());
         cards.push(new Fireball());
-        //cards.push(new PlasmaBomb());
+        //cards.push(new PlasmaBom());
         //cards.push(new SonicShield());
         //cards.push(new MotherCellSpray());
         //cards.push(new PlasmaBomb());
@@ -69,7 +79,7 @@ public class Deck implements Serializable {
         return new Deck("1", cards);
     }
 
-    public static Deck getFakeDeck2() {
+    public static Deck getIADeck() {
         Stack<Card> cards = new Stack<>();
         cards.push(new Fireball());
         cards.push(new Fireball());
@@ -91,4 +101,50 @@ public class Deck implements Serializable {
         return  deckIG;
     }
 
+    /**
+     * Si ya hay deck en SharedPreferences, la coje. Sinó coje una de prueba.
+     */
+    public static Deck obtainDeck() {
+
+        Deck deck = null;
+
+        try {
+            String string_deck = PreferencesProvider.providePreferences().getString("deck", "");
+            if (string_deck != null && !string_deck.equals("")) {
+                //unserialize TO-DO
+                JSONObject obj = new JSONObject(string_deck);
+                JSONArray jsonArray = obj.getJSONArray("cards");
+                Stack<Card> cards = new Stack<>();
+                for (int i = 0; i < jsonArray.length(); i++) {
+                    JSONObject cardObject = jsonArray.getJSONObject(i);
+                    String name = cardObject.getString("name");
+                    String nameReplaced = name.replaceAll(" ", "");
+                    String className = "com.kronostudios.the_game.cards." + nameReplaced;
+                    Constructor cons = Class.forName(className).getConstructor();
+                    Card c = (Card) cons.newInstance();
+                    cards.add(c);
+                }
+                deck = new Deck("1", cards);
+            } else {
+                deck = Deck.getFakeDeck();
+
+                Log.d("JSON DECK", new Gson().toJson(deck));
+                Gson gson = new Gson();
+                PreferencesProvider.providePreferences().edit().putString("deck", gson.toJson(deck)).commit();
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (InvocationTargetException e) {
+            e.printStackTrace();
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (InstantiationException e) {
+            e.printStackTrace();
+        }
+        return deck;
+    }
 }

@@ -13,7 +13,6 @@ import android.widget.TextView;
 
 
 import com.kronostudios.the_game.R;
-import com.kronostudios.the_game.RegisterUserActivity;
 import com.kronostudios.the_game.databinding.LoginMainBinding;
 import com.kronostudios.the_game.loginUtils.LoginViewModel;
 import com.kronostudios.the_game.loginUtils.PreferencesProvider;

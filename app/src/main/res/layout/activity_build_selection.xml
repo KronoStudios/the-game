@@ -17,11 +17,12 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <!--android:text="@string/select_build"-->
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/select_build"
+
         android:textSize="30sp"
         app:layout_constraintBottom_toTopOf="@+id/listBuilds"
         app:layout_constraintEnd_toEndOf="parent"

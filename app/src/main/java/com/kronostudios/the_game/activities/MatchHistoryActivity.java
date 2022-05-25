@@ -37,6 +37,8 @@ public class MatchHistoryActivity extends AppCompatActivity implements MatchResu
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_match_history);
 
+
+
         // data to populate the RecyclerView with
         //This function queries the database to get an ArrayList of MatchResults
         ArrayList<MatchResult> matchResultList = MatchResult.matchHistory;

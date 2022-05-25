@@ -32,7 +32,6 @@ public class FindGameThread extends Thread {
     public void run(BuildSelection act) {
         running = true;
 
-        // TODO implement real enqueuing
         /*
         while !foundGame (and !interrupted)
             request API (with myBuild) every 200ms (is there a rival?)

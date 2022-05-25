@@ -34,7 +34,8 @@ public class MatchResultAdapter extends RecyclerView.Adapter<MatchResultAdapter.
     @Override
     public void onBindViewHolder(@NonNull MatchResultAdapter.ViewHolder holder, int position) {
 
-        //TO-DO agafar ID de user loged per mirar si sóc el player1 o player2
+        // TODO
+        // agafar ID de user loged per mirar si sóc el player1 o player2
         String logedUserName = "zstevens";
         String email = PreferencesProvider.providePreferences().getString("email", "");
         Log.d("Agafo email -->: ", email);

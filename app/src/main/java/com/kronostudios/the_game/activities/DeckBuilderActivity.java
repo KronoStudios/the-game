@@ -30,7 +30,7 @@ import java.util.Stack;
 
 public class DeckBuilderActivity extends AppCompatActivity {
 
-    Deck deck;
+
     Activity act;
     int currentDeckGridNumber;
 
@@ -39,13 +39,13 @@ public class DeckBuilderActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_deck_builder);
         act = this;
+        Deck deck = null;
 
         try {
-            obtainDeck();
+            deck = Deck.obtainDeck();
         } catch (Exception e) {
             e.printStackTrace();
         }
-
 
         GridLayout grid = (GridLayout)findViewById(R.id.gridLayout);
         for (Object o : deck.getCards().toArray()){
@@ -77,37 +77,7 @@ public class DeckBuilderActivity extends AppCompatActivity {
 
     }
 
-    /**
-     * Si ya hay deck en SharedPreferences, la coje. Sinó coje una de prueba.
-     */
-    private void obtainDeck() throws Exception {
 
-
-        String string_deck = PreferencesProvider.providePreferences().getString("deck","");
-        if(string_deck != null && !string_deck.equals("")){
-            //unserialize TO-DO
-            JSONObject obj = new JSONObject(string_deck);
-            JSONArray jsonArray = obj.getJSONArray("cards");
-            Stack<Card> cards = new Stack<>();
-            for (int i = 0; i < jsonArray.length(); i++) {
-                JSONObject cardObject = jsonArray.getJSONObject(i);
-                String name = cardObject.getString("name");
-                String nameReplaced = name.replaceAll(" ","");
-                String className = "com.kronostudios.the_game.cards." +nameReplaced;
-                Constructor cons = Class.forName(className).getConstructor();
-                Card c = (Card) cons.newInstance();
-                cards.add(c);
-            }
-            deck = new Deck("1", cards);
-        }else{
-            deck = Deck.getFakeDeck();
-
-            Log.d("JSON DECK", new Gson().toJson(deck));
-            Gson gson = new Gson();
-            PreferencesProvider.providePreferences().edit().putString("deck",gson.toJson(deck)).commit();
-        }
-
-    }
 
     public void onSavePressed(View view) {
         Intent i = new Intent(this, MainMenu.class);

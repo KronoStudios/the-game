@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="100dp"
+    android:layout_height="140dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+    android:id="@+id/character"
+    android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/character_image"
+            android:layout_width="100dp"
+            android:layout_height="70dp"
+            android:src="@drawable/logo"
+            android:scaleType="centerCrop"/>
+        <TextView
+            android:id="@+id/character_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:text="Engineer"
+            android:textSize="14sp"/>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+                android:orientation="horizontal"
+            android:layout_gravity="center_horizontal"
+            >
+
+                <TextView
+                    android:id="@+id/character_strength"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="12sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/character_intellect"
+                    android:text="I: 15"
+                    tools:ignore="MissingConstraints" />
+
+                <TextView
+                    android:id="@+id/character_intellect"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toEndOf="@id/character_strength"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:text="S: 15"
+                    android:textSize="12sp"
+                    tools:ignore="MissingConstraints" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <ProgressBar
+            android:id="@+id/healthBar"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_gravity="center"
+            tools:progress="50"
+            android:layout_height="wrap_content" />
+
+</LinearLayout>

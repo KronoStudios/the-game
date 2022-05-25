@@ -11,7 +11,6 @@ import com.kronostudios.the_game.models.User;
 
 public class AppController {
 
-    // TODO implement real login
     private static User loggedUser = User.getFakeUser();
     private static FindGameThread findGame = new FindGameThread();
     private static Game currentGame;

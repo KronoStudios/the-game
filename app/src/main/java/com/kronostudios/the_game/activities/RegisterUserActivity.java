@@ -1,4 +1,4 @@
-package com.kronostudios.the_game;
+package com.kronostudios.the_game.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
@@ -9,9 +9,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.TextView;
 
+import com.kronostudios.the_game.R;
 import com.kronostudios.the_game.databinding.ActivityRegisterUserBinding;
-import com.kronostudios.the_game.databinding.LoginMainBinding;
-import com.kronostudios.the_game.loginUtils.LoginViewModel;
 import com.kronostudios.the_game.loginUtils.PreferencesProvider;
 import com.kronostudios.the_game.loginUtils.RegisterViewModel;
 

@@ -26,7 +26,7 @@ import java.util.Map;
 
 public class APIController {
 
-    public static final String HOST = "http://192.168.1.45";//10.0.2.2
+    public static final String HOST = "http://192.168.1.61";//10.0.2.2
     public static final String PORT = ":8000";
     private static final String CHARSET = java.nio.charset.StandardCharsets.UTF_8.name();
 
@@ -35,7 +35,6 @@ public class APIController {
 
 
         JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, HOST + PORT + "/session", null, Utils::saveToken, error -> {
-            // TODO Handle response error
             Log.e("CARDS_GET", error.getLocalizedMessage());
         }){
             @Override
@@ -55,7 +54,6 @@ public class APIController {
         RequestQueue queue = Volley.newRequestQueue(context);
 
         JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, HOST + PORT + "/cards", null, Card::populateCards, error -> {
-            // TODO Handle response error
             Log.e("CARDS_GET", error.getLocalizedMessage());
         }){
             @Override
@@ -112,7 +110,6 @@ public class APIController {
         }
 
         JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, HOST + PORT + "/games", jsonBody, null, error -> { //Card::populateCards
-            // TODO Handle response error
             Log.e("MATCH_POST", error.getLocalizedMessage());
         }){
             @Override
@@ -147,7 +144,6 @@ public class APIController {
         }
 
         JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, HOST + PORT + "/users", jsonBody, null, error -> {
-            // TODO Handle response error
             Log.e("MATCH_POST", error.getLocalizedMessage());
         });
 

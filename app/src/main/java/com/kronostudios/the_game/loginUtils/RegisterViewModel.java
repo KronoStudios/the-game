@@ -5,7 +5,7 @@ import android.util.Log;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-import com.kronostudios.the_game.RegisterUserActivity;
+import com.kronostudios.the_game.activities.RegisterUserActivity;
 import com.kronostudios.the_game.activities.MainMenu;
 import com.kronostudios.the_game.core.APIController;
 import com.kronostudios.the_game.loginUtils.repositories.AccountRepo;

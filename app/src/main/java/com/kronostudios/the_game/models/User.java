@@ -60,8 +60,8 @@ public class User {
         return u;
     }
 
+    /** Funcion en desuso, ahora el user solo puede tener 1 build */
     public List<Build> builds() {
-        // TODO Change fake data to DB
         return Arrays.asList(
             Build.getFakeBuild(),
             Build.getFakeBuild(),

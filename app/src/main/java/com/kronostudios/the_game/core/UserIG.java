@@ -77,7 +77,7 @@ public class UserIG extends User{
      */
     public void useCard(Card c){
         hand.remove(c);
-        hand.removeAll(Collections.singleton(null));
+        hand.removeAll(Collections.singleton(null)); //esto no hace nada, no? removeAll( [] )
         deck.getCardsDrawn().add(c);
     }
 }

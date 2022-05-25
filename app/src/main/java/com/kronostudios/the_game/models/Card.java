@@ -8,10 +8,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.kronostudios.the_game.R;
-import com.kronostudios.the_game.cards.Fireball;
-import com.kronostudios.the_game.cards.MotherCellSpray;
-import com.kronostudios.the_game.cards.PlasmaBomb;
-import com.kronostudios.the_game.cards.SonicShield;
+import com.kronostudios.the_game.cards.*;
 import com.kronostudios.the_game.core.APIController;
 import com.kronostudios.the_game.core.Effect;
 
@@ -68,18 +65,13 @@ public abstract class Card implements Serializable {
         arr.add(new PlasmaBomb());
         arr.add(new SonicShield());
         arr.add(new MotherCellSpray());
+        arr.add(new Shotgun());
+        arr.add(new Torpedo());
         arr.add(new Fireball());
         arr.add(new PlasmaBomb());
         arr.add(new SonicShield());
         arr.add(new MotherCellSpray());
-        arr.add(new Fireball());
-        arr.add(new PlasmaBomb());
-        arr.add(new SonicShield());
-        arr.add(new MotherCellSpray());
-        arr.add(new Fireball());
-        arr.add(new PlasmaBomb());
-        arr.add(new SonicShield());
-        arr.add(new MotherCellSpray());
+
 
         return arr;
     }
