@@ -21,6 +21,13 @@ import com.kronostudios.the_game.loginUtils.PreferencesProvider;
 import com.kronostudios.the_game.models.Card;
 import com.kronostudios.the_game.models.Deck;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.lang.reflect.Constructor;
+import java.util.Stack;
+
 public class DeckBuilderActivity extends AppCompatActivity {
 
     Deck deck;
@@ -32,9 +39,12 @@ public class DeckBuilderActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_deck_builder);
         act = this;
-        currentDeckGridNumber = 0;
 
-        obtainDeck();
+        try {
+            obtainDeck();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
 
         GridLayout grid = (GridLayout)findViewById(R.id.gridLayout);
@@ -56,40 +66,52 @@ public class DeckBuilderActivity extends AppCompatActivity {
                 public void onClick(View view) {
                     Intent i = new Intent(act, SelectCardActivity.class);
                     i.putExtra("originalCard", c);
-                    i.putExtra("deckGridNumber", currentDeckGridNumber);
+                    GridLayout parent = (GridLayout) view.getParent();
+                    int x = parent.indexOfChild(view);
+                    i.putExtra("deckGridNumber", x);
                     startActivity(i);
                 }
             });
             grid.addView(cardLayout);
-            currentDeckGridNumber++;
         }
-
-
-
 
     }
 
     /**
      * Si ya hay deck en SharedPreferences, la coje. Sinó coje una de prueba.
      */
-    private void obtainDeck() {
+    private void obtainDeck() throws Exception {
 
-        //new Gson().toJson(connections)
 
         String string_deck = PreferencesProvider.providePreferences().getString("deck","");
-        //if(string_deck != null || !string_deck.equals("")){
+        if(string_deck != null && !string_deck.equals("")){
             //unserialize TO-DO
-
-        //}else{
+            JSONObject obj = new JSONObject(string_deck);
+            JSONArray jsonArray = obj.getJSONArray("cards");
+            Stack<Card> cards = new Stack<>();
+            for (int i = 0; i < jsonArray.length(); i++) {
+                JSONObject cardObject = jsonArray.getJSONObject(i);
+                String name = cardObject.getString("name");
+                String nameReplaced = name.replaceAll(" ","");
+                String className = "com.kronostudios.the_game.cards." +nameReplaced;
+                Constructor cons = Class.forName(className).getConstructor();
+                Card c = (Card) cons.newInstance();
+                cards.add(c);
+            }
+            deck = new Deck("1", cards);
+        }else{
             deck = Deck.getFakeDeck();
 
             Log.d("JSON DECK", new Gson().toJson(deck));
             Gson gson = new Gson();
             PreferencesProvider.providePreferences().edit().putString("deck",gson.toJson(deck)).commit();
-        //}
+        }
 
     }
 
     public void onSavePressed(View view) {
+        Intent i = new Intent(this, MainMenu.class);
+        startActivity(i);
+        finish();
     }
 }

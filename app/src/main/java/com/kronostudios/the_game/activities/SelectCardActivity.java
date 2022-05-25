@@ -90,18 +90,14 @@ public class SelectCardActivity extends AppCompatActivity {
             String id = jarr.getJSONObject(i).getString("id");
             String name = jarr.getJSONObject(i).getString("name");
             String description =jarr.getJSONObject(i).getString("description");
-
-            String className = "com.kronostudios.the_game.cards." + name;
-
+            String replacedName = name.replace(" ","");
+            String className = "com.kronostudios.the_game.cards." + replacedName;
+            System.out.println(className);
             //long id, String name, String description, Stats statsRequired)
             Constructor cons = Class.forName(className).getConstructor();
             Card c = (Card) cons.newInstance();
             arr_cards.add(c);
         }
-
-
-
-        //Deck deck = (Deck)gson.fromJson(str, Deck.class);
 
         int deckGridNumber = getIntent().getIntExtra("deckGridNumber",0);
 
@@ -119,6 +115,7 @@ public class SelectCardActivity extends AppCompatActivity {
 
         Intent i = new Intent(this, DeckBuilderActivity.class);
 
+        startActivity(i);
 
     }
 

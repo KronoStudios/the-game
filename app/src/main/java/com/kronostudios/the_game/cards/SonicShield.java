@@ -17,7 +17,7 @@ import java.io.Serializable;
 public class SonicShield extends Card implements Serializable {
 
     private static final long id = 1;
-    private static final String name = "Sonic Shield Grenade";
+    private static final String name = "Sonic Shield";
     private static final String description = "Throws a sonic grenade to an allied target, shielding all allied characters for 4 dmg + intellect.";
     private static final Stats statsRequired = new Stats(0,0,0);
 
