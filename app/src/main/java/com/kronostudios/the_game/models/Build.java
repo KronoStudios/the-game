@@ -65,7 +65,7 @@ public class Build {
             //Character.getFakeCharacter()
             new Character("001", "Engineer", new Stats(15,15,50)),
             new Character("002", "Scientist", new Stats(0,30,50)),
-            new Character("003", "Lieutnant", new Stats(10,0,50))
+            new Character("003", "Mechanic", new Stats(10,0,50))
         );
 
         b.deck = Deck.getFakeDeck();
@@ -80,9 +80,9 @@ public class Build {
                 //Character.getFakeCharacter(),
                 //Character.getFakeCharacter(),
                 //Character.getFakeCharacter()
-                new Character("001", "Engineer", new Stats(15,15,50)),
-                new Character("002", "Scientist", new Stats(0,30,50)),
-                new Character("003", "Lieutnant", new Stats(10,0,50))
+                new Character("004", "Engineer", new Stats(15,15,50)),
+                new Character("005", "Scientist", new Stats(0,30,50)),
+                new Character("006", "Mechanic", new Stats(10,0,50))
         );
 
         b.deck = Deck.getIADeck();

@@ -49,14 +49,16 @@ public class GameBoard extends AppCompatActivity {
 
     Activity act;
 
-    Button btnPlayerChar1;
-    Button btnPlayerChar2;
-    Button btnPlayerChar3;
+    //Button btnPlayerChar1;
+    //Button btnPlayerChar2;
+    //Button btnPlayerChar3;
+    LinearLayout char1;
+    LinearLayout char2;
+    LinearLayout char3;
 
-    //Button btnEnemyChar1;
-    Button btnEnemyChar2;
-    Button btnEnemyChar3;
     LinearLayout enemyChar1;
+    LinearLayout enemyChar2;
+    LinearLayout enemyChar3;
 
     LinearLayout hand1;
     LinearLayout hand2;
@@ -107,14 +109,16 @@ public class GameBoard extends AppCompatActivity {
         hand2 = findViewById(R.id.hand2);
         hand3 = findViewById(R.id.hand3);
 
-        btnPlayerChar1 = findViewById(R.id.btnChar1);
-        btnPlayerChar2 = findViewById(R.id.btnChar2);
-        btnPlayerChar3 = findViewById(R.id.btnChar3);
+        //btnPlayerChar1 = findViewById(R.id.btnChar1);
+        //btnPlayerChar2 = findViewById(R.id.btnChar2);
+        //btnPlayerChar3 = findViewById(R.id.btnChar3);
 
-        //btnEnemyChar1 = findViewById(R.id.btnCharEnemy1);
+        char1 = findViewById(R.id.char1);
+        char2 = findViewById(R.id.char2);
+        char3 = findViewById(R.id.char3);
         enemyChar1 = findViewById(R.id.enemyChar1);
-        btnEnemyChar2 = findViewById(R.id.btnCharEnemy2);
-        btnEnemyChar3 = findViewById(R.id.btnCharEnemy3);
+        enemyChar2 = findViewById(R.id.enemyChar2);
+        enemyChar3 = findViewById(R.id.enemyChar3);
 
         tvplayer1 = findViewById(R.id.tvHealthChar1);
         tvplayer2 = findViewById(R.id.tvHealthChar2);
@@ -124,21 +128,25 @@ public class GameBoard extends AppCompatActivity {
         tvenemy2 = findViewById(R.id.tvCharEnemy2);
         tvenemy3 = findViewById(R.id.tvCharEnemy3);
 
-        //btnEnemyChar1.setBackgroundColor(ContextCompat.getColor(getBaseContext(), R.color.gray));
-        //btnEnemyChar1.setEnabled(false);
         enemyChar1.setBackgroundColor(ContextCompat.getColor(getBaseContext(), R.color.gray));
         enemyChar1.setEnabled(false);
-        btnEnemyChar2.setBackgroundColor(ContextCompat.getColor(getBaseContext(), R.color.gray));
-        btnEnemyChar2.setEnabled(false);
-        btnEnemyChar3.setBackgroundColor(ContextCompat.getColor(getBaseContext(), R.color.gray));
-        btnEnemyChar3.setEnabled(false);
+        enemyChar2.setBackgroundColor(ContextCompat.getColor(getBaseContext(), R.color.gray));
+        enemyChar2.setEnabled(false);
+        enemyChar3.setBackgroundColor(ContextCompat.getColor(getBaseContext(), R.color.gray));
+        enemyChar3.setEnabled(false);
 
-        btnPlayerChar1.setBackgroundColor(ContextCompat.getColor(getBaseContext(), R.color.gray));
-        btnPlayerChar1.setEnabled(false);
-        btnPlayerChar2.setBackgroundColor(ContextCompat.getColor(getBaseContext(), R.color.gray));
-        btnPlayerChar2.setEnabled(false);
-        btnPlayerChar3.setBackgroundColor(ContextCompat.getColor(getBaseContext(), R.color.gray));
-        btnPlayerChar3.setEnabled(false);
+        //btnPlayerChar1.setBackgroundColor(ContextCompat.getColor(getBaseContext(), R.color.gray));
+        //btnPlayerChar1.setEnabled(false);
+        //btnPlayerChar2.setBackgroundColor(ContextCompat.getColor(getBaseContext(), R.color.gray));
+        //btnPlayerChar2.setEnabled(false);
+        //btnPlayerChar3.setBackgroundColor(ContextCompat.getColor(getBaseContext(), R.color.gray));
+        //btnPlayerChar3.setEnabled(false);
+        char1.setBackgroundColor(ContextCompat.getColor(getBaseContext(), R.color.gray));
+        char1.setEnabled(false);
+        char2.setBackgroundColor(ContextCompat.getColor(getBaseContext(), R.color.gray));
+        char2.setEnabled(false);
+        char3.setBackgroundColor(ContextCompat.getColor(getBaseContext(), R.color.gray));
+        char3.setEnabled(false);
 
         populateGameBoard();
 
@@ -150,36 +158,46 @@ public class GameBoard extends AppCompatActivity {
     public void populateGameBoard() {
 
         //allies
-        CharacterIG playerChar1 = playerBuild.getCharacters().get(0).getCharacterIG();
-        CharacterIG playerChar2 = playerBuild.getCharacters().get(1).getCharacterIG();
-        CharacterIG playerChar3 = playerBuild.getCharacters().get(2).getCharacterIG();
-
         listPlayerChars = new ArrayList<>();
-        listPlayerChars.add(playerChar1);
-        listPlayerChars.add(playerChar2);
-        listPlayerChars.add(playerChar3);
-        btnPlayerChar1.setText(playerChar1.getName());
-        btnPlayerChar2.setText(playerChar2.getName());
-        btnPlayerChar3.setText(playerChar3.getName());
+        listPlayerChars.add(playerBuild.getCharacters().get(0).getCharacterIG());
+        listPlayerChars.add(playerBuild.getCharacters().get(1).getCharacterIG());
+        listPlayerChars.add(playerBuild.getCharacters().get(2).getCharacterIG());
+        //btnPlayerChar1.setText(playerChar1.getName());
+        //btnPlayerChar2.setText(playerChar2.getName());
+        //btnPlayerChar3.setText(playerChar3.getName());
 
         //enemies
-        //CharacterIG enemyChar1 = enemyBuild.getCharacters().get(0).getCharacterIG();
-        CharacterIG enemyChar2 = enemyBuild.getCharacters().get(1).getCharacterIG();
-        CharacterIG enemyChar3 = enemyBuild.getCharacters().get(2).getCharacterIG();
-
         listEnemyChars = new ArrayList<>();
-        //listEnemyChars.add(enemyChar1);
         listEnemyChars.add(enemyBuild.getCharacters().get(0).getCharacterIG());
-        listEnemyChars.add(enemyChar2);
-        listEnemyChars.add(enemyChar3);
-        //btnEnemyChar1.setText(enemyChar1.getName());
+        listEnemyChars.add(enemyBuild.getCharacters().get(1).getCharacterIG());
+        listEnemyChars.add(enemyBuild.getCharacters().get(2).getCharacterIG());
 
+        //inflo allied
         LinearLayout auxCharacterLayout = (LinearLayout) getLayoutInflater().inflate(R.layout.character_layout, null);
+        Character.populateCharacterView(auxCharacterLayout, playerBuild.getCharacters().get(0), act);
+        char1.addView(auxCharacterLayout);
+
+        auxCharacterLayout = (LinearLayout) getLayoutInflater().inflate(R.layout.character_layout, null);
+        Character.populateCharacterView(auxCharacterLayout, playerBuild.getCharacters().get(1), act);
+        char2.addView(auxCharacterLayout);
+
+        auxCharacterLayout = (LinearLayout) getLayoutInflater().inflate(R.layout.character_layout, null);
+        Character.populateCharacterView(auxCharacterLayout, playerBuild.getCharacters().get(2), act);
+        char3.addView(auxCharacterLayout);
+
+        //inflo enemies
+        auxCharacterLayout = (LinearLayout) getLayoutInflater().inflate(R.layout.character_layout, null);
         Character.populateCharacterView(auxCharacterLayout, enemyBuild.getCharacters().get(0), act);
         enemyChar1.addView(auxCharacterLayout);
 
-        btnEnemyChar2.setText(enemyChar2.getName());
-        btnEnemyChar3.setText(enemyChar3.getName());
+        auxCharacterLayout = (LinearLayout) getLayoutInflater().inflate(R.layout.character_layout, null);
+        Character.populateCharacterView(auxCharacterLayout, enemyBuild.getCharacters().get(1), act);
+        enemyChar2.addView(auxCharacterLayout);
+
+        auxCharacterLayout = (LinearLayout) getLayoutInflater().inflate(R.layout.character_layout, null);
+        Character.populateCharacterView(auxCharacterLayout, enemyBuild.getCharacters().get(2), act);
+        enemyChar3.addView(auxCharacterLayout);
+
 
         reviseHealths();
 
@@ -195,12 +213,12 @@ public class GameBoard extends AppCompatActivity {
 
     public void useCard(View v){
 
-        btnPlayerChar1.setBackgroundColor(ContextCompat.getColor(getBaseContext(), R.color.purple_500));
-        btnPlayerChar1.setEnabled(true);
-        btnPlayerChar2.setBackgroundColor(ContextCompat.getColor(getBaseContext(), R.color.purple_500));
-        btnPlayerChar2.setEnabled(true);
-        btnPlayerChar3.setBackgroundColor(ContextCompat.getColor(getBaseContext(), R.color.purple_500));
-        btnPlayerChar3.setEnabled(true);
+        char1.setBackgroundColor(ContextCompat.getColor(getBaseContext(), R.color.purple_500));
+        char1.setEnabled(true);
+        char2.setBackgroundColor(ContextCompat.getColor(getBaseContext(), R.color.purple_500));
+        char2.setEnabled(true);
+        char3.setBackgroundColor(ContextCompat.getColor(getBaseContext(), R.color.purple_500));
+        char3.setEnabled(true);
 
         hand1.setBackgroundColor(ContextCompat.getColor(getBaseContext(), R.color.gray));
         hand1.setEnabled(false);
@@ -237,27 +255,27 @@ public class GameBoard extends AppCompatActivity {
      */
     public void selectExecutor(View v){
 
-        btnPlayerChar1.setBackgroundColor(ContextCompat.getColor(getBaseContext(), R.color.gray));
-        btnPlayerChar1.setEnabled(true);
-        btnPlayerChar2.setBackgroundColor(ContextCompat.getColor(getBaseContext(), R.color.gray));
-        btnPlayerChar2.setEnabled(true);
-        btnPlayerChar3.setBackgroundColor(ContextCompat.getColor(getBaseContext(), R.color.gray));
-        btnPlayerChar3.setEnabled(true);
+        //això hauria de ser enabled = false, no? sinó pots "cambiar" de executor
+        //ho canvio. SI ALGO PETA, POTSER ERA AIXÒ
+        char1.setBackgroundColor(ContextCompat.getColor(getBaseContext(), R.color.gray));
+        char1.setEnabled(false);
+        char2.setBackgroundColor(ContextCompat.getColor(getBaseContext(), R.color.gray));
+        char2.setEnabled(false);
+        char3.setBackgroundColor(ContextCompat.getColor(getBaseContext(), R.color.gray));
+        char3.setEnabled(false);
 
-        //btnEnemyChar1.setBackgroundColor(ContextCompat.getColor(getBaseContext(), R.color.purple_500));
-        //btnEnemyChar1.setEnabled(true);
         enemyChar1.setBackgroundColor(ContextCompat.getColor(getBaseContext(), R.color.purple_500));
         enemyChar1.setEnabled(true);
-        btnEnemyChar2.setBackgroundColor(ContextCompat.getColor(getBaseContext(), R.color.purple_500));
-        btnEnemyChar2.setEnabled(true);
-        btnEnemyChar3.setBackgroundColor(ContextCompat.getColor(getBaseContext(), R.color.purple_500));
-        btnEnemyChar3.setEnabled(true);
+        enemyChar2.setBackgroundColor(ContextCompat.getColor(getBaseContext(), R.color.purple_500));
+        enemyChar2.setEnabled(true);
+        enemyChar3.setBackgroundColor(ContextCompat.getColor(getBaseContext(), R.color.purple_500));
+        enemyChar3.setEnabled(true);
 
-        if(v.equals(btnPlayerChar1)){
+        if(v.equals(char1)){
             executor = playerBuild.getCharacters().get(0).getCharacterIG();
-        }else if(v.equals(btnPlayerChar2)){
+        }else if(v.equals(char2)){
             executor = playerBuild.getCharacters().get(1).getCharacterIG();
-        }else if(v.equals(btnPlayerChar3)){
+        }else if(v.equals(char3)){
             executor = playerBuild.getCharacters().get(2).getCharacterIG();
         }
     }
@@ -288,21 +306,20 @@ public class GameBoard extends AppCompatActivity {
 
 
         //desactivamos los 3 enemigos
-        //btnEnemyChar1.setBackgroundColor(ContextCompat.getColor(getBaseContext(), R.color.gray));
-        //btnEnemyChar1.setEnabled(false);
         enemyChar1.setBackgroundColor(ContextCompat.getColor(getBaseContext(), R.color.gray));
         enemyChar1.setEnabled(false);
-        btnEnemyChar2.setBackgroundColor(ContextCompat.getColor(getBaseContext(), R.color.gray));
-        btnEnemyChar2.setEnabled(false);
-        btnEnemyChar3.setBackgroundColor(ContextCompat.getColor(getBaseContext(), R.color.gray));
-        btnEnemyChar3.setEnabled(false);
+        enemyChar2.setBackgroundColor(ContextCompat.getColor(getBaseContext(), R.color.gray));
+        enemyChar2.setEnabled(false);
+        enemyChar3.setBackgroundColor(ContextCompat.getColor(getBaseContext(), R.color.gray));
+        enemyChar3.setEnabled(false);
+
 
         //marcamos como target al char enemigo seleccionado (v)
         if(v.equals(enemyChar1)){
             target = enemyBuild.getCharacters().get(0).getCharacterIG();
-        }else if(v.equals(btnEnemyChar2)){
+        }else if(v.equals(enemyChar2)){
             target = enemyBuild.getCharacters().get(1).getCharacterIG();
-        }else{
+        }else if(v.equals(enemyChar3)){
             target = enemyBuild.getCharacters().get(2).getCharacterIG();
         }
         Action a = new Action(selectedCard, executor, target, this);
@@ -310,13 +327,6 @@ public class GameBoard extends AppCompatActivity {
     }
 
     public void endTurn(View v) {
-
-        /*For each action, saco la carta de la mano
-        if(!this.g.getCurrentTurn().getPlayer().equals(player)){
-            for (Action a : g.getCurrentTurn().getActionList()){
-                 player.getHand().remove(a.getCard());
-            }
-        }*/
 
         g.changeTurn();
 
@@ -358,19 +368,10 @@ public class GameBoard extends AppCompatActivity {
             AppController.changeActivity(this,MainMenu.class);
         }
 
-        //btnHand1.setText(player.getHand().get(0).getName());
-        //btnHand2.setText(player.getHand().get(1).getName());
-        //btnHand3.setText(player.getHand().get(2).getName());
         omplirHand(hand1, player.getHand().get(0), 1);
         omplirHand(hand2, player.getHand().get(1), 2);
         omplirHand(hand3, player.getHand().get(2), 3);
 
-        //btnHand1.setBackgroundColor(ContextCompat.getColor(getBaseContext(), R.color.purple_500));
-        //btnHand1.setEnabled(true);
-        //btnHand2.setBackgroundColor(ContextCompat.getColor(getBaseContext(), R.color.purple_500));
-        //btnHand2.setEnabled(true);
-        //btnHand3.setBackgroundColor(ContextCompat.getColor(getBaseContext(), R.color.purple_500));
-        //btnHand3.setEnabled(true);
         hand1.setBackgroundColor(ContextCompat.getColor(getBaseContext(), R.color.purple_500));
         hand1.setEnabled(true);
         hand2.setBackgroundColor(ContextCompat.getColor(getBaseContext(), R.color.purple_500));
@@ -402,16 +403,22 @@ public class GameBoard extends AppCompatActivity {
     //Aquesta funció actualitza la vida del character
     private void reviseHealths() {
 
-        tvenemy1.setText(listEnemyChars.get(0).getHealth() + "/" + listEnemyChars.get(0).getMaxHealth());
         //EXTRA, es podria borrar l'anterior
-
-        ((ProgressBar)enemyChar1.findViewById(R.id.healthBar)).setProgress((listEnemyChars.get(0).getProgress()));
+        tvenemy1.setText(listEnemyChars.get(0).getHealth() + "/" + listEnemyChars.get(0).getMaxHealth());
         tvenemy2.setText(listEnemyChars.get(1).getHealth() + "/" + listEnemyChars.get(1).getMaxHealth());
         tvenemy3.setText(listEnemyChars.get(2).getHealth() + "/" + listEnemyChars.get(2).getMaxHealth());
+
+        ((ProgressBar)enemyChar1.findViewById(R.id.healthBar)).setProgress((listEnemyChars.get(0).getProgress()));
+        ((ProgressBar)enemyChar2.findViewById(R.id.healthBar)).setProgress((listEnemyChars.get(1).getProgress()));
+        ((ProgressBar)enemyChar3.findViewById(R.id.healthBar)).setProgress((listEnemyChars.get(2).getProgress()));
 
         tvplayer1.setText(listPlayerChars.get(0).getHealth() + "/" + listPlayerChars.get(0).getMaxHealth());
         tvplayer2.setText(listPlayerChars.get(1).getHealth() + "/" + listPlayerChars.get(1).getMaxHealth());
         tvplayer3.setText(listPlayerChars.get(2).getHealth() + "/" + listPlayerChars.get(2).getMaxHealth());
+
+        ((ProgressBar)char1.findViewById(R.id.healthBar)).setProgress((listPlayerChars.get(0).getProgress()));
+        ((ProgressBar)char2.findViewById(R.id.healthBar)).setProgress((listPlayerChars.get(1).getProgress()));
+        ((ProgressBar)char3.findViewById(R.id.healthBar)).setProgress((listPlayerChars.get(2).getProgress()));
 
     }
 

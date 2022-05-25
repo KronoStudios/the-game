@@ -72,6 +72,7 @@ public class Character {
 
         int image_resource = a.getResources().getIdentifier("com.kronostudios.the_game:drawable/" + c.getImageName(), null, null);
         ((ImageView)characterLayout.findViewById(R.id.character_image)).setImageResource(image_resource);
+        //((ImageView)characterLayout.findViewById(R.id.character_image)).setImageResource(R.drawable.sonic_shield);
 
         ((TextView)characterLayout.findViewById(R.id.character_strength)).setText("Str: " + c.getStats().getStr());
         ((TextView)characterLayout.findViewById(R.id.character_intellect)).setText("Int: " + c.getStats().getIntel());
