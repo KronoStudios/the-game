@@ -15,12 +15,13 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:layout_editor_absoluteX="20dp" />
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnBack"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:onClick="onBackButtonPressed"
         android:text="@string/back"
+            style="@style/MyCustomButton"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

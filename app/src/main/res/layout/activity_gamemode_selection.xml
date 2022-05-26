@@ -11,44 +11,47 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/select_mode"
+        android:textAlignment="center"
         android:textSize="30sp"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toTopOf="@+id/btnAdventure"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnAdventure"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
+        style="@style/MyCustomButtonDisabled"
         android:text="@string/adventure"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:clickable="false"
-        android:backgroundTint="@color/gray"
         android:onClick="onAdventureButtonPressed"/>
-
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:text="@string/arena"
+        style="@style/MyCustomButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         android:id="@+id/btnArena"
         app:layout_constraintTop_toBottomOf="@+id/btnAdventure"
-        android:onClick="onArenaButtonPressed"></Button>
+        android:onClick="onArenaButtonPressed" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnBack"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:text="@string/back"
+        style="@style/MyCustomButton"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnArena"
-        android:onClick="onBackButtonPressed"></Button>
+        android:onClick="onBackButtonPressed" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

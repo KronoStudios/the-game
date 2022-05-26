@@ -124,41 +124,6 @@ android:background="@drawable/background3" -->
         app:layout_constraintStart_toEndOf="@id/char2"
         app:layout_constraintEnd_toEndOf="parent"
         android:orientation="vertical" />
-<!--
-    <Button
-        android:id="@+id/btnChar1"
-        android:layout_width="100dp"
-        android:layout_height="175dp"
-        android:onClick="selectExecutor"
-        android:text="Button"
-        app:layout_constraintBottom_toTopOf="@+id/hand1"
-        app:layout_constraintEnd_toStartOf="@+id/btnChar2"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/enemyChar1" />
-
-    <Button
-        android:id="@+id/btnChar3"
-        android:layout_width="100dp"
-        android:layout_height="175dp"
-        android:onClick="selectExecutor"
-        android:text="Button"
-        app:layout_constraintBottom_toTopOf="@+id/hand3"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/btnChar2"
-        app:layout_constraintTop_toBottomOf="@+id/enemyChar3" />
-
-    <Button
-        android:id="@+id/btnChar2"
-        android:layout_width="100dp"
-        android:layout_height="175dp"
-        android:onClick="selectExecutor"
-        android:text="Button"
-        app:layout_constraintBottom_toTopOf="@+id/hand2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/enemyChar2" />
--->
-
     <LinearLayout
         android:layout_width="100dp"
         android:layout_height="150dp"
@@ -268,12 +233,13 @@ android:background="@drawable/background3" -->
     </LinearLayout>
 
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnNextTurn"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:onClick="endTurn"
         android:text="@string/next_turn"
+        style="@style/MyCustomButton"
         android:textSize="10sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

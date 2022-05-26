@@ -80,12 +80,13 @@
             android:error="@{registerViewModel.pass2ErrorLiveData}"
             android:minHeight="48dp" />
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btn_login"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
             android:layout_marginBottom="24dp"
+            style="@style/MyCustomButton"
             android:padding="12dp"
             android:onClick="@{() -> registerViewModel.create()}"
             android:enabled="@{!TextUtils.isEmpty(registerViewModel.emailLiveData) &amp;&amp; !TextUtils.isEmpty(registerViewModel.passLiveData) &amp;&amp; !TextUtils.isEmpty(registerViewModel.pass2LiveData) &amp;&amp; !TextUtils.isEmpty(registerViewModel.userLiveData)   }"

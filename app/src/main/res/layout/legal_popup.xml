@@ -6,23 +6,26 @@
     android:background="#000"
     android:padding="32dp">
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/terms"
+        style="@style/MyCustomButton"
         android:id="@+id/btnTerms"
         android:onClick="onLegalButtonPressed"/>
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/about"
+        style="@style/MyCustomButton"
         android:id="@+id/btnAbout"
         android:onClick="onAboutButtonPressed"/>
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        style="@style/MyCustomButton"
         android:text="@string/close"
         android:layout_marginTop="16dp"
         android:id="@+id/btnCloseLegal"
