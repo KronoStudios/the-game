@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
+import android.widget.TextView;
 
 import com.kronostudios.the_game.R;
 import com.kronostudios.the_game.core.APIController;
@@ -24,7 +25,7 @@ import com.kronostudios.the_game.models.MatchResult;
  * moving onto the CollectionMenu.
  */
 public class MainMenu extends AppCompatActivity {
-
+    public static MainMenu mainMenu;
     // Legal popup
     PopupWindow legalPopup;
     Boolean legalPopupOpened;
@@ -33,7 +34,7 @@ public class MainMenu extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_menu);
-
+        mainMenu = this;
         //TODO change hardcoded 11 for user id
         APIController.MatchResults_Get(getApplicationContext(), 11);
         APIController.Cards_Get(getApplicationContext());
@@ -139,6 +140,14 @@ public class MainMenu extends AppCompatActivity {
        } else {
             finish();
        }
+    }
+
+    public void goTo (Class _class){
+
+        /** codi repetit. Guardo email al loguejar, o al crear usuari **/
+
+        Intent intent = new Intent(this, _class);
+        startActivity(intent);
     }
 
 };

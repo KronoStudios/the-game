@@ -91,11 +91,7 @@ public class LoginViewModel extends ViewModel {
             // Call the repo passing the authorization token obtained from email and password
             this.accountRepo.login(AccountUtils.getAuthorizationToken(email, password));
         }
-        // Shows the progress bar, telling the user that we are making the communication with the API
-        isLogged.postValue(true);
 
-        // Call the repo passing the authorization token obtained from email and password
-        this.accountRepo.login(AccountUtils.getAuthorizationToken(email, password));
 
     }
 

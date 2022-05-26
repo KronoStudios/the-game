@@ -1,6 +1,7 @@
 package com.kronostudios.the_game.core;
 
 import android.content.Context;
+import android.content.Intent;
 import android.util.Base64;
 import android.util.Log;
 
@@ -10,6 +11,8 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.kronostudios.the_game.activities.LoginMainActivity;
+import com.kronostudios.the_game.activities.MainMenu;
 import com.kronostudios.the_game.loginUtils.PreferencesProvider;
 import com.kronostudios.the_game.loginUtils.Utils;
 import com.kronostudios.the_game.models.Card;
@@ -77,12 +80,15 @@ public class APIController {
                 null,
                 MatchResult::populateMatchHistory,
                 error -> {
-                        Log.e("MatchResults_Get", error.getLocalizedMessage());
+                    //PreferencesProvider.providePreferences().edit().remove("token").commit();
+                    //MainMenu.mainMenu.goTo(LoginMainActivity.class);
+                    Log.e("MatchResults_Get", "He petat a matchresults get. Borro token i redirigeixo a login");
+                    //Log.e("MatchResults_Get", error.getLocalizedMessage());
                 }){
             @Override
             public Map<String, String> getHeaders() throws AuthFailureError {
                 HashMap<String, String> headers = new HashMap<String, String>();
-                String auth = PreferencesProvider.providePreferences().getString("authToken","");
+                String auth = PreferencesProvider.providePreferences().getString("token","");
                 headers.put("Authorization", auth);
                 return headers;
             }
