@@ -120,13 +120,13 @@ public class GameBoard extends AppCompatActivity {
         enemyChar2 = findViewById(R.id.enemyChar2);
         enemyChar3 = findViewById(R.id.enemyChar3);
 
-        tvplayer1 = findViewById(R.id.tvHealthChar1);
-        tvplayer2 = findViewById(R.id.tvHealthChar2);
-        tvplayer3 = findViewById(R.id.tvHealthChar3);
+//        tvplayer1 = findViewById(R.id.tvHealthChar1);
+//        tvplayer2 = findViewById(R.id.tvHealthChar2);
+//        tvplayer3 = findViewById(R.id.tvHealthChar3);
 
-        tvenemy1 = findViewById(R.id.tvCharEnemy1);
-        tvenemy2 = findViewById(R.id.tvCharEnemy2);
-        tvenemy3 = findViewById(R.id.tvCharEnemy3);
+//        tvenemy1 = findViewById(R.id.tvCharEnemy1);
+//        tvenemy2 = findViewById(R.id.tvCharEnemy2);
+//        tvenemy3 = findViewById(R.id.tvCharEnemy3);
 
         enemyChar1.setBackgroundColor(ContextCompat.getColor(getBaseContext(), R.color.gray));
         enemyChar1.setEnabled(false);
@@ -187,14 +187,18 @@ public class GameBoard extends AppCompatActivity {
 
         //inflo enemies
         auxCharacterLayout = (LinearLayout) getLayoutInflater().inflate(R.layout.character_layout, null);
+        int ecr = this.getResources().getIdentifier("com.kronostudios.the_game:drawable/cornered_rectangle_enemy", null, null);
+        auxCharacterLayout.setBackgroundResource(ecr);
         Character.populateCharacterView(auxCharacterLayout, enemyBuild.getCharacters().get(0), act);
         enemyChar1.addView(auxCharacterLayout);
 
         auxCharacterLayout = (LinearLayout) getLayoutInflater().inflate(R.layout.character_layout, null);
+        auxCharacterLayout.setBackgroundResource(ecr);
         Character.populateCharacterView(auxCharacterLayout, enemyBuild.getCharacters().get(1), act);
         enemyChar2.addView(auxCharacterLayout);
 
         auxCharacterLayout = (LinearLayout) getLayoutInflater().inflate(R.layout.character_layout, null);
+        auxCharacterLayout.setBackgroundResource(ecr);
         Character.populateCharacterView(auxCharacterLayout, enemyBuild.getCharacters().get(2), act);
         enemyChar3.addView(auxCharacterLayout);
 
@@ -404,17 +408,17 @@ public class GameBoard extends AppCompatActivity {
     private void reviseHealths() {
 
         //EXTRA, es podria borrar l'anterior
-        tvenemy1.setText(listEnemyChars.get(0).getHealth() + "/" + listEnemyChars.get(0).getMaxHealth());
-        tvenemy2.setText(listEnemyChars.get(1).getHealth() + "/" + listEnemyChars.get(1).getMaxHealth());
-        tvenemy3.setText(listEnemyChars.get(2).getHealth() + "/" + listEnemyChars.get(2).getMaxHealth());
+//        tvenemy1.setText(listEnemyChars.get(0).getHealth() + "/" + listEnemyChars.get(0).getMaxHealth());
+//        tvenemy2.setText(listEnemyChars.get(1).getHealth() + "/" + listEnemyChars.get(1).getMaxHealth());
+//        tvenemy3.setText(listEnemyChars.get(2).getHealth() + "/" + listEnemyChars.get(2).getMaxHealth());
 
         ((ProgressBar)enemyChar1.findViewById(R.id.healthBar)).setProgress((listEnemyChars.get(0).getProgress()));
         ((ProgressBar)enemyChar2.findViewById(R.id.healthBar)).setProgress((listEnemyChars.get(1).getProgress()));
         ((ProgressBar)enemyChar3.findViewById(R.id.healthBar)).setProgress((listEnemyChars.get(2).getProgress()));
 
-        tvplayer1.setText(listPlayerChars.get(0).getHealth() + "/" + listPlayerChars.get(0).getMaxHealth());
-        tvplayer2.setText(listPlayerChars.get(1).getHealth() + "/" + listPlayerChars.get(1).getMaxHealth());
-        tvplayer3.setText(listPlayerChars.get(2).getHealth() + "/" + listPlayerChars.get(2).getMaxHealth());
+//        tvplayer1.setText(listPlayerChars.get(0).getHealth() + "/" + listPlayerChars.get(0).getMaxHealth());
+//        tvplayer2.setText(listPlayerChars.get(1).getHealth() + "/" + listPlayerChars.get(1).getMaxHealth());
+//        tvplayer3.setText(listPlayerChars.get(2).getHealth() + "/" + listPlayerChars.get(2).getMaxHealth());
 
         ((ProgressBar)char1.findViewById(R.id.healthBar)).setProgress((listPlayerChars.get(0).getProgress()));
         ((ProgressBar)char2.findViewById(R.id.healthBar)).setProgress((listPlayerChars.get(1).getProgress()));

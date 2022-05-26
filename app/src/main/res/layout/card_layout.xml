@@ -5,6 +5,7 @@
         android:minHeight="150dp"
         android:id="@+id/hand"
         android:orientation="vertical"
+        android:background="@color/white"
     >
 
         <ImageView
