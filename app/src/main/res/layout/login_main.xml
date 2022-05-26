@@ -31,17 +31,6 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.0">
 
-            <!--
-            <ImageView
-                android:layout_width="236dp"
-                android:layout_height="195dp"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginBottom="24dp"
-                android:adjustViewBounds="true"
-                android:contentDescription="@string/logo_description"
-                android:scaleType="centerInside"
-                android:src="@drawable/ic_dam_quizz_logo_c_pia"
-                tools:ignore="ImageContrastCheck" /> -->
 
             <!--  Email Label -->
             <EditText
@@ -69,12 +58,13 @@
                 android:minHeight="48dp" />
 
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btn_login"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
                 android:layout_marginBottom="24dp"
+                style="@style/MyCustomButton"
                 android:padding="12dp"
                 android:onClick="@{() -> loginViewModel.login()}"
                 android:enabled="@{!TextUtils.isEmpty(loginViewModel.emailLiveData) &amp;&amp; !TextUtils.isEmpty(loginViewModel.passLiveData) }"

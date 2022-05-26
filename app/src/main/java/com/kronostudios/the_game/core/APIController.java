@@ -29,8 +29,7 @@ import java.util.Map;
 
 public class APIController {
 
-    //public static final String HOST = "http://192.168.1.61";//10.0.2.2
-    public static final String HOST = "http://195.211.170.86";
+    public static final String HOST = "http://195.211.170.86";//10.0.2.2
     public static final String PORT = ":8000";
     private static final String CHARSET = java.nio.charset.StandardCharsets.UTF_8.name();
 
