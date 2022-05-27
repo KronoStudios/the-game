@@ -1,5 +1,6 @@
 package com.kronostudios.the_game.core;
 
+import com.kronostudios.the_game.R;
 import com.kronostudios.the_game.activities.GameBoard;
 
 /**
@@ -41,11 +42,10 @@ public class Effect {
     }
 
     public void executeEffect(CharacterIG source, CharacterIG target, GameBoard gameBoard){
+
+        //gameBoard.findViewById(R.id.);
         switch (effect){
             case DMGEFFECT:
-                /*int finalHealth = target.getHealth() - amount;
-                finalHealth = finalHealth<0?finalHealth=0:finalHealth;
-                target.setHealth(finalHealth);*/
                 target.recieveDamage(amount);
                 break;
             case HEALEFFECT:

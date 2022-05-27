@@ -8,6 +8,13 @@
     android:id="@+id/character"
     android:orientation="vertical">
 
+        <pl.droidsonroids.gif.GifImageView
+            android:id="@+id/explostion"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/explosion"
+            android:visibility="gone"
+            />
         <ImageView
             android:id="@+id/character_image"
             android:layout_width="80dp"
