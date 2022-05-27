@@ -4,7 +4,6 @@ import android.util.Log;
 
 import com.google.gson.Gson;
 import com.kronostudios.the_game.cards.*;
-import com.kronostudios.the_game.core.CharacterIG;
 import com.kronostudios.the_game.core.DeckIG;
 import com.kronostudios.the_game.loginUtils.PreferencesProvider;
 
@@ -15,10 +14,6 @@ import org.json.JSONObject;
 import java.io.Serializable;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
 import java.util.Stack;
 
 /**
@@ -62,15 +57,15 @@ public class Deck implements Serializable {
      */
     public static Deck getFakeDeck(){
         Stack<Card> cards = new Stack<>();
-        cards.push(new Fireball());
-        cards.push(new Fireball());
-        cards.push(new Fireball());
-        cards.push(new Fireball());
-        cards.push(new Fireball());
-        cards.push(new Fireball());
-        cards.push(new Fireball());
-        cards.push(new Fireball());
-        cards.push(new Fireball());
+        cards.push(new LaserGun());
+        cards.push(new LaserGun());
+        cards.push(new LaserGun());
+        cards.push(new LaserGun());
+        cards.push(new LaserGun());
+        cards.push(new LaserGun());
+        cards.push(new LaserGun());
+        cards.push(new LaserGun());
+        cards.push(new LaserGun());
         //cards.push(new PlasmaBom());
         //cards.push(new SonicShield());
         //cards.push(new MotherCellSpray());
@@ -81,15 +76,15 @@ public class Deck implements Serializable {
 
     public static Deck getIADeck() {
         Stack<Card> cards = new Stack<>();
-        cards.push(new Fireball());
-        cards.push(new Fireball());
-        cards.push(new Fireball());
-        cards.push(new Fireball());
-        cards.push(new Fireball());
-        cards.push(new Fireball());
-        cards.push(new Fireball());
-        cards.push(new Fireball());
-        cards.push(new Fireball());
+        cards.push(new LaserGun());
+        cards.push(new LaserGun());
+        cards.push(new LaserGun());
+        cards.push(new LaserGun());
+        cards.push(new LaserGun());
+        cards.push(new LaserGun());
+        cards.push(new LaserGun());
+        cards.push(new LaserGun());
+        cards.push(new LaserGun());
 
         return new Deck("2", cards);
     }
@@ -110,6 +105,7 @@ public class Deck implements Serializable {
 
         try {
             String string_deck = PreferencesProvider.providePreferences().getString("deck", "");
+            //PreferencesProvider.providePreferences().edit().remove("deck").commit();
             if (string_deck != null && !string_deck.equals("")) {
                 //unserialize TO-DO
                 JSONObject obj = new JSONObject(string_deck);

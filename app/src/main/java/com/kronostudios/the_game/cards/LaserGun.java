@@ -1,12 +1,8 @@
 package com.kronostudios.the_game.cards;
 
-import com.kronostudios.the_game.core.Action;
 import com.kronostudios.the_game.core.Effect;
-import com.kronostudios.the_game.core.Game;
 import com.kronostudios.the_game.models.Card;
 import com.kronostudios.the_game.models.Stats;
-
-import org.parceler.Parcel;
 
 import java.io.Serializable;
 
@@ -18,20 +14,20 @@ import java.io.Serializable;
  * amplified by the Stat intel of the executor.
  *
  */
-public class Fireball extends Card implements Serializable {
+public class LaserGun extends Card implements Serializable {
 
     private static final long id = 1;
-    private static final String name = "Fireball";
-    private static final String description = "Throws a fireball doing 6 dmg + intellect";
+    private static final String name = "Laser Gun";
+    private static final String description = "Deal 6 dmg + int";
     private static final Stats statsRequired = new Stats(0,0,0);
     private static int baseDamage = 6;
 
-    public Fireball() {
-        super(Fireball.id, Fireball.name, Fireball.description, Fireball.statsRequired);
+    public LaserGun() {
+        super(com.kronostudios.the_game.cards.LaserGun.id, com.kronostudios.the_game.cards.LaserGun.name, com.kronostudios.the_game.cards.LaserGun.description, com.kronostudios.the_game.cards.LaserGun.statsRequired);
     }
 
-    public Fireball(long id, String name, String description) {
-        super(id, name, description, Fireball.statsRequired);
+    public LaserGun(long id, String name, String description) {
+        super(id, name, description, com.kronostudios.the_game.cards.LaserGun.statsRequired);
     }
 
     @Override

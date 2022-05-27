@@ -1,7 +1,15 @@
 package com.kronostudios.the_game.core;
 
+import android.os.Handler;
+import android.view.View;
+import android.widget.LinearLayout;
+
+import com.kronostudios.the_game.R;
+import com.kronostudios.the_game.activities.GameBoard;
 import com.kronostudios.the_game.models.Character;
 import com.kronostudios.the_game.models.Stats;
+
+import pl.droidsonroids.gif.GifImageView;
 
 /**
  * @author mfernandez
@@ -13,6 +21,7 @@ public class CharacterIG extends Character {
     private int health;
     private int maxHealth;
     private int shield;
+    private LinearLayout characterLayout;
 
     public CharacterIG(String id, String name, Stats stats) {
         super(id, name, stats);
@@ -49,9 +58,17 @@ public class CharacterIG extends Character {
     }
 
     public void recieveHeal(int amount) {
+
+        //if dead, don't heal
+        if(getHealth() == 0) return;
+
         int health = getHealth();
         int min = Math.min(health + amount, getMaxHealth());
         setHealth(min);
+    }
+
+    public void recieveShield(int amount) {
+        setShield(getShield()+amount);
     }
 
     //mana
@@ -83,6 +100,39 @@ public class CharacterIG extends Character {
 
     public void setShield(int shield) {
         this.shield = shield;
+    }
+
+
+    public void playExplosionAnimation() {
+        int charId = Integer.parseInt(this.getId());
+
+        GifImageView giv = characterLayout.getChildAt(0).findViewById(R.id.character_explosion);
+        giv.setVisibility(View.VISIBLE);
+
+        Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                giv.setVisibility(View.INVISIBLE);
+            }
+        }, 1000);
+    }
+
+    public void setCharacterLayout(LinearLayout characterLayout) {
+        this.characterLayout = characterLayout;
+    }
+
+    public LinearLayout getCharacterLayout() {
+        return characterLayout;
+    }
+
+    /**
+     * Agafo la ID del characer. Si es 1, 2 o 3, es que es el player.
+     * Sinó, és la maquina
+     * @return
+     */
+    public boolean isPlayer() {
+        return (Integer.parseInt(getId()) < 3);
     }
 
 

@@ -1,15 +1,12 @@
 package com.kronostudios.the_game.models;
 
 import android.app.Activity;
-import android.util.Log;
-import android.view.LayoutInflater;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.kronostudios.the_game.R;
 import com.kronostudios.the_game.cards.*;
-import com.kronostudios.the_game.core.APIController;
 import com.kronostudios.the_game.core.Effect;
 
 import org.json.JSONArray;
@@ -23,7 +20,6 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
-import java.util.Objects;
 
 /**
  * @author: gperez
@@ -61,13 +57,13 @@ public abstract class Card implements Serializable {
     public static ArrayList<Card> getCompleteCollection() {
         ArrayList arr = new ArrayList();
 
-        arr.add(new Fireball());
+        arr.add(new LaserGun());
         arr.add(new PlasmaBomb());
         arr.add(new SonicShield());
         arr.add(new MotherCellSpray());
         arr.add(new Shotgun());
         arr.add(new Torpedo());
-        arr.add(new Fireball());
+        arr.add(new LaserGun());
         arr.add(new PlasmaBomb());
         arr.add(new SonicShield());
         arr.add(new MotherCellSpray());

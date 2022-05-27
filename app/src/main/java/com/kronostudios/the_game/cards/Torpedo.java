@@ -10,7 +10,7 @@ public class Torpedo extends Card implements Serializable {
 
     private static final long id = 5;
     private static final String name = "Torpedo";
-    private static final String description = "Shoots a Torpedo to all three enemy players dealing 4 dmg + Strength";
+    private static final String description = "Shoots all enemies 4 dmg + Str";
     private static final Stats statsRequired = new Stats(0,0,0);
     private static int baseDamage = 4;
 

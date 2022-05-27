@@ -9,12 +9,13 @@
     android:orientation="vertical">
 
         <pl.droidsonroids.gif.GifImageView
-            android:id="@+id/explostion"
+            android:id="@+id/character_explosion"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="40dp"
             android:src="@drawable/explosion"
-            android:visibility="gone"
+            android:visibility="invisible"
             />
+
         <ImageView
             android:id="@+id/character_image"
             android:layout_width="80dp"

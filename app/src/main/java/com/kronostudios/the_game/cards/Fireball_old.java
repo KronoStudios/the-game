@@ -14,25 +14,25 @@ import java.io.Serializable;
  * amplified by the Stat intel of the executor.
  *
  */
-public class Shotgun extends Card implements Serializable {
+public class Fireball_old extends Card implements Serializable {
 
-    private static final long id = 6;
-    private static final String name = "Shotgun";
-    private static final String description = "Shoots 5 dmg + Strength";
+    private static final long id = 1;
+    private static final String name = "Fireball";
+    private static final String description = "Deal 6 dmg + int";
     private static final Stats statsRequired = new Stats(0,0,0);
-    private static int baseDamage = 5;
+    private static int baseDamage = 6;
 
-    public Shotgun() {
-        super(Shotgun.id, Shotgun.name, Shotgun.description, Shotgun.statsRequired);
+    public Fireball_old() {
+        super(Fireball_old.id, Fireball_old.name, Fireball_old.description, Fireball_old.statsRequired);
     }
 
-    public Shotgun(long id, String name, String description) {
-        super(id, name, description, Shotgun.statsRequired);
+    public Fireball_old(long id, String name, String description) {
+        super(id, name, description, Fireball_old.statsRequired);
     }
 
     @Override
     public Effect effect(Stats stats) {
-        int amount = baseDamage + getDamage(stats.getStr());
+        int amount = baseDamage + getDamage(stats.getIntel());
         return new Effect(amount,Effect.DMGEFFECT);
     }
 

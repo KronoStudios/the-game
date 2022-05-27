@@ -1,7 +1,13 @@
 package com.kronostudios.the_game.core;
 
+import android.view.View;
+
 import com.kronostudios.the_game.R;
 import com.kronostudios.the_game.activities.GameBoard;
+
+import java.util.List;
+
+import pl.droidsonroids.gif.GifImageView;
 
 /**
  * @author mfernandez
@@ -47,28 +53,37 @@ public class Effect {
         switch (effect){
             case DMGEFFECT:
                 target.recieveDamage(amount);
+                target.playExplosionAnimation();
                 break;
+
             case HEALEFFECT:
-
+                target.recieveHeal(amount);
+                //target.playHealAnimation();
                 break;
+
             case SHIELDEFFECT:
-
+                target.recieveShield(amount);
+                //target.playShieldAnimation();
                 break;
+
             case AOEDMGEFFECT:
-                for(CharacterIG ch : gameBoard.listEnemyChars){
+                for (CharacterIG ch : (source.isPlayer())?gameBoard.listEnemyChars : gameBoard.listPlayerChars) {
                     ch.recieveDamage(amount);
+                    ch.playExplosionAnimation();
                 }
-
                 break;
+
             case AOESHIELDEFFECT:
-                for(CharacterIG ch : gameBoard.listPlayerChars){
-                    ch.setShield(ch.getShield() + amount);
+                for (CharacterIG ch : (source.isPlayer())?gameBoard.listPlayerChars : gameBoard.listEnemyChars) {
+                    ch.recieveShield(amount);
+                    //ch.playShieldAnimation();
                 }
-
                 break;
+
             case AOEHEALEFFECT:
-                for(CharacterIG ch : gameBoard.listPlayerChars){
+                for (CharacterIG ch : (source.isPlayer())?gameBoard.listPlayerChars : gameBoard.listEnemyChars) {
                     ch.recieveHeal(amount);
+                    //ch.playHealAnimation();
                 }
                 break;
         }

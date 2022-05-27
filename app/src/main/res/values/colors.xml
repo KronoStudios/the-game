@@ -11,6 +11,7 @@
     <color name="whitesmoke">#F5F5F5</color>
     <color name="trans_parent">#80000000</color>
 
+    <color name="green">#A3E4A1</color>
     <color name="trivial_green">#31e62b</color>
     <color name="trivial_blue">#00ddee</color>
     <color name="trivial_orange">#f3961f</color>

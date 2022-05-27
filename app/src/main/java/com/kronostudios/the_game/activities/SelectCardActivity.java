@@ -5,21 +5,15 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.GridLayout;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.TextView;
 
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import com.kronostudios.the_game.R;
-import com.kronostudios.the_game.cards.Fireball;
 import com.kronostudios.the_game.loginUtils.PreferencesProvider;
 import com.kronostudios.the_game.models.Card;
 import com.kronostudios.the_game.models.Deck;
-import com.kronostudios.the_game.models.Stats;
 
 import org.json.JSONArray;
 import org.json.JSONException;

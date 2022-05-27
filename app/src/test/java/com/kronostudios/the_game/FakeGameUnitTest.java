@@ -1,6 +1,6 @@
 package com.kronostudios.the_game;
 
-import com.kronostudios.the_game.cards.Fireball;
+import com.kronostudios.the_game.cards.LaserGun;
 import com.kronostudios.the_game.core.Action;
 import com.kronostudios.the_game.core.CharacterIG;
 import com.kronostudios.the_game.core.Game;
@@ -73,9 +73,9 @@ public class FakeGameUnitTest {
         CharacterIG target1 = g.getPlayerWhosNotHisTurn().getBuild().getCharacters().get(0).getCharacterIG();
         CharacterIG target2 = g.getPlayerWhosNotHisTurn().getBuild().getCharacters().get(1).getCharacterIG();
         CharacterIG target3 = g.getPlayerWhosNotHisTurn().getBuild().getCharacters().get(2).getCharacterIG();
-        Fireball card1 = (Fireball) g.getCurrentTurn().getPlayer().getHand().get(0);
-        Fireball card2 = (Fireball) g.getCurrentTurn().getPlayer().getHand().get(1);
-        Fireball card3 = (Fireball) g.getCurrentTurn().getPlayer().getHand().get(2);
+        LaserGun card1 = (LaserGun) g.getCurrentTurn().getPlayer().getHand().get(0);
+        LaserGun card2 = (LaserGun) g.getCurrentTurn().getPlayer().getHand().get(1);
+        LaserGun card3 = (LaserGun) g.getCurrentTurn().getPlayer().getHand().get(2);
 
         // Fake action 1
         Action a1 = new Action();
@@ -105,9 +105,9 @@ public class FakeGameUnitTest {
 
         assertEquals(3, g.getCurrentTurn().getPlayer().getDeck().getCards().size());
 
-        card1 = (Fireball) g.getCurrentTurn().getPlayer().getHand().get(0);
-        card2 = (Fireball) g.getCurrentTurn().getPlayer().getHand().get(1);
-        card3 = (Fireball) g.getCurrentTurn().getPlayer().getHand().get(2);
+        card1 = (LaserGun) g.getCurrentTurn().getPlayer().getHand().get(0);
+        card2 = (LaserGun) g.getCurrentTurn().getPlayer().getHand().get(1);
+        card3 = (LaserGun) g.getCurrentTurn().getPlayer().getHand().get(2);
 
         // Fake action 1
         a1 = new Action();
@@ -137,9 +137,9 @@ public class FakeGameUnitTest {
         g.changeTurn();
 
         assertEquals(0, g.getCurrentTurn().getPlayer().getDeck().getCards().size());
-        card1 = (Fireball) g.getCurrentTurn().getPlayer().getHand().get(0);
-        card2 = (Fireball) g.getCurrentTurn().getPlayer().getHand().get(1);
-        card3 = (Fireball) g.getCurrentTurn().getPlayer().getHand().get(2);
+        card1 = (LaserGun) g.getCurrentTurn().getPlayer().getHand().get(0);
+        card2 = (LaserGun) g.getCurrentTurn().getPlayer().getHand().get(1);
+        card3 = (LaserGun) g.getCurrentTurn().getPlayer().getHand().get(2);
 
         // Fake action 1
         a1 = new Action();
@@ -180,8 +180,8 @@ public class FakeGameUnitTest {
 
         CharacterIG source = g.getCurrentTurn().getPlayer().getBuild().getCharacters().get(0).getCharacterIG();
         CharacterIG target = g.getPlayerWhosNotHisTurn().getBuild().getCharacters().get(0).getCharacterIG();
-        Fireball card1 = (Fireball) g.getCurrentTurn().getPlayer().getHand().get(0);
-        Fireball card2 = (Fireball) g.getCurrentTurn().getPlayer().getHand().get(1);
+        LaserGun card1 = (LaserGun) g.getCurrentTurn().getPlayer().getHand().get(0);
+        LaserGun card2 = (LaserGun) g.getCurrentTurn().getPlayer().getHand().get(1);
 
         // Fake action 1
         Action a1 = new Action();

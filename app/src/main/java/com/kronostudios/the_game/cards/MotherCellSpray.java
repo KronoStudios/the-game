@@ -18,7 +18,7 @@ public class MotherCellSpray extends Card implements Serializable {
 
     private static final long id = 1;
     private static final String name = "Mother Cell Spray";
-    private static final String description = "Heals every allied character with 2 health points.";
+    private static final String description = "Heals all allies 4 health";
     private static final Stats statsRequired = new Stats(0,0,0);
 
     public MotherCellSpray() {
@@ -31,8 +31,8 @@ public class MotherCellSpray extends Card implements Serializable {
 
     @Override
     public Effect effect(Stats stats) {
-        int amount = 2;
-        return new Effect(amount,Effect.AOESHIELDEFFECT);
+        int amount = 4;
+        return new Effect(amount,Effect.AOEHEALEFFECT);
     }
 
 

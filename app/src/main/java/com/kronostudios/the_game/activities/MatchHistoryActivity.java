@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
@@ -36,8 +37,6 @@ public class MatchHistoryActivity extends AppCompatActivity implements MatchResu
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_match_history);
-
-
 
         // data to populate the RecyclerView with
         //This function queries the database to get an ArrayList of MatchResults
