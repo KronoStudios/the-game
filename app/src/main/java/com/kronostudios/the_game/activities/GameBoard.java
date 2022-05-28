@@ -6,6 +6,7 @@ import androidx.core.content.ContextCompat;
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.PorterDuff;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
@@ -47,6 +48,7 @@ public class GameBoard extends AppCompatActivity {
     public List<CharacterIG> listPlayerChars;
     public List<CharacterIG> listEnemyChars;
     Game g;
+    static GameBoard gb;
 
     Activity act;
 
@@ -81,6 +83,7 @@ public class GameBoard extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game_board);
+        gb = this;
 
         act = this;
         playerBuild = AppController.getCurrentGame().getPlayer1().getBuild();
@@ -95,6 +98,10 @@ public class GameBoard extends AppCompatActivity {
             iaPlayer = new FakeUserIG(g.getPlayer1());
             iaPlayer.setHand(g.getPlayer1().getHand());
         }
+
+        //Reset la vida dels chars, x si es fa una 2a partida.
+        g.getPlayer1().getBuild().resetCharacters();
+        g.getPlayer2().getBuild().resetCharacters();
 
         initializeGame(); //crida initalizegame + populateGameBoard()
 
@@ -312,20 +319,18 @@ public class GameBoard extends AppCompatActivity {
 
         if(g.getStatus().equals(Game.FINISHED)){
 
-
+            Toast toast = Toast.makeText(context, "You won the game!!", Toast.LENGTH_SHORT);
+            toast.show();
+            MediaPlayer.create(getApplicationContext(), R.raw.win_chimes).start();
 
             Handler handler = new Handler();
             handler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    //no faig res
+                    AppController.changeActivity(gb,MainMenu.class);
                 }
             }, 3000);
 
-            Toast toast = Toast.makeText(context, "You won the game!!", Toast.LENGTH_SHORT);
-            toast.show();
-
-            AppController.changeActivity(this,MainMenu.class);
             //If the game is finished, no need to play the IA's turn.
             return;
         }
@@ -343,11 +348,10 @@ public class GameBoard extends AppCompatActivity {
             handler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    //no faig res
+                    AppController.changeActivity(gb,MainMenu.class);
                 }
             }, 3000);
 
-            AppController.changeActivity(this,MainMenu.class);
         }
 
         omplirHand(hand1, player.getHand().get(0), 1);
@@ -396,6 +400,13 @@ public class GameBoard extends AppCompatActivity {
         ((ProgressBar)char1.findViewById(R.id.healthBar)).setProgress((listPlayerChars.get(0).getProgress()));
         ((ProgressBar)char2.findViewById(R.id.healthBar)).setProgress((listPlayerChars.get(1).getProgress()));
         ((ProgressBar)char3.findViewById(R.id.healthBar)).setProgress((listPlayerChars.get(2).getProgress()));
+
+    }
+
+    @Override
+    public void onBackPressed() {
+
+        //DO NOTHING
 
     }
 

@@ -95,4 +95,12 @@ public class Build {
     public String toString() {
         return name;
     }
+
+    public void resetCharacters() {
+
+        for(Character c : this.characters){
+            c.getCharacterIG().setHealth(c.getCharacterIG().getMaxHealth());
+        }
+
+    }
 }
