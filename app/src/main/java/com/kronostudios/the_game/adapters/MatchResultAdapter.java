@@ -20,6 +20,7 @@ import java.util.List;
 
 public class MatchResultAdapter extends RecyclerView.Adapter<MatchResultAdapter.ViewHolder> {
 
+    private static int LIMIT = 20;
     private List<MatchResult> mData;
     private LayoutInflater mInflater;
     private ItemClickListener mClickListener;
@@ -62,6 +63,7 @@ public class MatchResultAdapter extends RecyclerView.Adapter<MatchResultAdapter.
     // total number of rows
     @Override
     public int getItemCount() {
+        if(mData.size() > LIMIT) return LIMIT;
         return mData.size();
     }
 

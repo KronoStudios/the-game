@@ -108,8 +108,9 @@ public class APIController {
         //ara mateix HardCoded per que no podem executar l'aplicació.
         //TO-DO: pasar aquests parametres a la funcio Match_Post
         try {
-            jsonBody.put("user1_id", gameResult.getUser1_id());
-            jsonBody.put("user2_id", gameResult.getUser2_id());
+            //jsonBody.put("user1_id", gameResult.getUser1_id());
+            jsonBody.put("user1_id", PreferencesProvider.providePreferences().getString("token",""));
+            jsonBody.put("user2_id", gameResult.getUser2_id());//"2"
             jsonBody.put("user_winner_id", gameResult.getUser_winner_id());
         } catch (JSONException e) {
             e.printStackTrace();

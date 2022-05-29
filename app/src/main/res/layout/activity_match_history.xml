@@ -4,18 +4,41 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="40dp"
+    android:background="@drawable/background"
     tools:context=".activities.MatchHistoryActivity">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvMatchResult"
-        android:layout_width="match_parent"
+    <TextView
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-
+        android:id="@+id/activity_title"
+        android:text="Match history"
+        android:textColor="@color/white"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toTopOf="@+id/scrollView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="20dp" />
+        app:layout_constraintVertical_bias="0.32" />
 
-        <androidx.appcompat.widget.AppCompatButton
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:fadeScrollbars="false"
+        android:layout_marginHorizontal="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="550dp"
+        app:layout_constraintBottom_toTopOf="@id/btnBack"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvMatchResult"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:layout_editor_absoluteX="0dp" />
+    </ScrollView>
+
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnBack"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
@@ -23,6 +46,7 @@
         android:text="@string/back"
             style="@style/MyCustomButton"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/scrollView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         />

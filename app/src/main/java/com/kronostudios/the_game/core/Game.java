@@ -110,9 +110,11 @@ public class Game {
         if(winner != null) {
             //Creo un objecte GameResult per inserirlo a BD.
             MatchResult gameResult = new MatchResult(
-                    userIG1.getId(),
-                    userIG2.getId(),
-                    winner.getId(), null);
+                    userIG1.getId(), //"002"
+                    userIG2.getId(), //"2"
+                    //winner.getId(),
+                    userIG1.equals(winner)? "1":"2",
+                    null);
             APIController.Match_Post(GameBoard.context, gameResult);
         }
 

@@ -1,7 +1,10 @@
 package com.kronostudios.the_game.models;
 
+import android.content.SharedPreferences;
+
 import com.kronostudios.the_game.core.DeckIG;
 import com.kronostudios.the_game.core.UserIG;
+import com.kronostudios.the_game.loginUtils.PreferencesProvider;
 
 import java.util.Arrays;
 import java.util.List;
@@ -56,7 +59,7 @@ public class User {
     }
 
     public static User getFakeUser(){
-        User u = new User("001", "Pepe", 0);
+        User u = new User("2", "IA", 0);
         return u;
     }
 

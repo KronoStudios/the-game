@@ -63,11 +63,6 @@ public abstract class Card implements Serializable {
         arr.add(new MotherCellSpray());
         arr.add(new Shotgun());
         arr.add(new Torpedo());
-        arr.add(new LaserGun());
-        arr.add(new PlasmaBomb());
-        arr.add(new SonicShield());
-        arr.add(new MotherCellSpray());
-
 
         return arr;
     }

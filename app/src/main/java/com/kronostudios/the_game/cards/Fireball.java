@@ -14,7 +14,7 @@ import java.io.Serializable;
  * amplified by the Stat intel of the executor.
  *
  */
-public class Fireball_old extends Card implements Serializable {
+public class Fireball extends Card implements Serializable {
 
     private static final long id = 1;
     private static final String name = "Fireball";
@@ -22,12 +22,12 @@ public class Fireball_old extends Card implements Serializable {
     private static final Stats statsRequired = new Stats(0,0,0);
     private static int baseDamage = 6;
 
-    public Fireball_old() {
-        super(Fireball_old.id, Fireball_old.name, Fireball_old.description, Fireball_old.statsRequired);
+    public Fireball() {
+        super(Fireball.id, Fireball.name, Fireball.description, Fireball.statsRequired);
     }
 
-    public Fireball_old(long id, String name, String description) {
-        super(id, name, description, Fireball_old.statsRequired);
+    public Fireball(long id, String name, String description) {
+        super(id, name, description, Fireball.statsRequired);
     }
 
     @Override

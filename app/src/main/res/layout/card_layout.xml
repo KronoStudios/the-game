@@ -5,7 +5,7 @@
         android:minHeight="150dp"
         android:id="@+id/hand"
         android:orientation="vertical"
-        android:background="@color/white"
+        android:background="@color/green"
     >
 
         <ImageView
@@ -21,10 +21,13 @@
             android:textAlignment="center"
             android:text="Card Name"
             android:textSize="14sp"/>
+
         <TextView
             android:id="@+id/hand_desc"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="12sp"
-            android:text="Effect: description of effect" />
+            android:layout_height="61dp"
+            android:layout_gravity="center"
+            android:text="Effect: description of effect"
+            android:textAlignment="center"
+            android:textSize="12sp" />
 </LinearLayout>

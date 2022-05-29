@@ -35,7 +35,6 @@ public class MainMenu extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_menu);
         mainMenu = this;
-        //TODO change hardcoded 11 for user id
         APIController.MatchResults_Get(getApplicationContext(), 11);
         APIController.Cards_Get(getApplicationContext());
 

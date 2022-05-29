@@ -20,3 +20,28 @@ S'ha implementat la pantalla Histoal de partides ( MainMenu -> Profile ) on es v
 Nota important: Ara mateix filtrem els matches d'un usuari hardcodejat (p.e. id = 11, gcaballe@gmail.com pw: 1234), ja que tenim un dubte per obtenir aquest id al fer la petició de token.
 
 També hem afegit 3 cartes noves: daño AoE, cures AoE, shield AoE. de moment shield/cura aoe encara nof unciona correctament, però ho hem afegit pel tema "visual" de cards.
+
+
+# Sprint 7
+
+Entrega final del projecte
+
+S'han fet els moduls Collection (Modificar la teva deck, guardada en sharedpreferences).
+
+Millores visuals (backgrounds, cards/characters, matchHistory)
+
+Afegides més cartes (escalats amb strength)
+
+Bugfixes varis (re-shuffle, aoe shield, aoe heal)
+
+Afegit soroll de victoria i animacions al rebre dany.
+
+
+S'ha configurat el servidor per a que es pugui accedir remotament (necessita estar obert al PC del Guillem).
+El .apk del projecte es pot compartir per drive el dia de la presentació, per que cadascú s'ho executi.
+Generarem 2 .apk, un per Android 9 i un per Android 11. 
+
+(S'ha de canviar gradle.build les linies seguents:)
+
+10: minSdk 30
+51: implementation("com.squareup.okhttp3:okhttp:4.9.3")
