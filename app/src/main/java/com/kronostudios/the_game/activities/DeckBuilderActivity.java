@@ -77,11 +77,18 @@ public class DeckBuilderActivity extends AppCompatActivity {
 
     }
 
-
-
     public void onSavePressed(View view) {
         Intent i = new Intent(this, MainMenu.class);
         startActivity(i);
         finish();
+    }
+
+    /**
+     * Simple go back to MainMenu
+     * @return void
+     */
+    @Override
+    public void onBackPressed() {
+        startActivity(new Intent(this, MainMenu.class));
     }
 }

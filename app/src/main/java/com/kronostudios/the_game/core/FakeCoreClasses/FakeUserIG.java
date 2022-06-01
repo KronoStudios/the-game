@@ -15,6 +15,7 @@ public class FakeUserIG extends UserIG {
         super(userIG.getId(), "IA", userIG.getRating(), userIG.getBuild());
     }
 
+    /** DEPRECATED
     public Stack<Action> playARandomTurn(List<CharacterIG> enemyChars){
         Stack<Action> executedActions = new Stack<>();
         CharacterIG executor = null;
@@ -36,6 +37,32 @@ public class FakeUserIG extends UserIG {
             executedActions.add(currentAction);
         }
         return executedActions;
+    }*/
+
+    /** Only called from the IA, so enemyCHars is playerChars
+     *
+     * @param enemyChars
+     * @return
+     */
+    public Stack<Action> playARandomTurn(List<CharacterIG> enemyChars){
+        Stack<Action> actionsStack = new Stack<>();
+        CharacterIG executor = null;
+        CharacterIG target = null;
+
+        for(int i = 0; i<3; i++){
+            int e = (int) (Math.random()*3);
+            int t = (int) (Math.random()*3);
+
+            executor = getBuild().getCharacters().get(e).getCharacterIG();
+            target = enemyChars.get(t);
+
+            Action currentAction = new Action();
+            currentAction.setCard(getHand().get(i));
+            currentAction.setExecutor(executor);
+            currentAction.setTarget(target);
+            actionsStack.add(currentAction);
+        }
+        return actionsStack;
     }
 
 

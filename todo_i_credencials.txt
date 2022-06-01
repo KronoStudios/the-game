@@ -1,0 +1,29 @@
+iguana
+
+iguanacpe
+
+
+
+195.211.170.86 ip publica guillem
+
+ip maquina
+
+192.168.1.
+0800273E6E11
+
+
+TO-DO:
+
+
+
+
+decirle a jimena que suba el ppt
+
+hacer push de juego + docker
+
+
+
+
+BUG:
+
+si deslogueges, i loguejes rapid, et surt el profile del usuari anterior.

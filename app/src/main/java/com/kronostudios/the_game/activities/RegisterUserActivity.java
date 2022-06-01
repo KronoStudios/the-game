@@ -50,4 +50,13 @@ public class RegisterUserActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    /**
+     * Simple go back to MainMenu
+     * @return void
+     */
+    @Override
+    public void onBackPressed() {
+        startActivity(new Intent(this, LoginMainActivity.class));
+    }
+
 }

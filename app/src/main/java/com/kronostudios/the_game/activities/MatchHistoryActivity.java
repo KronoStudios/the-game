@@ -66,7 +66,7 @@ public class MatchHistoryActivity extends AppCompatActivity implements MatchResu
      */
     @Override
     public void onBackPressed() {
-        finish();
+        startActivity(new Intent(this, MainMenu.class));
     }
 
     public void onBackButtonPressed(View view) {

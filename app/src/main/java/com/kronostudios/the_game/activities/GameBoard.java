@@ -335,7 +335,10 @@ public class GameBoard extends AppCompatActivity {
             return;
         }
         reviseHealths();
+
         Stack<Action> iaAction = iaPlayer.playARandomTurn(listPlayerChars);
+
+
         g.getCurrentTurn().setActionList(iaAction);
         g.changeTurn();
 

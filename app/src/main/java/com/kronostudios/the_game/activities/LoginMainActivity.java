@@ -109,4 +109,12 @@ public class LoginMainActivity extends AppCompatActivity {
     public void moveToRegister(View view) {
         startActivity(new Intent(this, RegisterUserActivity.class));
     }
+
+    /**
+     * Simple go back to MainMenu
+     * @return void
+     */
+    @Override
+    public void onBackPressed() {
+    }
 }

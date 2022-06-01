@@ -113,5 +113,13 @@ public class SelectCardActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * Simple go back to MainMenu
+     * @return void
+     */
+    @Override
+    public void onBackPressed() {
+        startActivity(new Intent(this, DeckBuilderActivity.class));
+    }
 
 }

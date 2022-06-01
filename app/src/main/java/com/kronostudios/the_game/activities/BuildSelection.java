@@ -124,6 +124,5 @@ public class BuildSelection extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        AppController.changeActivity(this, GamemodeSelection.class);
     }
 }
