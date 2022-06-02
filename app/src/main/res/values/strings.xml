@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name" translatable="false">the-game</string>
+    <string name="app_name" translatable="false">Space Fighter</string>
     <string name="about">About us</string>
     <string name="authors">Authors</string>
     <string name="version">Version</string>
@@ -29,4 +29,7 @@
     <string name="your_deck">Your deck</string>
     <string name="save">Save</string>
     <string name="card_to_replace">Card to Replace</string>
+    <string name="match_history">Match history</string>
+    <string name="shotgun_desc">Shoots 5 dmg + Strength</string>
+    <string name="str">"Str: "</string>
 </resources>

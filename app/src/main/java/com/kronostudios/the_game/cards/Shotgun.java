@@ -3,6 +3,7 @@ package com.kronostudios.the_game.cards;
 import com.kronostudios.the_game.core.Effect;
 import com.kronostudios.the_game.models.Card;
 import com.kronostudios.the_game.models.Stats;
+import com.kronostudios.the_game.R;
 
 import java.io.Serializable;
 

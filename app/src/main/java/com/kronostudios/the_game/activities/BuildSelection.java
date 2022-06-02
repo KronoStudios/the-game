@@ -52,8 +52,7 @@ public class BuildSelection extends AppCompatActivity {
         // Title
         TextView title = findViewById(R.id.textTitle);
         int id = getResources().getIdentifier(getIntent().getExtras().getString("dest"), "string", getPackageName());
-        //title.setText(getString(id));
-        title.setText("Finding game ...");
+        title.setText(R.string.finding_game);
 
 
         //Build b = (Build) adapterView.getAdapter().getItem(i);

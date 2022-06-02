@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">the-game</string>
+    <string name="app_name">Space Fighter</string>
     <string name="about">Sobre nosotros</string>
     <string name="authors">Autores</string>
     <string name="version">Versión</string>
@@ -20,14 +20,17 @@
     <string name="cancel">Cancelar</string>
     <string name="next_turn">Siguiente turno</string>
     <string name="email">E-mail</string>
-    <string name="password">Password</string>
+    <string name="password">Contraseña</string>
     <string name="no_account_yet_create_one">Cuenta no existe, crea una</string>
     <string name="login">Login</string>
-    <string name="username">User name</string>
-    <string name="password2">Repeat password</string>
+    <string name="username">Nombre usuario</string>
+    <string name="password2">Repetir contraseña</string>
     <string name="createaccount">Crear cuenta</string>
-    <string name="logout">Logout</string>
-    <string name="your_deck">Your deck</string>
-    <string name="save">Save</string>
-    <string name="card_to_replace">Card to Replace</string>
+    <string name="logout">Cerrar sessión</string>
+    <string name="your_deck">Tu mazo</string>
+    <string name="save">Guardar</string>
+    <string name="card_to_replace">Carta a cambiar</string>
+    <string name="match_history">Historial</string>
+    <string name="shotgun_desc">Dispara 5 dmg + Frz</string>
+    <string name="str">"Frz: "</string>
 </resources>

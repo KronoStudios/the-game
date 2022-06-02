@@ -57,7 +57,7 @@ public class APIController {
         RequestQueue queue = Volley.newRequestQueue(context);
 
         JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, HOST + PORT + "/cards", null, Card::populateCards, error -> {
-            Log.e("CARDS_GET", error.getLocalizedMessage());
+            //Log.e("CARDS_GET", error.getLocalizedMessage());
         }){
             @Override
             public Map<String, String> getHeaders() throws AuthFailureError {

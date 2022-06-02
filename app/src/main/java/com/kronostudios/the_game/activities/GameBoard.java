@@ -332,12 +332,12 @@ public class GameBoard extends AppCompatActivity {
             }, 3000);
 
             //If the game is finished, no need to play the IA's turn.
+            reviseHealths();
             return;
         }
         reviseHealths();
 
         Stack<Action> iaAction = iaPlayer.playARandomTurn(listPlayerChars);
-
 
         g.getCurrentTurn().setActionList(iaAction);
         g.changeTurn();
